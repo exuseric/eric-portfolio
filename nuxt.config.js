@@ -4,18 +4,39 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'eric-portfolio',
+    title: 'Eric Maina | Frontend Developer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'A frontend developer with a focus in accesibility.',
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content:
+          'frontend developer, front-end developer, web developer, website developer, web designer, website designer, ui designer, ui design, accessibility, accessible design',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Readex+Pro:wght@200;400;700&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    '~/assets/styles/global.css',
+    '~/assets/styles/reset.css',
+    '~/assets/styles/config.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -47,6 +68,8 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+      short_name: 'Eric',
+      name: 'Eric Maina -- Frontend Developer',
     },
   },
 

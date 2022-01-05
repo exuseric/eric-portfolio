@@ -1,0 +1,52 @@
+:root {
+  --primary: #f43b86;
+  --primary-dark: #a81851;
+
+  --secondary: #43d8c9;
+  --secondary-dark: #084c5c;
+
+  --black: #050505;
+  --white: #f5eeee;
+
+  --gray: #5c5470;
+  --dark-gray: #2a2438;
+
+  --success: #aaff19;
+  --error: #e8120c;
+  --warning: #ffe919;
+}
+
+/* Background Colors & Text Colors */
+.dm .main-bg {
+  color: var(--white);
+  background-color: var(--black);
+}
+.lm .main-bg {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.dm .pry-bg {
+  color: var(--black);
+  background-color: var(--primary);
+}
+.lm .pry-bg {
+  color: var(--white);
+  background-color: var(--primary-dark);
+}
+
+.dm .sec-bg {
+  color: var(--black);
+  background-color: var(--secondary);
+}
+.lm .sec-bg {
+  color: var(--white);
+  background-color: var(--secondary-dark);
+}
+
+.dm .lc {
+  color: var(--dark-gray);
+}
+.lm .lc {
+  color: var(--gray);
+}

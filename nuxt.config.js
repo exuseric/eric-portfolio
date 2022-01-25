@@ -26,17 +26,13 @@ export default {
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Readex+Pro:wght@200;400;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Pontano+Sans:wght@200;400;700&display=swap',
       },
     ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/assets/styles/global.css',
-    '~/assets/styles/reset.css',
-    '~/assets/styles/config.css',
-  ],
+  css: ['~/assets/styles/global.scss', '~/assets/styles/reset.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -47,8 +43,13 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/style-resources',
     '@nuxtjs/eslint-module',
   ],
+
+  styleResources: {
+    scss: ['~/assets/styles/_config.scss'],
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -58,7 +59,7 @@ export default {
     '@nuxtjs/pwa',
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios100
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',

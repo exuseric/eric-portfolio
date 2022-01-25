@@ -1,6 +1,6 @@
-.grid-center {
-  display: grid;
-  place-content: center;
+body {
+  font-size: 16px;
+  font-family: family('body');
 }
 
 .grid-layout {
@@ -12,6 +12,6 @@
 }
 
 .grid-layout .container {
-  grid-column: 2 / -2;
+  grid-column: 1 / -1;
   width: 100%;
 }

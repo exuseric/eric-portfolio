@@ -1,0 +1,25 @@
+// Grid Layouts
+@mixin center {
+  display: grid;
+  place-content: center;
+}
+
+@mixin grid-row($gap) {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  gap: $gap;
+}
+
+// Media Queries
+@mixin mid-screen {
+  @media only screen and (min-width: 1224px) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media only screen and (min-width: 1824px) {
+    @content;
+  }
+}

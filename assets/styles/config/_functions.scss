@@ -1,0 +1,14 @@
+@use './colors' as *;
+@use './fonts' as *;
+
+@function color($name) {
+  @return map-get($map: $theme, $key: $name);
+}
+
+@function scale($element) {
+  @return map-get($map: $scale, $key: $element);
+}
+
+@function family($type) {
+  @return map-get($map: $family, $key: $type);
+}

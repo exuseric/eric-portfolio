@@ -4,9 +4,30 @@
   place-content: center;
 }
 
-@mixin grid-row($gap) {
+@mixin grid(
+  $col-width,
+  $col-count,
+  $row-height,
+  $row-count,
+  $col-gap,
+  $row-gap
+) {
   display: grid;
-  grid-auto-flow: row;
+  grid-template-columns: repeat($col-count, $col-width);
+  grid-template-rows: repeat($row-count, $row-height);
+  column-gap: $col-gap;
+  row-gap: $row-gap;
+}
+
+@mixin grid-row($row-count, $row-height, $gap) {
+  display: grid;
+  grid-template-rows: repeat($row-count, $row-height);
+  gap: $gap;
+}
+
+@mixin grid-flow($flow, $gap) {
+  display: grid;
+  grid-auto-flow: $flow;
   align-items: center;
   gap: $gap;
 }

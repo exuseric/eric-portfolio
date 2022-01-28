@@ -16,7 +16,7 @@ $secondary-dark: hsl(calc($h - $h-d), $s, calc($l - $l-d));
 $secondary-light: hsl(calc($h - $h-d), $s, calc($l + $l-d));
 
 $black: hsl($h, 14%, 3%);
-$white: hsl($h, 14%, 98%);
+$white: hsl($h, $s, 99%);
 $gray: hsl($h, 14%, 70%);
 $dark-gray: hsl($h, 14%, 50%);
 

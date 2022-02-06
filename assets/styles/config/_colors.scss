@@ -1,8 +1,8 @@
-$base-color: hsl(336, 56%, 60%);
+$base-color: hsl(336, 100%, 50%);
 
 $h: 336;
-$s: 56%;
-$l: 60%;
+$s: 60%;
+$l: 50%;
 
 $l-d: 35%;
 $h-d: 270;
@@ -27,25 +27,18 @@ $warning: #ffe919;
 
 // Dark Theme
 $theme: (
-  'pry-d': $primary-dark,
-  'pry-l': $primary-light,
+  'accent-d': $primary-dark,
+  'accent-l': $primary-light,
   'sec-d': $secondary-dark,
   'sec-l': $secondary-light,
-  // background
-  'pry-bg': $primary,
-  'sec-bg': $secondary,
-  'dark-bg': $black,
-  'light-bg': $white,
-  'mc-bg': $gray,
   // text
-  'pry-txt': $primary,
-  'sec-txt': $secondary,
-  'lc-txt': $gray,
-  'mc-txt': $dark-gray,
-  'hc-txt': $white,
-  'dark-txt': $black,
-  'light-txt': $white,
-  // input states
-  'hover': $secondary-dark,
-  'focus': $primary-dark,
+  'accent': $primary,
+  'sec': $secondary,
+  'lc': $gray,
+  'mc': $dark-gray,
+  'hc': $white,
+  'dark': $black,
+  'light': $white,
+  // gradients
+  'gradient': linear-gradient(30deg, $primary-light, $secondary-light),
 );

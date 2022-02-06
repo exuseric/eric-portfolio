@@ -25,6 +25,12 @@
   gap: $gap;
 }
 
+@mixin grid-column($col-width, $col-count, $gap) {
+  display: grid;
+  grid-template-columns: repeat($col-count, $col-width);
+  gap: $gap;
+}
+
 @mixin grid-flow($flow, $gap) {
   display: grid;
   grid-auto-flow: $flow;

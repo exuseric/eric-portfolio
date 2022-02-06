@@ -26,7 +26,7 @@ export default {
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Pontano+Sans:wght@200;400;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;400;700&display=swap',
       },
     ],
   },
@@ -70,7 +70,7 @@ export default {
     manifest: {
       lang: 'en',
       short_name: 'Eric',
-      name: 'Eric Maina -- Frontend Developer',
+      name: 'Eric Maina — Frontend Developer',
     },
   },
 

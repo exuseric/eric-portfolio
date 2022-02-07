@@ -1,8 +1,8 @@
-$base-color: hsl(336, 100%, 50%);
+$base-color: hsl(358, 53%, 59%);
 
-$h: 336;
-$s: 60%;
-$l: 50%;
+$h: 358;
+$s: 53%;
+$l: 59%;
 
 $l-d: 35%;
 $h-d: 270;
@@ -17,8 +17,8 @@ $secondary-light: hsl(calc($h - $h-d), $s, calc($l + $l-d));
 
 $black: hsl($h, 14%, 3%);
 $white: hsl($h, $s, 99%);
-$gray: hsl($h, 14%, 70%);
-$dark-gray: hsl($h, 14%, 50%);
+$gray: hsl($h, 14%, 90%);
+$dark-gray: hsl($h, 14%, 30%);
 
 $blue: #367fbf;
 $success: #aaff19;

@@ -43,7 +43,12 @@
 </template>
 
 <script>
-export default {}
+import ArrowIcon from '~/components/Icons/ArrowIcon.vue'
+export default {
+  components: {
+    ArrowIcon,
+  },
+}
 </script>
 
 <style lang="scss" scoped>

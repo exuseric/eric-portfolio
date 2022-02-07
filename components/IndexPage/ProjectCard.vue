@@ -59,7 +59,7 @@ export default {}
   z-index: 1;
 
   width: 100%;
-  height: 50rem;
+  height: 40rem;
 
   background-color: orange;
 }
@@ -86,7 +86,7 @@ export default {}
 
   overflow: hidden;
 
-  @include large-screen {
+  @include mid-screen {
     grid-column: 3 / -3;
     grid-row: 2 / -2;
 
@@ -131,11 +131,6 @@ export default {}
     }
   }
 }
-
-.desc {
-  // padding: $pd-l 0;
-}
-
 .links {
   @include grid-flow($flow: column, $gap: 1.25rem);
   justify-content: space-between;

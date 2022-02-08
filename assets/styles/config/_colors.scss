@@ -1,24 +1,21 @@
-$base-color: hsl(358, 53%, 59%);
+$primary-color: hsl(358, 53%, 64%);
+$secondary-color: hsl(189, 44%, 64%);
 
-$h: 358;
-$s: 53%;
-$l: 59%;
+$pry-l: 81;
+$sec-l: 64;
 
-$l-d: 35%;
-$h-d: 270;
+$primary: hsl(358, 53%, 64%);
+$primary-dark: hsl(358, 53%, 31%);
+$primary-light: hsl(358, 53%, 95%);
 
-$primary: hsl($h, $s, $l);
-$primary-dark: hsl($h, $s, calc($l - $l-d));
-$primary-light: hsl($h, $s, calc($l + $l-d));
+$secondary: hsl(189, 44%, 64%);
+$secondary-dark: hsl(189, 44%, 31%);
+$secondary-light: hsl(189, 44%, 95%);
 
-$secondary: hsl(calc($h - $h-d), $s, $l);
-$secondary-dark: hsl(calc($h - $h-d), $s, calc($l - $l-d));
-$secondary-light: hsl(calc($h - $h-d), $s, calc($l + $l-d));
-
-$black: hsl($h, 14%, 3%);
-$white: hsl($h, $s, 99%);
-$gray: hsl($h, 14%, 90%);
-$dark-gray: hsl($h, 14%, 30%);
+$black: hsl(358, 15%, 3%);
+$white: hsl(358, 15%, 98%);
+$gray: hsl(358, 15%, 90%);
+$dark-gray: hsl(358, 15%, 30%);
 
 $blue: #367fbf;
 $success: #aaff19;

@@ -1,6 +1,6 @@
 <template>
   <div ref="layout" class="default-layout">
-    <!-- <PageNavigation /> -->
+    <PageNavigation />
 
     <div class="container">
       <Nuxt />
@@ -46,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   grid-column: 1 / -1;
-  @include large-screen {
+  @include mid-screen {
     grid-column: 2 / -2;
   }
 }

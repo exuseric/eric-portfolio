@@ -1,12 +1,46 @@
 <template>
   <ul class="socials">
     <li>
-      <a
-        href="http://github.com/exuseric"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Github</a
-      >
+      <github-icon-link />
+    </li>
+    <li>
+      <twitter-icon-link />
     </li>
   </ul>
 </template>
+
+<script>
+import GithubIconLink from '~/components/Icons/GithubIconLink.vue'
+import TwitterIconLink from '~/components/Icons/TwitterIconLink.vue'
+
+export default {
+  name: 'SocialLinks',
+  components: { GithubIconLink, TwitterIconLink },
+}
+</script>
+
+<style lang="scss" scoped>
+.socials {
+  @include grid-flow($flow: column, $gap: 0.625rem);
+  justify-content: start;
+
+  width: 100%;
+  height: 100%;
+
+  list-style-type: none;
+
+  li {
+    a {
+      color: color('sec-d');
+      background-color: color('sec-l');
+      transition: transform $transition;
+    }
+
+    a:focus-visible {
+      color: color('sec-d');
+      background-color: color('sec-l');
+      transform: translateY(-0.4rem);
+    }
+  }
+}
+</style>

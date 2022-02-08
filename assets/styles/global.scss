@@ -2,5 +2,39 @@ body {
   font-size: 16px;
   font-family: family('body');
 
-  background-color: color('light-bg');
+  background-color: color('light');
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.icon-link {
+  @include center;
+  width: $icon-wh;
+  height: $icon-wh;
+
+  color: inherit;
+  background-color: inherit;
+
+  transition: all $transition;
+
+  &:hover {
+    background: color('gradient');
+    transform: translateY(-0.4rem);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+
+  overflow: hidden;
+  white-space: nowrap;
 }

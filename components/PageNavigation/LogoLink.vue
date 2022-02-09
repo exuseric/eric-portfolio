@@ -1,6 +1,12 @@
 <template>
   <nuxt-link to="/" class="logo-link">
-    <img src="~/assets/img/logo/dark.png" alt="Eric's Logo" />
+    <img
+      src="~/assets/img/logo/dark.png"
+      alt="A block abstract of the letter E"
+      title="logo"
+      width="3375"
+      height="5396"
+    />
     <span class="txt">Eric Maina</span>
   </nuxt-link>
 </template>

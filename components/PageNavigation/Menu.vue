@@ -75,14 +75,15 @@ li {
   &:focus-visible {
     color: color('sec-d');
     transform: translateY(-0.4rem);
+    outline-color: color('sec-d');
 
     &::before {
+      width: $icon-wh;
+      height: $icon-wh;
       animation: grow 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     }
   }
-  &:focus {
-    outline-color: color('sec-d');
-  }
+
   &::before {
     content: '';
     position: absolute;
@@ -95,8 +96,9 @@ li {
     height: 0;
 
     border: 5px solid transparent;
-
     background-repeat: no-repeat;
+
+    transition: all $transition;
   }
 }
 
@@ -111,6 +113,18 @@ li {
     background-image: color('gradient');
 
     border-radius: 0;
+  }
+}
+
+@keyframes grow {
+  50% {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  100% {
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: 0px 0px 25px 0px color('accent'), 0 0 20px 0px color('sec');
   }
 }
 </style>

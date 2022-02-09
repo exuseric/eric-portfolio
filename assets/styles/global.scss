@@ -5,6 +5,11 @@ body {
   background-color: color('light');
 }
 
+::selection {
+  color: color('accent');
+  background-color: color('dark');
+}
+
 .page-wrapper {
   min-height: 100vh;
   height: 100%;

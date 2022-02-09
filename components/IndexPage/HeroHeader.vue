@@ -19,7 +19,7 @@ export default {}
 <style lang="scss" scoped>
 .hero {
   @include center;
-  height: 100vh;
+  height: 40rem;
 }
 
 .heading {
@@ -62,15 +62,13 @@ export default {}
   color: color('light');
   background-color: color('dark');
 
-  border: 2px solid transparent;
-
   transition: all $transition;
-  // overflow: hidden;
+  overflow: hidden;
 
   &:hover {
-    color: color('dark');
+    // color: color('dark');
     &::before {
-      animation: grow 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation: grow $transition forwards;
     }
   }
   &::before {
@@ -79,24 +77,28 @@ export default {}
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: -2;
 
     width: 0;
     height: 0;
 
+    border: 3px solid color('dark');
     border-radius: 50%;
-    border: 5px solid color('dark');
 
-    // background-image: color('gradient');
-    background: color('light');
+    background-image: color('gradient-d');
     background-repeat: no-repeat;
   }
-}
 
-@keyframes grow {
-  to {
-    width: 15rem;
-    height: 15rem;
+  @keyframes grow {
+    50% {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    100% {
+      width: 2.5rem;
+      height: 2.5rem;
+      box-shadow: 0px 0px 25px 0px color('accent'), 0 0 20px 0px color('sec');
+    }
   }
 }
 </style>

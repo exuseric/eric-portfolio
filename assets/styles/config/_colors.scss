@@ -38,4 +38,5 @@ $theme: (
   'light': $white,
   // gradients
   'gradient': linear-gradient(30deg, $primary-light, $secondary-light),
+  'gradient-d': linear-gradient(30deg, $primary, $secondary),
 );

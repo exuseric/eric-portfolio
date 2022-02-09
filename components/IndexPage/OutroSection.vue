@@ -7,8 +7,6 @@
         >ericmaina.gathoni@gmail.com</a
       >
     </p>
-
-    <!-- <div class="img"></div> -->
   </div>
 </template>
 
@@ -26,24 +24,8 @@ export default {}
   height: 20rem;
   padding: $pd-m;
 
-  background: color('light-gradient');
-}
-
-.img {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  z-index: -1;
-
-  width: 100%;
-  height: inherit;
-
-  transform: rotateZ(5deg) translateY(-50%);
-
-  background-image: url('~/assets/img/walkie-talkie.svg');
-  background-position: left;
-  background-size: 60%;
-  background-repeat: no-repeat;
+  background-image: color('gradient');
+  background-size: cover;
 }
 
 p {

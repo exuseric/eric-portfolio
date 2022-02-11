@@ -8,14 +8,14 @@
           href="https://github.com/exuseric"
           target="_blank"
           rel="noopener noreferrer"
-          class="link"
+          class="sec-btn"
           >on github</a
         >
         <a
           href="https://github.com/exuseric"
           target="_blank"
           rel="noopener noreferrer"
-          class="link"
+          class="sec-btn"
           >on behance</a
         >
       </div>
@@ -54,28 +54,6 @@ export default {
 
     text-align: center;
     padding: $pd-m;
-  }
-
-  .link {
-    @include center;
-    width: calc($box-btn-w / 2);
-    height: $box-btn-h;
-
-    text-decoration: none;
-    text-transform: capitalize;
-    color: color('accent');
-
-    &:hover,
-    &:focus-visible {
-      color: color('accent-d');
-      background-color: color('accent-l');
-      outline-color: color('accent-d');
-    }
-
-    @include mid-screen {
-      width: $box-btn-w;
-      height: $box-btn-h;
-    }
   }
 }
 

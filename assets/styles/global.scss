@@ -44,8 +44,17 @@ img {
   width: $icon-wh;
   height: $icon-wh;
 
-  color: inherit;
-  background-color: inherit;
+  color: color('mc');
+  background-color: color('lc');
+
+  transition: transform $transition;
+
+  &:focus-visible,
+  &:hover {
+    color: color('accent-l');
+    background-color: color('accent');
+    transform: translateY(-0.4rem);
+  }
 }
 
 .sr-only {
@@ -58,4 +67,76 @@ img {
 
   overflow: hidden;
   white-space: nowrap;
+}
+
+.link {
+  @include center;
+
+  color: color('mc');
+  font-size: scale('body');
+
+  text-decoration: none;
+  line-height: 1.125;
+
+  transition: transform $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: color('accent-l');
+    background-color: color('accent');
+    outline-color: color('accent-d');
+
+    transform: translateY(-0.4rem);
+  }
+}
+
+.primary-btn {
+  @include center;
+
+  width: $box-btn-w;
+  height: $box-btn-h;
+
+  font-family: family('body');
+  font-size: scale('h6');
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+
+  color: color('light');
+  background-color: color('dark');
+
+  transition: all $transition;
+  overflow: hidden;
+
+  &:hover {
+    color: color('accent-l');
+    background-color: color('accent');
+  }
+}
+.sec-btn {
+  @include center;
+
+  width: $box-btn-w;
+  height: $box-btn-h;
+
+  font-family: family('body');
+  font-size: scale('h6');
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: capitalize;
+  line-height: 1;
+
+  color: color('sec');
+  background-color: transparent;
+  border: 2px solid transparent;
+  // border-radius: 30px;
+
+  transition: all $transition;
+  overflow: hidden;
+
+  &:hover {
+    color: color('sec-d');
+    // background-color: color('accent');
+    border-color: currentColor;
+  }
 }

@@ -32,19 +32,19 @@
       </p>
 
       <div class="links">
-        <nuxt-link to="/work/cuppa" class="link">tell me more</nuxt-link>
+        <nuxt-link to="/work/cuppa" class="sec-btn">tell me more</nuxt-link>
         <a
           href="https://www.github.com/exuseric/cuppa"
           target="_blank"
           rel="noopener noreferrer"
-          class="link"
+          class="sec-btn"
           >View Code</a
         >
         <a
           href="https://www.cuppa.netlify.app"
           target="_blank"
           rel="noopener noreferrer"
-          class="live-link"
+          class="primary-btn"
           >live site</a
         >
       </div>
@@ -148,7 +148,7 @@ export default {
   // @include grid-flow($flow: column, $gap: 1.25rem);
   @include grid(
     $col-width: 1fr,
-    $col-count: 3,
+    $col-count: 2,
     $row-height: 1fr,
     $row-count: 2,
     $col-gap: 0.625rem,
@@ -156,42 +156,11 @@ export default {
   );
   justify-content: space-between;
 
-  .live-link {
+  .pry-btn {
     grid-column: 1 / -1;
     grid-row: 2 / -1;
 
-    color: color('light');
-    background-color: color('dark');
-
     width: 100%;
-    height: $box-btn-h;
-  }
-  .link {
-    color: color('accent');
-  }
-  .link:nth-child(2) {
-    grid-column: 3 / -1;
-  }
-
-  .link,
-  .live-link {
-    &:hover,
-    &:focus-visible {
-      color: color('accent-l');
-      background-color: color('accent');
-      outline-color: color('accent-d');
-    }
-  }
-
-  .link,
-  .live-link {
-    @include center;
-    width: 100%;
-    padding: $pd-s;
-
-    text-align: center;
-    text-decoration: none;
-    text-transform: capitalize;
   }
 }
 

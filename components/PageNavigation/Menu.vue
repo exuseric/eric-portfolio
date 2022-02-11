@@ -45,27 +45,17 @@ li {
 }
 
 .link {
-  position: relative;
-  z-index: 1;
-
-  @include grid-flow($flow: column, $gap: 0);
+  justify-content: start;
 
   font-size: scale('h1');
-  font-family: family('body');
-  text-decoration: none;
-  line-height: 1.125;
-
-  color: color('dark');
 
   width: 100%;
   height: 5rem;
   padding: 0 $pd-m;
 
-  transition: transform $transition;
-
   @include mid-screen {
+    font-size: scale('h6');
     justify-content: center;
-    font-size: scale('body');
     padding: $pd-s;
 
     height: $icon-wh;
@@ -76,26 +66,5 @@ li {
 .nuxt-link-exact-active {
   color: color('sec-l');
   background-color: color('sec');
-}
-
-.link:hover,
-.link:focus-visible {
-  color: color('accent-l');
-  background-color: color('accent');
-  outline-color: color('accent-d');
-
-  transform: translateY(-0.4rem);
-}
-
-@keyframes grow {
-  50% {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  100% {
-    width: 2.5rem;
-    height: 2.5rem;
-    box-shadow: 0px 0px 25px 0px color('accent'), 0 0 20px 0px color('sec');
-  }
 }
 </style>

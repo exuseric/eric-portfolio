@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  $h: 25rem;
+  $h: 40rem;
   $count: 4;
 
   grid-column: 1 / -1;
@@ -45,10 +45,10 @@ export default {
   @include grid(
     $col-width: 1fr,
     $col-count: 8,
-    $row-height: calc($h / $count),
+    $row-height: 2fr,
     $row-count: $count,
     $col-gap: 0,
-    $row-gap: 0
+    $row-gap: $pd-m
   );
 
   justify-content: center;
@@ -56,6 +56,7 @@ export default {
 
   width: 100%;
   height: $h;
+  padding: $pd-l 0;
 
   background-color: color('light');
 
@@ -95,13 +96,9 @@ export default {
   justify-content: space-evenly;
 
   list-style-type: none;
+}
 
-  a {
-    @include center;
-
-    color: color('mc');
-    text-decoration: none;
-    text-transform: capitalize;
-  }
+.link {
+  height: $icon-wh;
 }
 </style>

@@ -28,20 +28,5 @@ export default {
   height: 100%;
 
   list-style-type: none;
-
-  li {
-    a {
-      color: color('mc');
-      background-color: color('lc');
-      transition: transform $transition;
-    }
-
-    a:focus-visible,
-    a:hover {
-      color: color('accent-l');
-      background-color: color('accent');
-      transform: translateY(-0.4rem);
-    }
-  }
 }
 </style>

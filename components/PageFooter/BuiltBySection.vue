@@ -1,21 +1,27 @@
 <template>
   <p class="built">
-    Built with&nbsp;<span focusable="false" aria-label="black heart emoji"
-      >🖤</span
-    >&nbsp;and&nbsp;<a
+    Made with <span focusable="false" aria-label="black heart emoji">🖤</span>
+    and
+    <a
       href="https://nuxtjs.org"
       target="_blank"
       rel="noopener noreferrer"
+      class=""
       >Nuxt.js</a
-    >.&nbsp;Hosted on&nbsp;<a
+    >. Hosted on
+    <a
       href="https://netlify.com"
       target="_blank"
       rel="noopener noreferrer"
+      class=""
       >Netlify</a
-    >&nbsp;&amp;&nbsp;<a
+    >
+    &amp;
+    <a
       href="https://github.com/exuseric"
       target="_blank"
       rel="noopener noreferrer"
+      class=""
       >Github</a
     >
   </p>

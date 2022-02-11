@@ -19,7 +19,7 @@ export default {}
 <style lang="scss" scoped>
 .hero {
   @include center;
-  height: 40rem;
+  height: 50rem;
 }
 
 .heading {

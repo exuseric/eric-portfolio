@@ -5,6 +5,8 @@
     <div class="container">
       <Nuxt />
     </div>
+
+    <PageFooter />
   </div>
 </template>
 
@@ -46,6 +48,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   grid-column: 1 / -1;
+  padding-bottom: $section-padding;
   @include mid-screen {
     grid-column: 2 / -2;
   }

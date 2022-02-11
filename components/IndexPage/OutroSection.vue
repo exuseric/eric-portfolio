@@ -1,12 +1,12 @@
 <template>
   <div class="outro">
-    <p>
+    <h3>
       If you are interested in working with me, please feel free to contact me
       at
       <a href="mailto:ericmaina.gathoni@gmail.com" class="link"
         >ericmaina.gathoni@gmail.com</a
       >
-    </p>
+    </h3>
   </div>
 </template>
 
@@ -24,8 +24,7 @@ export default {}
   height: 20rem;
   padding: $pd-m;
 
-  background-image: color('gradient');
-  background-size: cover;
+  border: 5px solid color('accent-l');
 }
 
 p {

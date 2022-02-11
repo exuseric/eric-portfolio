@@ -1,9 +1,19 @@
 <template>
   <article class="card">
-    <div class="overlay"></div>
+    <div class="image">
+      <img
+        src="https://placeholder.com/20x20"
+        alt="image"
+        width="1920"
+        height="1080"
+        srcset=""
+        loading="lazy"
+      />
+      <div class="overlay"></div>
+    </div>
     <div class="card-body">
       <header class="header">
-        <h3 class="title">
+        <h2 class="title">
           <a
             href="https://cuppa.netlify.app"
             target="_blank"
@@ -13,7 +23,7 @@
           <span class="icon">
             <ArrowIcon />
           </span>
-        </h3>
+        </h2>
       </header>
 
       <p class="desc">
@@ -34,8 +44,8 @@
           href="https://www.cuppa.netlify.app"
           target="_blank"
           rel="noopener noreferrer"
-          class="link"
-          >Visit live site</a
+          class="live-link"
+          >live site</a
         >
       </div>
     </div>
@@ -66,22 +76,19 @@ export default {
   width: 100%;
   height: 40rem;
 
-  background-color: orange;
+  overflow: hidden;
 }
 
-.overlay {
+.image {
   @include center;
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   z-index: -1;
-
-  background: hsla(0, 100%, 2%, 0.35);
-  backdrop-filter: blur(5px);
 }
 
 .card-body {
   grid-column: 1 / -1;
-  grid-row: 3 / -3;
+  grid-row: 4 / -1;
   @include grid-row($row-count: 3, $row-height: 30%, $gap: $pd-m);
 
   background: color('light');
@@ -136,14 +143,55 @@ export default {
     }
   }
 }
+
 .links {
-  @include grid-flow($flow: column, $gap: 1.25rem);
+  // @include grid-flow($flow: column, $gap: 1.25rem);
+  @include grid(
+    $col-width: 1fr,
+    $col-count: 3,
+    $row-height: 1fr,
+    $row-count: 2,
+    $col-gap: 0.625rem,
+    $row-gap: 0.625rem
+  );
   justify-content: space-between;
 
+  .live-link {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+
+    color: color('light');
+    background-color: color('dark');
+
+    width: 100%;
+    height: $box-btn-h;
+  }
   .link {
+    color: color('accent');
+  }
+  .link:nth-child(2) {
+    grid-column: 3 / -1;
+  }
+
+  .link,
+  .live-link {
+    &:hover,
+    &:focus-visible {
+      color: color('accent-l');
+      background-color: color('accent');
+      outline-color: color('accent-d');
+    }
+  }
+
+  .link,
+  .live-link {
+    @include center;
+    width: 100%;
+    padding: $pd-s;
+
+    text-align: center;
     text-decoration: none;
     text-transform: capitalize;
-    color: color('accent');
   }
 }
 

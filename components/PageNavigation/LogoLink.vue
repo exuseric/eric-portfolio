@@ -19,8 +19,12 @@ export default {
 .logo-link {
   @include grid-flow($flow: column, $gap: 0.625rem);
 
+  font-size: scale('body');
+  color: color('dark');
+
   width: fit-content;
   height: $icon-wh;
+  padding: 0 $pd-s;
 
   overflow: hidden;
 
@@ -28,17 +32,22 @@ export default {
   text-decoration: none;
 
   .txt {
-    font-size: scale('body');
-    color: color('dark');
-    align-self: end;
+    align-self: center;
   }
 }
 
 .logo-link img {
   width: $icon-wh;
-  height: $icon-wh;
+  height: calc($icon-wh / 1.5);
 
   object-fit: contain;
   object-position: center;
+}
+
+.logo-link:hover,
+.logo-link:focus-visible {
+  color: color('accent-l');
+  background-color: color('accent');
+  outline-color: color('accent-d');
 }
 </style>

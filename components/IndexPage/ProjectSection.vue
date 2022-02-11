@@ -37,6 +37,9 @@ export default {
 
 <style lang="scss" scoped>
 .projects {
+  content-visibilty: auto;
+  contain-intrinsic-size: 700px;
+
   .heading {
     @include center;
     padding: $pd-l;
@@ -55,12 +58,24 @@ export default {
 
   .link {
     @include center;
-    width: auto;
+    width: calc($box-btn-w / 2);
     height: $box-btn-h;
 
     text-decoration: none;
     text-transform: capitalize;
     color: color('accent');
+
+    &:hover,
+    &:focus-visible {
+      color: color('accent-d');
+      background-color: color('accent-l');
+      outline-color: color('accent-d');
+    }
+
+    @include mid-screen {
+      width: $box-btn-w;
+      height: $box-btn-h;
+    }
   }
 }
 

@@ -31,14 +31,15 @@ export default {
 
   li {
     a {
-      color: color('sec-d');
-      background-color: color('sec-l');
+      color: color('mc');
+      background-color: color('lc');
       transition: transform $transition;
     }
 
-    a:focus-visible {
-      color: color('sec-d');
-      background-color: color('sec-l');
+    a:focus-visible,
+    a:hover {
+      color: color('accent-l');
+      background-color: color('accent');
       transform: translateY(-0.4rem);
     }
   }

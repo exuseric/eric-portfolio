@@ -2,7 +2,30 @@ body {
   font-size: 16px;
   font-family: family('body');
 
+  color: color('mc');
   background-color: color('light');
+}
+
+img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: color('gradient');
+    background-size: cover;
+  }
 }
 
 ::selection {
@@ -23,13 +46,6 @@ body {
 
   color: inherit;
   background-color: inherit;
-
-  transition: all $transition;
-
-  &:hover {
-    background: color('gradient');
-    transform: translateY(-0.4rem);
-  }
 }
 
 .sr-only {

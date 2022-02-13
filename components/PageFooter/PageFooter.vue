@@ -45,10 +45,10 @@ export default {
   @include grid(
     $col-width: 1fr,
     $col-count: 8,
-    $row-height: 2fr,
+    $row-height: calc($h / $count),
     $row-count: $count,
     $col-gap: 0,
-    $row-gap: $pd-m
+    $row-gap: 0
   );
 
   justify-content: center;
@@ -56,7 +56,7 @@ export default {
 
   width: 100%;
   height: $h;
-  padding: $pd-l 0;
+  margin-top: $section-padding;
 
   background-color: color('light');
 
@@ -78,7 +78,7 @@ export default {
 
 .social {
   grid-row: 2 / span 1;
-  justify-self: start;
+  justify-self: center;
 }
 
 .built {

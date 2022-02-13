@@ -1,5 +1,5 @@
 <template>
-  <section class="projects">
+  <section class="projects content">
     <div class="heading">
       <h2>Project Showcase</h2>
 
@@ -8,14 +8,14 @@
           href="https://github.com/exuseric"
           target="_blank"
           rel="noopener noreferrer"
-          class="sec-btn"
+          class="sec-btn-s"
           >on github</a
         >
         <a
           href="https://github.com/exuseric"
           target="_blank"
           rel="noopener noreferrer"
-          class="sec-btn"
+          class="sec-btn-s"
           >on behance</a
         >
       </div>
@@ -49,11 +49,11 @@ export default {
     font-size: scale('h2');
     font-family: family('heading');
     font-weight: 700;
-    color: color('dark');
+    color: color('mc');
     line-height: 1.25;
 
     text-align: center;
-    padding: $pd-m;
+    padding: $pd-m 0;
   }
 }
 

@@ -39,6 +39,10 @@ img {
   width: 100%;
 }
 
+.content {
+  padding: $section-padding 0;
+}
+
 .icon-link {
   @include center;
   width: $icon-wh;
@@ -78,35 +82,43 @@ img {
   text-decoration: none;
   line-height: 1.125;
 
-  transition: transform $transition;
+  transition: all $transition;
 
   &:hover,
   &:focus-visible {
-    color: color('accent-l');
+    color: color('accdarkent-l');
     background-color: color('accent');
     outline-color: color('accent-d');
-
-    transform: translateY(-0.4rem);
   }
 }
 
-.primary-btn {
+.primary-btn,
+.sec-btn,
+.primary-btn-s,
+.sec-btn-s {
   @include center;
-
-  width: $box-btn-w;
-  height: $box-btn-h;
 
   font-family: family('body');
   font-size: scale('h6');
   font-weight: 700;
   text-decoration: none;
+  text-transform: capitalize;
   line-height: 1;
-
-  color: color('light');
-  background-color: color('dark');
 
   transition: all $transition;
   overflow: hidden;
+}
+
+.primary-btn,
+.sec-btn {
+  width: $box-btn-w;
+  height: $box-btn-h;
+}
+
+.primary-btn,
+.primary-btn-s {
+  color: color('accent-l');
+  background-color: color('accent-d');
 
   &:hover {
     color: color('accent-l');
@@ -116,14 +128,6 @@ img {
 
 .sec-btn-s,
 .sec-btn {
-  @include center;
-
-  font-family: family('body');
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: capitalize;
-  line-height: 1;
-
   color: color('accent-d');
   background-color: transparent;
   border: 2px solid currentColor;
@@ -137,15 +141,9 @@ img {
   }
 }
 
-.sec-btn {
-  width: $box-btn-w;
-  height: $box-btn-h;
-
-  font-size: scale('h6');
-}
-
-.sec-btn-s {
-  width: calc($box-btn-w * 0.55);
+.sec-btn-s,
+.primary-btn-s {
+  width: calc($box-btn-w * 0.5);
   height: calc($box-btn-h * 0.75);
 
   font-size: scale('body');

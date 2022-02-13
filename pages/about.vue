@@ -1,5 +1,7 @@
 <template>
-  <section class="about page-wrapper"></section>
+  <section class="about page-wrapper">
+    <AboutPageHeader />
+  </section>
 </template>
 
 <script>

@@ -113,22 +113,20 @@ img {
     background-color: color('accent');
   }
 }
+
+.sec-btn-s,
 .sec-btn {
   @include center;
 
-  width: $box-btn-w;
-  height: $box-btn-h;
-
   font-family: family('body');
-  font-size: scale('h6');
   font-weight: 700;
   text-decoration: none;
   text-transform: capitalize;
   line-height: 1;
 
-  color: color('sec');
+  color: color('accent-d');
   background-color: transparent;
-  border: 2px solid transparent;
+  border: 2px solid currentColor;
   // border-radius: 30px;
 
   transition: all $transition;
@@ -136,7 +134,19 @@ img {
 
   &:hover {
     color: color('sec-d');
-    // background-color: color('accent');
-    border-color: currentColor;
   }
+}
+
+.sec-btn {
+  width: $box-btn-w;
+  height: $box-btn-h;
+
+  font-size: scale('h6');
+}
+
+.sec-btn-s {
+  width: calc($box-btn-w * 0.55);
+  height: calc($box-btn-h * 0.75);
+
+  font-size: scale('body');
 }

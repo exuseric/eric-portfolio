@@ -49,6 +49,7 @@
 <script>
 import ArrowIcon from '~/components/Icons/ArrowIcon.vue'
 export default {
+  name: 'IndexPageProjectCard',
   components: {
     ArrowIcon,
   },

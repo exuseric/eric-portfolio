@@ -11,7 +11,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'IndexPageOutro',
+}
 </script>
 
 <style lang="scss" scoped>

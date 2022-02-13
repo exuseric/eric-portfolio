@@ -22,16 +22,14 @@
     </div>
 
     <div class="project-grid">
-      <ProjectCard />
+      <IndexPageProjectCard />
     </div>
   </section>
 </template>
 
 <script>
-import ProjectCard from './ProjectCard.vue'
-
 export default {
-  components: { ProjectCard },
+  name: 'IndexPageProjectSection',
 }
 </script>
 

@@ -44,4 +44,12 @@ export default {}
     }
   }
 }
+
+.contact-btn {
+  justify-self: center;
+
+  @include mid-screen {
+    justify-self: start;
+  }
+}
 </style>

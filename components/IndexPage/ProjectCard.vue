@@ -2,16 +2,15 @@
   <article class="card">
     <div class="image">
       <img
-        src="https://placeholder.com/20x20"
+        src="~/assets/img/pexels-pixabay-257092.jpg"
         alt="image"
         width="1920"
         height="1080"
         srcset=""
         loading="lazy"
       />
-      <div class="overlay"></div>
     </div>
-    <div class="card-body">
+    <div class="body">
       <header class="header">
         <h2 class="title">
           <a
@@ -32,20 +31,15 @@
       </p>
 
       <div class="links">
-        <nuxt-link to="/work/cuppa" class="sec-btn">tell me more</nuxt-link>
+        <nuxt-link to="/work/cuppa" class="primary-btn-s"
+          >tell me more</nuxt-link
+        >
         <a
           href="https://www.github.com/exuseric/cuppa"
           target="_blank"
           rel="noopener noreferrer"
-          class="sec-btn"
+          class="primary-btn-s"
           >View Code</a
-        >
-        <a
-          href="https://www.cuppa.netlify.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="primary-btn"
-          >live site</a
         >
       </div>
     </div>
@@ -60,114 +54,90 @@ export default {
   },
 }
 </script>
-
 <style lang="scss" scoped>
 .card {
-  @include grid(
-    $col-width: 1fr,
-    $col-count: 8,
-    $row-height: 1fr,
-    $row-count: 8,
-    $col-gap: 0,
-    $row-gap: 0.625rem
-  );
-  z-index: 1;
-
+  @include grid-12($gap: 0);
   width: 100%;
-  height: 40rem;
+  height: 50rem;
+  max-width: 40rem;
 
+  background-color: color('accent');
   overflow: hidden;
+
+  transition: box-shadow $transition;
+}
+.image,
+.body {
+  width: 100%;
+  height: 100%;
 }
 
 .image {
-  @include center;
-  grid-column: 1 / -1;
   grid-row: 1 / -1;
-  z-index: -1;
-}
-
-.card-body {
   grid-column: 1 / -1;
-  grid-row: 4 / -1;
-  @include grid-row($row-count: 3, $row-height: 30%, $gap: $pd-m);
+}
 
-  background: color('light');
-  backdrop-filter: blur(15px);
+.body {
+  grid-row: 2 / -2;
+  grid-column: 2 / -2;
 
+  @include grid-row($row-count: 8, $row-height: 1fr, $gap: 0);
+  z-index: 2;
+  transition: background-color $transition;
+}
+
+.links,
+.header,
+.desc {
   padding: $pd-m;
-
-  overflow: hidden;
-
-  @include mid-screen {
-    grid-column: 3 / -3;
-    grid-row: 2 / -2;
-
-    padding: $pd-l;
-  }
-}
-
-.header {
-  position: relative;
-  width: 100%;
-}
-
-.title {
-  font-size: scale('h1');
-  font-family: family('heading');
-
-  a {
-    width: 100%;
-    color: color('dark');
-    text-transform: capitalize;
-    text-decoration: none;
-  }
-
-  .icon {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    z-index: -1;
-    transform: translate(-100%, -50%);
-
-    @include center;
-    width: auto;
-    height: 15rem;
-
-    color: color('accent-l');
-
-    opacity: 0;
-  }
-  &:hover {
-    .icon {
-      animation: reveal $transition forwards;
-    }
-  }
 }
 
 .links {
-  // @include grid-flow($flow: column, $gap: 1.25rem);
-  @include grid(
-    $col-width: 1fr,
-    $col-count: 2,
-    $row-height: 1fr,
-    $row-count: 2,
-    $col-gap: 0.625rem,
-    $row-gap: 0.625rem
-  );
-  justify-content: space-between;
+  grid-row: -2 / -1;
+  @include grid-flow($flow: column, $gap: 1.25rem);
+  justify-self: center;
+  align-self: end;
+}
 
-  .pry-btn {
-    grid-column: 1 / -1;
-    grid-row: 2 / -1;
+.header {
+  grid-row: 1 / 2;
 
-    width: 100%;
+  font-size: scale('h3');
+  font-family: family('heading');
+  color: color('dark');
+
+  border-bottom: 2px solid currentColor;
+
+  .title {
+    @include grid-column($col-count: 2, $col-width: 1fr, $gap: 0);
+    align-items: center;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+
+  .icon {
+    @include center;
+    width: $icon-wh;
+    height: $icon-wh;
+    color: inherit;
+
+    transform: translateX(-25rem);
+    transition: transform $transition;
   }
 }
 
-@keyframes reveal {
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
+.header:hover {
+  .icon {
+    transform: translateX(0);
   }
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px
+    transparentize($color: color('accent-d'), $amount: 0.75);
 }
 </style>

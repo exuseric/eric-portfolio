@@ -1,9 +1,7 @@
 <template>
   <section class="home page-wrapper">
     <HeroHeader />
-    <div class="section">
-      <ProjectSection />
-    </div>
+    <ProjectSection />
     <OutroSection />
   </section>
 </template>
@@ -22,9 +20,3 @@ export default {
   layout: 'DefaultLayout',
 }
 </script>
-
-<style lang="scss" scoped>
-.section {
-  padding: $section-padding 0;
-}
-</style>

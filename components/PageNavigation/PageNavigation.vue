@@ -117,13 +117,20 @@ export default {
   width: $icon-wh;
   height: $icon-wh;
 
-  color: color('light');
-  background-color: color('dark');
+  color: color('mc');
+  background-color: color('light');
 
   border: 2px solid transparent;
 
   @include mid-screen {
     visibility: hidden;
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:focus {
+    color: color('accent-l');
+    background-color: color('accent');
   }
 }
 

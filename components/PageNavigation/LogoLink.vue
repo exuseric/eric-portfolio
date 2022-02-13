@@ -19,7 +19,6 @@ export default {
 .logo-link {
   @include grid-flow($flow: column, $gap: 0.625rem);
 
-  font-size: scale('body');
   color: color('dark');
 
   width: fit-content;
@@ -32,6 +31,8 @@ export default {
   text-decoration: none;
 
   .txt {
+    font-size: scale('h6');
+
     align-self: center;
   }
 }

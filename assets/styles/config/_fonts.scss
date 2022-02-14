@@ -1,6 +1,12 @@
+$heading: 'Sporting Grotesque', 'Lucida Sans', 'Lucida Sans Regular',
+  'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+$body: 'Readex Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 $family: (
-  'heading': 'Sporting Grotesque',
-  'body': 'Readex Pro',
+  'heading': $heading,
+  'body': $body,
 );
 
 // Typography Scale

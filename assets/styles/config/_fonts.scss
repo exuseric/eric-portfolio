@@ -1,12 +1,15 @@
-$heading: 'Sporting Grotesque', 'Lucida Sans', 'Lucida Sans Regular',
-  'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-$body: 'Readex Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+$heading: 'Alegreya', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+$body: 'Andika New Basic', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+$small-cap: 'Alegreya SC';
 
 $family: (
   'heading': $heading,
   'body': $body,
+  'small cap': $small-cap,
 );
 
 // Typography Scale

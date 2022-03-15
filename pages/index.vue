@@ -1,9 +1,8 @@
 <template>
   <section class="home page-wrapper">
     <IndexPageHeader />
+    <IndexPageIntro />
     <IndexPageProjectSection />
-    <IndexPageOutro />
-    <IndexPageHeroHeader />
   </section>
 </template>
 

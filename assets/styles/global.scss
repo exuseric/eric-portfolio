@@ -1,17 +1,33 @@
+mark {
+  font-family: family('small cap');
+  color: primary('50');
+  background-color: primary('500');
+}
+
+::selection {
+  color: neutral('50');
+  background-color: primary('950');
+}
+
 body {
   font-size: 16px;
   font-family: family('body');
 
-  color: color('mc');
-  background-color: color('light');
+  color: neutral('950');
+}
+
+.navigation,
+.footer,
+body {
+  background-color: neutral('50');
 }
 
 img {
   position: relative;
   z-index: 1;
 
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
 
   object-fit: cover;
   object-position: center;
@@ -23,14 +39,9 @@ img {
     width: 100%;
     height: 100%;
 
-    background-image: color('gradient');
+    background-image: primary('50');
     background-size: cover;
   }
-}
-
-::selection {
-  color: color('accent');
-  background-color: color('dark');
 }
 
 .page-wrapper {
@@ -48,15 +59,15 @@ img {
   width: $icon-wh;
   height: $icon-wh;
 
-  color: color('mc');
-  background-color: color('lc');
+  color: neutral('500');
+  background-color: neutral('50');
 
   transition: transform $transition;
 
   &:focus-visible,
   &:hover {
-    color: color('accent-l');
-    background-color: color('accent');
+    color: primary('50');
+    background-color: primary('500');
     transform: translateY(-0.4rem);
   }
 }
@@ -74,9 +85,10 @@ img {
 }
 
 .link {
+  position: relative;
   @include center;
 
-  color: color('mc');
+  color: neutral('950');
   font-size: scale('body');
 
   text-decoration: none;
@@ -84,12 +96,39 @@ img {
 
   transition: all $transition;
 
-  &:hover,
-  &:focus-visible {
-    color: color('accdarkent-l');
-    background-color: color('accent');
-    outline-color: color('accent-d');
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    z-index: -1;
+
+    height: 0.15rem;
+    width: 0;
+
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    transition: width $transition;
+    background-color: currentColor;
+
+    border-radius: 30px;
   }
+}
+
+.link:hover {
+  color: primary('500');
+  // background-color: primary('950');
+
+  &::before {
+    width: 75%;
+  }
+}
+.link:focus-visible,
+.primary-btn:focus-visible,
+a:focus-visible {
+  color: neutral('50');
+  background-color: primary('500');
+  outline-color: primary('950');
 }
 
 .primary-btn,
@@ -117,18 +156,18 @@ img {
 
 .primary-btn,
 .primary-btn-s {
-  color: color('accent-l');
-  background-color: color('accent-d');
+  color: primary('50');
+  background-color: primary('500');
 
   &:hover {
-    color: color('accent-l');
-    background-color: color('accent');
+    color: primary('50');
+    background-color: primary('950');
   }
 }
 
 .sec-btn-s,
 .sec-btn {
-  color: color('accent-d');
+  color: primary('500');
   background-color: transparent;
   border: 2px solid currentColor;
   // border-radius: 30px;
@@ -137,7 +176,7 @@ img {
   overflow: hidden;
 
   &:hover {
-    color: color('sec-d');
+    color: primary('50');
   }
 }
 

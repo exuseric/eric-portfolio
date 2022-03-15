@@ -58,8 +58,6 @@ export default {
   height: $h;
   margin-top: $section-padding;
 
-  background-color: color('light');
-
   & > * {
     grid-column: 1 / -1;
 

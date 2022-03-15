@@ -37,6 +37,6 @@ export default {}
 }
 
 a {
-  color: color('accent');
+  color: primary('500');
 }
 </style>

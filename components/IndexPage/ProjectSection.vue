@@ -1,5 +1,5 @@
 <template>
-  <section class="projects content">
+  <section class="projects">
     <div class="heading">
       <h2>Project Showcase</h2>
 
@@ -40,14 +40,14 @@ export default {
 
   .heading {
     @include center;
-    padding: $pd-l;
+    padding: $pd-l 0;
   }
 
   h2 {
     font-size: scale('h2');
     font-family: family('heading');
     font-weight: 700;
-    color: color('mc');
+    color: neutral('500');
     line-height: 1.25;
 
     text-align: center;

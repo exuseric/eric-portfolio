@@ -1,8 +1,23 @@
 @use './colors' as *;
 @use './fonts' as *;
 
-@function color($name) {
-  @return map-get($map: $theme, $key: $name);
+@function primary($value) {
+  @return map-get($map: $primary, $key: $value);
+}
+@function neutral($value) {
+  @return map-get($map: $neutral, $key: $value);
+}
+@function success($value) {
+  @return map-get($map: $success, $key: $value);
+}
+@function caution($value) {
+  @return map-get($map: $caution, $key: $value);
+}
+@function info($value) {
+  @return map-get($map: $info, $key: $value);
+}
+@function danger($value) {
+  @return map-get($map: $danger, $key: $value);
 }
 
 @function scale($element) {

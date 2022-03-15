@@ -65,20 +65,6 @@ li {
 
 .nuxt-link-exact-active {
   position: relative;
-  color: color('accent-d');
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    z-index: -1;
-
-    transform: translateY(-50%);
-    height: $icon-wh;
-    width: $icon-wh;
-    background-color: color('accent');
-    border-radius: 50%;
-  }
+  color: primary('500');
 }
 </style>

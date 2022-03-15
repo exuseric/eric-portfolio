@@ -1,14 +1,14 @@
 <template>
   <article class="card">
     <div class="image">
-      <img
+      <!-- <img
         src="~/assets/img/pexels-pixabay-257092.jpg"
         alt="image"
         width="1920"
         height="1080"
         srcset=""
         loading="lazy"
-      />
+      /> -->
     </div>
     <div class="body">
       <header class="header">
@@ -27,7 +27,7 @@
 
       <p class="desc">
         A weather website that gives you the weather information with a
-        complementary tea recipe. Built with vue.js.
+        complementary tea recipe.
       </p>
 
       <div class="links">
@@ -58,14 +58,16 @@ export default {
 <style lang="scss" scoped>
 .card {
   @include grid-12($gap: 0);
+
   width: 100%;
-  height: 50rem;
+  height: 25rem;
   max-width: 40rem;
 
-  background-color: color('accent');
-  overflow: hidden;
+  padding: $pd-m;
 
-  transition: box-shadow $transition;
+  color: neutral('50');
+  background-color: neutral('950');
+  overflow: hidden;
 }
 .image,
 .body {
@@ -96,18 +98,20 @@ export default {
 .links {
   grid-row: -2 / -1;
   @include grid-flow($flow: column, $gap: 1.25rem);
-  justify-self: center;
+  justify-self: start;
   align-self: end;
 }
 
 .header {
   grid-row: 1 / 2;
+  position: relative;
 
   font-size: scale('h3');
   font-family: family('heading');
-  color: color('dark');
+  color: neutral('50');
 
   border-bottom: 2px solid currentColor;
+  // overflow: hidden;
 
   .title {
     @include grid-column($col-count: 2, $col-width: 1fr, $gap: 0);
@@ -121,24 +125,22 @@ export default {
   }
 
   .icon {
-    @include center;
-    width: $icon-wh;
-    height: $icon-wh;
-    color: inherit;
+    position: absolute;
+    z-index: -1;
 
-    transform: translateX(-25rem);
+    @include center;
+    width: $icon-wh * 14;
+    height: $icon-wh * 14;
+    color: primary('500');
+
+    transform: translateX(-40rem);
     transition: transform $transition;
   }
 }
 
 .header:hover {
   .icon {
-    transform: translateX(0);
+    transform: translateX(5rem);
   }
-}
-
-.card:hover {
-  box-shadow: 0 10px 20px
-    transparentize($color: color('accent-d'), $amount: 0.75);
 }
 </style>

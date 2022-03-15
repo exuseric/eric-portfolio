@@ -1,42 +1,109 @@
-$primary-color: hsl(358, 53%, 64%);
-$secondary-color: hsl(189, 44%, 64%);
+/* Primary */
+$primary-950: hsl(340, 49%, 8%);
+$primary-500: hsl(340, 49%, 48%);
+$primary-50: hsl(340, 49%, 95%);
 
-$pry-l: 81;
-$sec-l: 64;
+/* Neutral */
+$neutral-950: hsl(340, 5%, 5%);
+$neutral-500: hsl(340, 4%, 25%);
+$neutral-50: hsl(340, 15%, 95%);
 
-$primary: hsl(358, 53%, 64%);
-$primary-dark: hsl(358, 53%, 31%);
-$primary-light: hsl(358, 53%, 95%);
+/* Success */
+$success-950: hsl(94, 24%, 6%);
+$success-500: #7dae69;
+$success-50: #e4f6db;
 
-$secondary: hsl(189, 44%, 64%);
-$secondary-dark: hsl(189, 44%, 31%);
-$secondary-light: hsl(189, 44%, 95%);
+/* Caution */
+$caution-950: #170f06;
+$caution-500: #ea9928;
+$caution-50: #fbefe3;
 
-$black: hsl(358, 5%, 3%);
-$white: hsl(358, 5%, 98%);
-$gray: hsl(358, 5%, 90%);
-$dark-gray: hsl(358, 5%, 20%);
+/* Danger */
+$danger-950: #22080f;
+$danger-500: #e34b7b;
+$danger-50: #f9eef0;
 
-$blue: #367fbf;
-$success: #aaff19;
-$error: #e8120c;
-$warning: #ffe919;
+/* Info */
+$info-950: hsl(180, 69%, 6%);
+$info-500: hsl(180, 75%, 36%);
+$info-50: hsl(180, 69%, 95%);
+
+$primary: (
+  '50': $primary-50,
+  '500': $primary-500,
+  '950': $primary-950,
+);
+
+$neutral: (
+  '50': $neutral-50,
+  '500': $neutral-500,
+  '950': $neutral-950,
+);
+
+$info: (
+  '50': $info-50,
+  '500': $info-500,
+  '950': $info-950,
+);
+
+$success: (
+  '50': $success-50,
+  '500': $success-500,
+  '950': $success-950,
+);
+
+$caution: (
+  '50': $caution-50,
+  '500': $caution-500,
+  '950': $caution-950,
+);
+
+$danger: (
+  '50': $danger-50,
+  '500': $danger-500,
+  '950': $danger-950,
+);
+
+// $primary: hsl(345, 45%, 45%);
+// $primary-dark: hsl(345, 45%, 25%);
+// $primary-light: hsl(345, 45%, 95%);
+
+// $secondary: hsl(165, 45%, 64%);
+// $secondary-dark: hsl(165, 45%, 31%);
+// $secondary-light: hsl(165, 45%, 95%);
+
+// $black: hsl(345, 45%, 10%);
+// $white: hsl(345, 45%, 98%);
+// $gray: hsl(345, 8%, 85%);
+// $dark-gray: hsl(345, 3%, 20%);
+
+// $blue: #367fbf;
+// $success: #aaff19;
+// $error: #e8120c;
+// $warning: #ffe919;
 
 // Dark Theme
 $theme: (
-  'accent-d': $primary-dark,
-  'accent-l': $primary-light,
-  'sec-d': $secondary-dark,
-  'sec-l': $secondary-light,
-  // text
-  'accent': $primary,
-  'sec': $secondary,
-  'lc': $gray,
-  'mc': $dark-gray,
-  'hc': $white,
-  'dark': $black,
-  'light': $white,
+  'accent': $primary-500,
+  'accent-l': $primary-50,
+  'accent-d': $primary-950,
+  'info': $info-500,
+  'info-l': $info-50,
+  'info-d': $info-950,
+  'success': $success-500,
+  'success-l': $success-50,
+  'success-d': $success-950,
+  'caution': $caution-500,
+  'caution-l': $caution-50,
+  'caution-d': $caution-950,
+  'danger': $danger-500,
+  'danger-l': $danger-50,
+  'danger-d': $danger-950,
+  'lc': $neutral-50,
+  'mc': $neutral-500,
+  'hc': $neutral-50,
+  'dark': $neutral-950,
+  'light': $neutral-50,
   // gradients
-  'gradient': linear-gradient(30deg, $primary-light, $secondary-light),
-  'gradient-d': linear-gradient(30deg, $primary, $secondary),
+  'gradient': linear-gradient(30deg, $primary-500, $primary-50),
 );

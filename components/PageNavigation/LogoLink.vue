@@ -19,7 +19,7 @@ export default {
 .logo-link {
   @include grid-flow($flow: column, $gap: 0.625rem);
 
-  color: color('dark');
+  color: neutral('950');
 
   width: fit-content;
   height: $icon-wh;
@@ -47,8 +47,8 @@ export default {
 
 .logo-link:hover,
 .logo-link:focus-visible {
-  color: color('accent-l');
-  background-color: color('accent');
-  outline-color: color('accent-d');
+  color: primary('50');
+  background-color: primary('500');
+  outline-color: primary('950');
 }
 </style>

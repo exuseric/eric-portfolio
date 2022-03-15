@@ -8,7 +8,11 @@
       </button>
     </div>
     <div :class="`bottom ${isMenuOpen ? 'show-animate' : 'hide-animate'}`">
-      <Menu />
+      <Menu
+        :aria-expanded="isMenuOpen"
+        :aria-hidden="isMenuOpen"
+        @click="isMenuOpen = !isMenuOpen"
+      />
       <SocialLinks />
     </div>
   </header>
@@ -53,8 +57,6 @@ export default {
 
   width: 100%;
   // height: 100%;
-
-  background-color: color('light');
 
   @include mid-screen {
     grid-column: 2 / -2;
@@ -117,8 +119,8 @@ export default {
   width: $icon-wh;
   height: $icon-wh;
 
-  color: color('mc');
-  background-color: color('light');
+  color: neutral('500');
+  background-color: neutral('50');
 
   border: 2px solid transparent;
 
@@ -129,8 +131,8 @@ export default {
   &:hover,
   &:focus-visible,
   &:focus {
-    color: color('accent-l');
-    background-color: color('accent');
+    color: primary('500');
+    background-color: neutral('50');
   }
 }
 

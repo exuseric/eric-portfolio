@@ -1,6 +1,10 @@
 <template>
   <section class="about page-wrapper">
     <AboutPageHeader />
+    <AboutPageIntro />
+    <AboutPageWork />
+    <AboutPageLikes />
+    <AboutPageOutro />
   </section>
 </template>
 

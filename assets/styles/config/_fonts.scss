@@ -1,15 +1,12 @@
-$heading: 'Alegreya', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+$heading: 'Fraunces', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-$body: 'Andika New Basic', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+$body: 'Commissioner', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-$small-cap: 'Alegreya SC';
 
 $family: (
   'heading': $heading,
   'body': $body,
-  'small cap': $small-cap,
 );
 
 // Typography Scale
@@ -23,3 +20,10 @@ $scale: (
   'h2': 2.488rem /* 39.81px	*/,
   'h1': 3.052rem /* 48.83px	*/,
 );
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.125;
+}

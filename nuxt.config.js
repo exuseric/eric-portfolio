@@ -26,7 +26,7 @@ export default {
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@200;400;700&family=Alegreya:wght@400;600&family=Alegreya+SC&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Commissioner:wght@400;600&display=swap',
       },
     ],
   },

@@ -13,13 +13,8 @@ body {
   font-size: 16px;
   font-family: family('body');
 
-  color: neutral('950');
-}
-
-.navigation,
-.footer,
-body {
-  background-color: neutral('50');
+  color: $primary-950;
+  background-color: $primary-50;
 }
 
 img {
@@ -59,8 +54,8 @@ img {
   width: $icon-wh;
   height: $icon-wh;
 
-  color: neutral('500');
-  background-color: neutral('50');
+  color: $primary-50;
+  background-color: $primary-950;
 
   transition: transform $transition;
 
@@ -137,9 +132,6 @@ a:focus-visible {
 .sec-btn-s {
   @include center;
 
-  font-family: family('body');
-  font-size: scale('h6');
-  font-weight: 700;
   text-decoration: none;
   text-transform: capitalize;
   line-height: 1;
@@ -149,15 +141,10 @@ a:focus-visible {
 }
 
 .primary-btn,
-.sec-btn {
-  width: $box-btn-w;
-  height: $box-btn-h;
-}
-
-.primary-btn,
 .primary-btn-s {
   color: primary('50');
   background-color: primary('500');
+  border: 2px solid transparent;
 
   &:hover {
     color: primary('50');
@@ -180,10 +167,21 @@ a:focus-visible {
   }
 }
 
+.primary-btn,
+.sec-btn {
+  font-family: family('heading');
+  font-size: scale('h5');
+  font-weight: 600;
+
+  padding: 20px 60px;
+  width: fit-content;
+}
+
 .sec-btn-s,
 .primary-btn-s {
-  width: calc($box-btn-w * 0.5);
-  height: calc($box-btn-h * 0.75);
-
+  font-family: family('body');
   font-size: scale('body');
+
+  padding: 10px 20px;
+  width: fit-content;
 }

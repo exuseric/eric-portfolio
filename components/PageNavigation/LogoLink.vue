@@ -17,13 +17,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .logo-link {
-  @include grid-flow($flow: column, $gap: 0.625rem);
+  display: flex;
+  flex-flow: row wrap;
 
   color: neutral('950');
 
   width: fit-content;
-  height: $icon-wh;
-  padding: 0 $pd-s;
+  height: fit-content;
 
   overflow: hidden;
 

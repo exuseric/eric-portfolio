@@ -27,44 +27,43 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
-  @include grid-flow($flow: row, $gap: 1.25rem);
-
-  padding: $pd-m;
-  height: fit-content;
-
-  @include mid-screen {
-    @include grid-flow($flow: column, $gap: 1.25rem);
-    padding: 0 $pd-m;
-  }
-}
-
-li {
-  height: 100%;
-  width: 100%;
   list-style: none;
-}
+  padding: 0;
 
-.link {
-  justify-content: start;
+  li {
+    margin: $pd-s 0;
 
-  font-size: scale('h1');
+    a {
+      display: block;
 
-  width: 100%;
-  height: 5rem;
-  padding: 0 $pd-m;
+      font-size: scale('h2');
+      font-family: family('heading');
+
+      text-align: center;
+      text-transform: capitalize;
+
+      padding: $pd-m $pd-s;
+    }
+  }
 
   @include mid-screen {
-    font-size: scale('h6');
-    justify-content: center;
-    padding: $pd-s;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
 
-    height: $icon-wh;
-    width: calc($icon-wh * 2);
+    li {
+      margin: 0 $pd-s;
+
+      a {
+        font-size: scale('h6');
+        padding: $pd-s;
+      }
+    }
   }
 }
-
 .nuxt-link-exact-active {
   position: relative;
   color: primary('500');
+  font-weight: 600;
 }
 </style>

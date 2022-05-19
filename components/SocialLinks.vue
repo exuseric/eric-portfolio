@@ -25,11 +25,13 @@ export default {
 
 <style lang="scss" scoped>
 .socials {
-  @include grid-flow($flow: column, $gap: 0.625rem);
-  justify-content: inherit;
+  display: flex;
+  flex-flow: row wrap;
+  gap: $pd-s;
 
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
 
   list-style-type: none;
 }

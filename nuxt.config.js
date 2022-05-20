@@ -48,7 +48,7 @@ export default {
   ],
 
   styleResources: {
-    scss: ['~/assets/styles/_config.scss'],
+    scss: ['~/assets/styles/config/_index.scss'],
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

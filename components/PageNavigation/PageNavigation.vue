@@ -93,7 +93,7 @@ export default {
     border: 2px solid hsla(340, 49%, 8%, 0.025);
 
     @include mid-screen {
-      grid-column: 8 / -1;
+      grid-column: 4 / -1;
 
       padding-bottom: 0;
 
@@ -120,18 +120,18 @@ export default {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     padding: 0 $pd-m;
   }
-}
 
-.bottom__social {
-  padding: $pd-l 0;
-  justify-content: center;
+  &__social {
+    padding: $pd-l 0;
+    justify-content: center;
 
-  @include mid-screen {
-    padding: 0;
-    justify-content: end;
+    @include mid-screen {
+      padding: 0 0 0 $pd-m;
+      justify-content: end;
+    }
   }
 }
 

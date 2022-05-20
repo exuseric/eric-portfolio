@@ -68,7 +68,7 @@ export default {
   .top {
     grid-column: 1 / -1;
 
-    @include mid-screen {
+    @include screen('large') {
       grid-column: 1 / 3;
     }
   }
@@ -76,7 +76,7 @@ export default {
   .bottom {
     grid-column: 1 / -1;
 
-    @include mid-screen {
+    @include screen('large') {
       grid-column: 4 / -1;
     }
   }
@@ -111,7 +111,7 @@ export default {
     21.3px 21.3px 37px -25px hsla(340, 49%, 8%, 0.03),
     40px 40px 63px -25px hsla(340, 49%, 8%, 0.07);
 
-  @include mid-screen {
+  @include screen('large') {
     position: relative;
     top: 0;
 
@@ -131,7 +131,7 @@ export default {
   padding: $pd-l 0;
   margin: auto;
 
-  @include mid-screen {
+  @include screen('large') {
     padding: 0 0 0 $pd-m;
     margin: 0 0;
   }
@@ -146,7 +146,7 @@ export default {
 
   border: 2px solid transparent;
 
-  @include mid-screen {
+  @include screen('large') {
     visibility: hidden;
   }
 
@@ -166,7 +166,7 @@ export default {
 .nav-open {
   height: fit-content;
 
-  @include mid-screen {
+  @include screen('large') {
     height: $nav-height;
   }
 }

@@ -42,7 +42,7 @@ export default {
   height: auto;
   z-index: -1;
 
-  @include mid-screen {
+  @include screen('large') {
     @include grid-flow($flow: column, $gap: 1.25rem);
     padding: 0 $pd-l;
   }
@@ -70,7 +70,7 @@ export default {
     object-fit: cover;
   }
 
-  @include mid-screen {
+  @include screen('large') {
     grid-column: -4 / -1;
     grid-row: 2 / -2;
 
@@ -87,7 +87,7 @@ export default {
 
   padding: $pd-s;
 
-  @include mid-screen {
+  @include screen('large') {
     grid-column: 1 / -5;
     padding: 0 $pd-l;
   }

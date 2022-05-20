@@ -58,11 +58,7 @@ export default {
   min-height: $nav-height;
   height: fit-content;
 
-  background-color: transparent;
-
-  @include mid-screen {
-    background-color: $primary-50;
-  }
+  background-color: $primary-50;
 }
 
 .nav__child {
@@ -71,7 +67,6 @@ export default {
 
   .top {
     grid-column: 1 / -1;
-    padding: $pd-m 0;
 
     @include mid-screen {
       grid-column: 1 / 3;
@@ -80,29 +75,9 @@ export default {
 
   .bottom {
     grid-column: 1 / -1;
-    padding-bottom: $pd-m;
-    background-color: $primary-50;
-
-    box-shadow: 0.3px 0.3px 1.3px -25px hsla(340, 49%, 8%, 0.013),
-      2.2px 2.2px 4.3px -25px hsla(340, 49%, 8%, 0.022),
-      5.7px 5.7px 10.3px -25px hsla(340, 49%, 8%, 0.025),
-      11.6px 11.6px 20.4px -25px hsla(340, 49%, 8%, 0.026),
-      21.3px 21.3px 37px -25px hsla(340, 49%, 8%, 0.03),
-      40px 40px 63px -25px hsla(340, 49%, 8%, 0.07);
-
-    border: 2px solid hsla(340, 49%, 8%, 0.025);
 
     @include mid-screen {
       grid-column: 4 / -1;
-
-      padding-bottom: 0;
-
-      box-shadow: none;
-
-      border-radius: none;
-      border: none;
-
-      height: 100%;
     }
   }
 }
@@ -114,24 +89,51 @@ export default {
   justify-content: space-between;
 
   width: 100%;
+  padding: $pd-m 0;
 }
 .bottom {
+  position: absolute;
+  top: $nav-height;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: fit-content;
+
+  padding: 0 0 $pd-m 0;
+  background-color: $primary-50;
+
+  box-shadow: 0.3px 0.3px 1.3px -25px hsla(340, 49%, 8%, 0.013),
+    2.2px 2.2px 4.3px -25px hsla(340, 49%, 8%, 0.022),
+    5.7px 5.7px 10.3px -25px hsla(340, 49%, 8%, 0.025),
+    11.6px 11.6px 20.4px -25px hsla(340, 49%, 8%, 0.026),
+    21.3px 21.3px 37px -25px hsla(340, 49%, 8%, 0.03),
+    40px 40px 63px -25px hsla(340, 49%, 8%, 0.07);
+
   @include mid-screen {
+    position: relative;
+    top: 0;
+
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: end;
     padding: 0 $pd-m;
+
+    box-shadow: none;
+
+    height: 100%;
   }
+}
 
-  &__social {
-    padding: $pd-l 0;
-    justify-content: center;
+.bottom__social {
+  padding: $pd-l 0;
+  margin: auto;
 
-    @include mid-screen {
-      padding: 0 0 0 $pd-m;
-      justify-content: end;
-    }
+  @include mid-screen {
+    padding: 0 0 0 $pd-m;
+    margin: 0 0;
   }
 }
 
@@ -178,7 +180,7 @@ export default {
 
 @keyframes hide-el {
   to {
-    transform: translateY(-250%);
+    transform: translateY(-650%);
   }
 }
 

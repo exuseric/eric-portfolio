@@ -32,6 +32,7 @@ export default {
 
   li {
     margin: $pd-s 0;
+    padding: 0 $pd-m;
 
     a {
       display: block;
@@ -39,7 +40,7 @@ export default {
       font-size: scale('h2');
       font-family: family('heading');
 
-      text-align: center;
+      text-align: left;
       text-transform: capitalize;
 
       padding: $pd-m $pd-s;

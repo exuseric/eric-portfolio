@@ -17,7 +17,7 @@
       <div class="image">
         <img
           src="~/assets/img/illustration/creative-team.svg"
-          alt="an illustration of people having a party"
+          alt="an illustration of people working together to fit puzzle pieces"
         />
       </div>
     </section>
@@ -35,41 +35,35 @@ export default {
   position: relative;
   z-index: 1;
 
-  min-height: 50rem;
+  min-height: 40rem;
   height: fit-content;
 
   background: $primary-50;
   overflow-x: hidden;
 
-  @include mid-screen {
+  @include screen('large') {
     @include center;
     min-height: 40rem;
   }
 
-  &__content {
-    height: fit-content;
+  @include screen('x-large') {
+    @include center;
+    min-height: 50rem;
+  }
+}
 
-    @include mid-screen {
-      @include content-grid;
-      .title {
-        grid-column: 1/ 8;
-        grid-row: 1 / -1;
-      }
-      .image {
-        grid-column: 8 / -1;
-        grid-row: 1 / -1;
-      }
+.hero__content {
+  height: fit-content;
+
+  @include screen('large') {
+    @include content-grid;
+    .title {
+      grid-column: 1/ 8;
+      grid-row: 1 / -1;
     }
-    @include large-screen {
-      @include content-grid;
-      .title {
-        grid-column: 1 / 8;
-        grid-row: 1 / -1;
-      }
-      .image {
-        grid-column: 8 / -1;
-        grid-row: 1 / -1;
-      }
+    .image {
+      grid-column: 8 / -1;
+      grid-row: 1 / -1;
     }
   }
 }
@@ -90,12 +84,7 @@ export default {
     grid-column: 1 / -1;
   }
 
-  @include mid-screen {
-    max-width: 100%;
-    display: block;
-  }
-
-  @include large-screen {
+  @include screen('large') {
     max-width: 100%;
     display: block;
   }
@@ -116,16 +105,14 @@ export default {
 
 .title__contact {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: flex-start;
   align-items: center;
   gap: 1.25rem;
 
   width: 100%;
 
-  @include mid-screen {
-    flex-flow: row wrap;
-    width: fit-content;
+  @include screen('large') {
     padding: $pd-l 0;
   }
 }
@@ -149,8 +136,9 @@ export default {
     height: 100%;
   }
 
-  @include mid-screen {
+  @include screen('large') {
     position: relative;
+    margin-top: 0;
   }
 }
 </style>

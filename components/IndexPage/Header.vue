@@ -1,22 +1,26 @@
 <template>
   <header class="hero">
-    <div class="heading">
-      <h1 class="desc">
-        <p class="mid">Eric Maina.</p>
-        <p class="large">
-          I build resilient and inclusive user interfaces for the web.
-        </p>
-      </h1>
-    </div>
-    <div class="contact">
-      <nuxt-link to="/contact" class="contact__btn primary-btn">
-        Let's Work Together
-      </nuxt-link>
+    <section class="hero__content">
+      <article class="title">
+        <div class="title__heading">
+          <h1 class="name">I'm Eric. Front-end Developer;</h1>
+          <h2 class="work">I build resilient and inclusive user interfaces.</h2>
+        </div>
+        <div class="title__contact">
+          <nuxt-link to="/contact" class="contact__btn primary-btn">
+            Let's Work Together
+          </nuxt-link>
 
-      <a href="mailto:ericmaina.gathoni@gmail.com" class="contact__email">
-        ericmaina.gathoni@gmail.com
-      </a>
-    </div>
+          <nuxt-link to="/page" class="sec-btn"> View Work </nuxt-link>
+        </div>
+      </article>
+      <div class="image">
+        <img
+          src="~/assets/img/illustration/creative-team.svg"
+          alt="an illustration of people having a party"
+        />
+      </div>
+    </section>
   </header>
 </template>
 
@@ -28,70 +32,125 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
-  @include center;
-  height: 40rem;
-}
+  position: relative;
+  z-index: 1;
 
-.heading {
-  height: 100%;
-  width: 100%;
-  padding: $pd-m;
+  min-height: 50rem;
+  height: fit-content;
 
-  h1 {
-    .mid {
-      font-size: scale('h4');
-    }
-
-    .large {
-      font-family: family('small cap');
-      font-size: scale('h1');
-      color: primary('500');
-      padding: $pd-s 0;
-
-      line-height: 1.125;
-    }
-  }
-}
-
-.contact {
-  @include grid-column(
-    $col-count: auto-fit,
-    $col-width: minmax(12.5rem, 1fr),
-    $gap: $pd-m
-  );
-  height: auto;
-  width: 25rem;
-
-  padding: $pd-m;
+  background: $primary-50;
+  overflow-x: hidden;
 
   @include mid-screen {
-    width: 40rem;
+    @include center;
+    min-height: 40rem;
+  }
+
+  &__content {
+    height: fit-content;
+
+    @include mid-screen {
+      @include content-grid;
+      .title {
+        grid-column: 1/ 8;
+        grid-row: 1 / -1;
+      }
+      .image {
+        grid-column: 8 / -1;
+        grid-row: 1 / -1;
+      }
+    }
+    @include large-screen {
+      @include content-grid;
+      .title {
+        grid-column: 1 / 8;
+        grid-row: 1 / -1;
+      }
+      .image {
+        grid-column: 8 / -1;
+        grid-row: 1 / -1;
+      }
+    }
   }
 }
 
-.contact__btn {
-  // justify-self: center;
-  color: neutral('50');
-  background-color: neutral('950');
+.title {
+  @include content-grid;
+  row-gap: 2.25rem;
+
+  padding: $pd-l 0;
+
+  &__heading {
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: center;
+  }
+
+  &__contact {
+    grid-column: 1 / -1;
+  }
+
+  @include mid-screen {
+    max-width: 100%;
+    display: block;
+  }
+
+  @include large-screen {
+    max-width: 100%;
+    display: block;
+  }
 }
 
-.contact__email {
-  @include center;
+.name {
+  font-weight: 400;
+  font-size: scale('h5');
+  color: $primary-500;
+
+  padding: $pd-s 0;
+}
+.work {
+  font-family: family('heading');
+  font-size: scale('h1');
+  color: $primary-950;
+}
+
+.title__contact {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+
+  width: 100%;
+
+  @include mid-screen {
+    flex-flow: row wrap;
+    width: fit-content;
+    padding: $pd-l 0;
+  }
+}
+
+.image {
   position: relative;
+  // top: 10rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 
-  width: $box-btn-w;
-  height: $box-btn-h;
+  width: auto;
+  height: 100%;
+  max-height: 40rem;
 
-  color: neutral('950');
-  text-decoration: none;
+  margin-top: -10rem;
 
-  transition: all $transition;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 
-  border: 2px solid currentColor;
-}
-
-.contact__email:hover {
-  color: neutral('50');
-  background-color: neutral('950');
+  @include mid-screen {
+    position: relative;
+  }
 }
 </style>

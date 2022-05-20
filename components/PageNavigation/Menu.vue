@@ -38,7 +38,7 @@ export default {
       display: block;
 
       font-size: scale('h2');
-      font-family: family('heading');
+      font-family: family('body');
 
       text-align: left;
       text-transform: capitalize;
@@ -53,10 +53,11 @@ export default {
     justify-content: start;
 
     li {
-      margin: 0 $pd-s;
+      margin: 0;
+      padding: 0 $pd-s;
 
       a {
-        font-size: scale('h6');
+        font-size: scale('body');
         padding: $pd-s;
       }
     }

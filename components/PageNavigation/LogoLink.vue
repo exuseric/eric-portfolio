@@ -19,6 +19,8 @@ export default {
 .logo-link {
   display: flex;
   flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
 
   color: neutral('950');
 
@@ -31,7 +33,7 @@ export default {
   text-decoration: none;
 
   .txt {
-    font-size: scale('h6');
+    font-size: scale('body');
 
     align-self: center;
   }

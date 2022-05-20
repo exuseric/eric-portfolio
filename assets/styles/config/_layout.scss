@@ -1,46 +1,44 @@
 @use 'media' as *;
-
-.container {
-  width: auto;
-  max-width: 1500px;
-}
-
-.container-grid {
-  max-width: 400px;
-
-  display: grid;
-  grid-template-columns: repeat(6, 60px);
-  grid-auto-rows: 100px;
-  column-gap: 8px;
-}
+@use 'functions' as f;
 
 @mixin content-grid {
-  max-width: 350px;
+  max-width: f.rem(350);
   margin: auto;
 
   display: grid;
   grid-auto-rows: auto;
   grid-auto-flow: dense;
-  grid-template-columns: repeat(6, 55px);
-  gap: 4px;
+  grid-template-columns: repeat(6, f.rem(55));
+  gap: f.rem(4);
 
-  @include mid-screen {
-    max-width: 1160px;
+  @include screen('medium') {
+    max-width: f.rem(700);
+    margin: auto;
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, 89px);
-    gap: 12px;
+    grid-template-columns: repeat(6, f.rem(115));
+    gap: f.rem(2);
   }
 
-  @include large-screen {
-    max-width: 1800px;
+  @include screen('large') {
+    max-width: f.rem(1160);
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, 139px);
-    gap: 12px;
+    grid-template-columns: repeat(12, f.rem(89));
+    gap: f.rem(12);
+  }
+
+  @include screen('x-large') {
+    max-width: f.rem(1800);
+
+    display: grid;
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(12, f.rem(139));
+    gap: f.rem(12);
   }
 }

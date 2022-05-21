@@ -118,7 +118,7 @@ export default {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     padding: 0 $pd-m;
 
     box-shadow: none;

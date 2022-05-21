@@ -50,7 +50,7 @@ export default {
   @include screen('large') {
     display: flex;
     flex-flow: row wrap;
-    justify-content: start;
+    justify-content: flex-start;
 
     li {
       margin: 0;

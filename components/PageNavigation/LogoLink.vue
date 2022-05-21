@@ -19,8 +19,8 @@ export default {
 .logo-link {
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: flex-flex-end;
+  justify-content: flex-flex-end;
 
   color: neutral('950');
 

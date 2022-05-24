@@ -45,6 +45,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/style-resources',
     '@nuxtjs/eslint-module',
+    '@nuxt/image',
   ],
 
   styleResources: {

@@ -2,21 +2,21 @@
 
 mark {
   font-family: family('small cap');
-  color: primary('50');
-  background-color: primary('500');
+  color: $primary-50;
+  background-color: $primary-500;
 }
 
 ::selection {
-  color: neutral('50');
-  background-color: primary('950');
+  color: $neutral-50;
+  background-color: $primary-900;
 }
 
 body {
   font-size: 16px;
   font-family: family('body');
 
-  color: $primary-950;
-  background-color: $primary-50;
+  color: $neutral-900;
+  background-color: $neutral-50;
 }
 
 img {
@@ -36,7 +36,7 @@ img {
     width: 100%;
     height: 100%;
 
-    background-image: primary('50');
+    background-image: $primary-50;
     background-size: cover;
   }
 }
@@ -53,18 +53,18 @@ img {
 
 .icon-link {
   @include center;
-  width: $icon-wh;
-  height: $icon-wh;
+  width: $icon-btn;
+  height: $icon-btn;
 
   color: $primary-50;
-  background-color: $primary-950;
+  background-color: $primary-900;
 
   transition: transform $transition;
 
   &:focus-visible,
   &:hover {
-    color: primary('50');
-    background-color: primary('500');
+    color: $primary-50;
+    background-color: $primary-500;
     transform: translateY(-0.4rem);
   }
 }
@@ -85,7 +85,7 @@ img {
   position: relative;
   @include center;
 
-  color: neutral('950');
+  color: $neutral-900;
   font-size: scale('body');
 
   text-decoration: none;
@@ -113,8 +113,8 @@ img {
 }
 
 .link:hover {
-  color: primary('500');
-  // background-color: primary('950');
+  color: $primary-500;
+  // background-color: $primary-900;
 
   &::before {
     width: 75%;
@@ -123,7 +123,7 @@ img {
 .link:focus-visible,
 .primary-btn:focus-visible,
 a:focus-visible {
-  color: neutral('50');
-  background-color: primary('500');
-  outline-color: primary('950');
+  color: $neutral-50;
+  background-color: $primary-500;
+  outline-color: $primary-900;
 }

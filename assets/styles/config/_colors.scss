@@ -1,109 +1,29 @@
 /* Primary */
-$primary-950: hsl(340, 69%, 5%);
+$primary-900: hsl(340, 69%, 5%);
 $primary-500: hsl(340, 69%, 48%);
-$primary-50: hsl(340, 20%, 98%);
+$primary-50: hsl(340, 50%, 90%);
 
 /* Neutral */
-$neutral-950: hsl(340, 5%, 5%);
-$neutral-500: hsl(340, 4%, 25%);
-$neutral-50: hsl(340, 15%, 95%);
+$neutral-900: hsl(340, 5%, 5%);
+$neutral-500: hsl(340, 5%, 25%);
+$neutral-50: hsl(340, 45%, 98%);
 
 /* Success */
-$success-950: hsl(94, 24%, 6%);
+$success-900: hsl(94, 24%, 6%);
 $success-500: #7dae69;
 $success-50: #e4f6db;
 
 /* Caution */
-$caution-950: #170f06;
+$caution-900: #170f06;
 $caution-500: #ea9928;
 $caution-50: #fbefe3;
 
 /* Danger */
-$danger-950: #22080f;
+$danger-900: #22080f;
 $danger-500: #e34b7b;
 $danger-50: #f9eef0;
 
 /* Info */
-$info-950: hsl(180, 69%, 6%);
+$info-900: hsl(180, 69%, 6%);
 $info-500: hsl(180, 75%, 36%);
 $info-50: hsl(180, 69%, 95%);
-
-$primary: (
-  '50': $primary-50,
-  '500': $primary-500,
-  '950': $primary-950,
-);
-
-$neutral: (
-  '50': $neutral-50,
-  '500': $neutral-500,
-  '950': $neutral-950,
-);
-
-$info: (
-  '50': $info-50,
-  '500': $info-500,
-  '950': $info-950,
-);
-
-$success: (
-  '50': $success-50,
-  '500': $success-500,
-  '950': $success-950,
-);
-
-$caution: (
-  '50': $caution-50,
-  '500': $caution-500,
-  '950': $caution-950,
-);
-
-$danger: (
-  '50': $danger-50,
-  '500': $danger-500,
-  '950': $danger-950,
-);
-
-// $primary: hsl(345, 45%, 45%);
-// $primary-dark: hsl(345, 45%, 25%);
-// $primary-light: hsl(345, 45%, 95%);
-
-// $secondary: hsl(165, 45%, 64%);
-// $secondary-dark: hsl(165, 45%, 31%);
-// $secondary-light: hsl(165, 45%, 95%);
-
-// $black: hsl(345, 45%, 10%);
-// $white: hsl(345, 45%, 98%);
-// $gray: hsl(345, 8%, 85%);
-// $dark-gray: hsl(345, 3%, 20%);
-
-// $blue: #367fbf;
-// $success: #aaff19;
-// $error: #e8120c;
-// $warning: #ffe919;
-
-// Dark Theme
-$theme: (
-  'accent': $primary-500,
-  'accent-l': $primary-50,
-  'accent-d': $primary-950,
-  'info': $info-500,
-  'info-l': $info-50,
-  'info-d': $info-950,
-  'success': $success-500,
-  'success-l': $success-50,
-  'success-d': $success-950,
-  'caution': $caution-500,
-  'caution-l': $caution-50,
-  'caution-d': $caution-950,
-  'danger': $danger-500,
-  'danger-l': $danger-50,
-  'danger-d': $danger-950,
-  'lc': $neutral-50,
-  'mc': $neutral-500,
-  'hc': $neutral-50,
-  'dark': $neutral-950,
-  'light': $neutral-50,
-  // gradients
-  'gradient': linear-gradient(30deg, $primary-500, $primary-50),
-);

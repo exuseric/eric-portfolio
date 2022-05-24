@@ -1,7 +1,7 @@
 <template>
-  <nuxt-link to="/" class="logo-link">
+  <nuxt-link to="/" class="logo-link link">
     <img
-      src="~/assets/img/logo/dark.png"
+      src="~/assets/img/logo/primary.png"
       alt="A block abstract of the letter E"
       title="logo"
       width="3375"
@@ -19,13 +19,16 @@ export default {
 .logo-link {
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-flex-end;
-  justify-content: flex-flex-end;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $spacing-md;
 
-  color: neutral('950');
+  color: $neutral-500;
 
   width: fit-content;
   height: fit-content;
+
+  padding: $spacing-sm;
 
   overflow: hidden;
 
@@ -33,24 +36,22 @@ export default {
   text-decoration: none;
 
   .txt {
-    font-size: scale('body');
-
-    align-self: center;
+    font-size: $body;
   }
 }
 
 .logo-link img {
-  width: $icon-wh;
-  height: calc($icon-wh / 1.5);
+  width: $icon-btn * 0.65;
+  height: $icon-btn * 0.65;
 
   object-fit: contain;
   object-position: center;
 }
 
-.logo-link:hover,
-.logo-link:focus-visible {
-  color: primary('50');
-  background-color: primary('500');
-  outline-color: primary('950');
-}
+// .logo-link:hover,
+// .logo-link:focus-visible {
+//   color: $neutral-50;
+//   background-color: $neutral-900;
+//   outline-color: $primary-900;
+// }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <header :class="`nav ${isMenuOpen ? 'nav-open' : 'nav-closed'}`">
-    <div class="nav__child">
+    <div class="nav__child wrapper">
       <div class="top">
         <LogoLink />
         <button class="toggle-btn" @click="isMenuOpen = !isMenuOpen">
@@ -20,7 +20,6 @@
     </div>
   </header>
 </template>
-position: sticky; top: 0; z-index: 99;
 <script>
 import LogoLink from '~/components/PageNavigation/LogoLink.vue'
 import Menu from '~/components/PageNavigation/Menu.vue'
@@ -38,7 +37,7 @@ export default {
   },
   methods: {
     checkMedia() {
-      const isMidScreen = window.matchMedia('(min-width: 1280px)').matches
+      const isMidScreen = window.matchMedia('(min-width: 1024px)').matches
       const isLargeScreen = window.matchMedia('(min-width: 1920px)').matches
 
       if (isLargeScreen || isMidScreen) {
@@ -55,30 +54,17 @@ export default {
   top: 0;
   z-index: 99;
 
+  width: 100%;
   min-height: $nav-height;
   height: fit-content;
+  padding: $spacing-md;
 
-  background-color: $primary-50;
+  background-color: $neutral-50;
 }
 
 .nav__child {
-  @include content-grid;
-  height: fit-content;
-
-  .top {
-    grid-column: 1 / -1;
-
-    @include screen('large') {
-      grid-column: 1 / 3;
-    }
-  }
-
-  .bottom {
-    grid-column: 1 / -1;
-
-    @include screen('large') {
-      grid-column: 4 / -1;
-    }
+  @include screen(large) {
+    @include grid-flow-col;
   }
 }
 
@@ -89,8 +75,9 @@ export default {
   justify-content: space-between;
 
   width: 100%;
-  padding: $pd-m 0;
+  // padding: $spacing-md 0;
 }
+
 .bottom {
   position: absolute;
   top: $nav-height;
@@ -101,8 +88,8 @@ export default {
   width: 100%;
   height: fit-content;
 
-  padding: 0 0 $pd-m 0;
-  background-color: $primary-50;
+  padding: 0 0 $spacing-md 0;
+  background-color: $neutral-50;
 
   box-shadow: 0.3px 0.3px 1.3px -25px hsla(340, 49%, 8%, 0.013),
     2.2px 2.2px 4.3px -25px hsla(340, 49%, 8%, 0.022),
@@ -111,50 +98,57 @@ export default {
     21.3px 21.3px 37px -25px hsla(340, 49%, 8%, 0.03),
     40px 40px 63px -25px hsla(340, 49%, 8%, 0.07);
 
-  @include screen('large') {
+  @include screen(large) {
     position: relative;
     top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    width: fit-content;
+    height: 100%;
+
+    justify-self: end;
 
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 $pd-m;
+    padding: 0;
 
     box-shadow: none;
-
-    height: 100%;
+    background-color: transparent;
   }
 }
 
 .bottom__social {
-  padding: $pd-l 0;
+  padding: $spacing-lg 0;
   margin: auto;
 
-  @include screen('large') {
-    padding: 0 0 0 $pd-m;
+  @include screen(large) {
+    padding: 0 0 0 $spacing-md;
     margin: 0 0;
   }
 }
 
 .toggle-btn {
-  width: $icon-wh;
-  height: $icon-wh;
+  width: $icon-btn;
+  height: $icon-btn;
 
-  color: $primary-50;
-  background-color: $primary-950;
+  color: $neutral-50;
+  background-color: $neutral-900;
 
   border: 2px solid transparent;
 
-  @include screen('large') {
+  @include screen(large) {
     visibility: hidden;
   }
 
   &:hover,
   &:focus-visible,
   &:focus {
-    color: $primary-950;
-    background-color: $primary-50;
+    color: $neutral-900;
+    background-color: $neutral-50;
     border-color: currentColor;
   }
 }
@@ -166,7 +160,7 @@ export default {
 .nav-open {
   height: fit-content;
 
-  @include screen('large') {
+  @include screen(large) {
     height: $nav-height;
   }
 }

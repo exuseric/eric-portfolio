@@ -4,13 +4,13 @@
 $breakpoints: (
   'medium': em(700),
   'large': em(900),
-  'x-large': em(1440),
+  'xx-large': em(1024),
 );
 
 $breakpoints-up: (
   'medium': em(79.98),
   'large': em(899.98),
-  'x-large': em(1399.98),
+  'xx-large': em(1399.98),
 );
 
 @mixin screen($size) {

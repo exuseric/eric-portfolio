@@ -15,10 +15,9 @@ export default {
     return {
       links: [
         { name: 'home', ref: '/' },
-        { name: 'work', ref: '/work' },
+        { name: 'services', ref: '/work' },
         { name: 'about', ref: '/about' },
         { name: 'contact', ref: '/contact' },
-        { name: 'blog', ref: '/blog' },
       ],
     }
   },
@@ -31,41 +30,44 @@ export default {
   padding: 0;
 
   li {
-    margin: $pd-s 0;
-    padding: 0 $pd-m;
+    margin: $spacing-sm 0;
+    padding: 0 $spacing-md;
 
     a {
       display: block;
 
       font-size: scale('h2');
-      font-family: family('body');
+      font-family: $body;
+      font-weight: 100;
 
       text-align: left;
       text-transform: capitalize;
 
-      padding: $pd-m $pd-s;
+      padding: $spacing-md $spacing-sm;
     }
   }
 
-  @include screen('large') {
+  @include screen(large) {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
 
     li {
       margin: 0;
-      padding: 0 $pd-s;
+      padding: 0 $spacing-sm;
 
       a {
         font-size: scale('body');
-        padding: $pd-s;
+        font-weight: 400;
+        padding: $spacing-sm;
       }
     }
   }
 }
+
 .nuxt-link-exact-active {
   position: relative;
-  color: primary('500');
+  color: $primary-500;
   font-weight: 600;
 }
 </style>

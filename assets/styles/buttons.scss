@@ -1,4 +1,5 @@
 @use 'config/colors' as *;
+@use 'config/measurements' as m;
 
 .primary-btn,
 .sec-btn,
@@ -29,15 +30,15 @@
 
 .sec-btn-s,
 .sec-btn {
-  color: $primary-500;
+  color: $primary-900;
   background-color: $neutral-50;
-  border: 2px solid currentColor;
+  border: 2px dotted currentColor;
 
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   overflow: hidden;
 
   &:hover {
-    color: $primary-900;
+    color: $primary-500;
   }
 }
 
@@ -49,6 +50,8 @@
 
   padding: 15px 60px;
   width: fit-content;
+
+  border-radius: 0.95rem;
 }
 
 .sec-btn-s,
@@ -58,4 +61,25 @@
 
   padding: 10px 20px;
   width: fit-content;
+}
+
+.icon-btn {
+  display: grid;
+  place-content: center;
+
+  width: m.$icon-btn;
+  height: m.$icon-btn;
+
+  color: $neutral-500;
+  background-color: $primary-50;
+
+  transition: all m.$transition;
+
+  border-radius: 0.5rem;
+
+  &:focus-visible,
+  &:hover {
+    color: $neutral-50;
+    background-color: $primary-500;
+  }
 }

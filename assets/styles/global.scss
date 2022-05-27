@@ -51,24 +51,6 @@ img {
   padding: $section-padding 0;
 }
 
-.icon-link {
-  @include center;
-  width: $icon-btn;
-  height: $icon-btn;
-
-  color: $primary-50;
-  background-color: $primary-900;
-
-  transition: transform $transition;
-
-  &:focus-visible,
-  &:hover {
-    color: $primary-50;
-    background-color: $primary-500;
-    transform: translateY(-0.4rem);
-  }
-}
-
 .sr-only {
   position: absolute;
   width: 1px;

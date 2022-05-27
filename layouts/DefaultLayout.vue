@@ -6,6 +6,8 @@
       <Nuxt />
     </div>
 
-    <PageFooter />
+    <!-- <PageFooter /> -->
   </div>
 </template>
+
+<style lang="scss" scoped></style>

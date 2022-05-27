@@ -32,19 +32,6 @@ export default {
       isMenuOpen: false,
     }
   },
-  mounted() {
-    this.checkMedia()
-  },
-  methods: {
-    checkMedia() {
-      const isMidScreen = window.matchMedia('(min-width: 1024px)').matches
-      const isLargeScreen = window.matchMedia('(min-width: 1920px)').matches
-
-      if (isLargeScreen || isMidScreen) {
-        this.isMenuOpen = true
-      }
-    },
-  },
 }
 </script>
 
@@ -55,15 +42,21 @@ export default {
   z-index: 99;
 
   width: 100%;
-  min-height: $nav-height;
-  height: fit-content;
-  padding: $spacing-md;
+  height: $nav-height;
+  padding: 0 $spacing-md;
 
   background-color: $neutral-50;
 }
 
 .nav__child {
-  @include screen(large) {
+  height: inherit;
+  @include flex-wrap-row;
+
+  .top {
+    align-self: center;
+  }
+
+  @include screen(medium) {
     @include grid-flow-col;
   }
 }
@@ -98,15 +91,13 @@ export default {
     21.3px 21.3px 37px -25px hsla(340, 49%, 8%, 0.03),
     40px 40px 63px -25px hsla(340, 49%, 8%, 0.07);
 
-  @include screen(large) {
+  @include screen(medium) {
     position: relative;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0 0 auto;
 
     width: fit-content;
-    height: 100%;
+    // height: 100%;
+    height: $nav-height;
 
     justify-self: end;
 
@@ -125,7 +116,7 @@ export default {
   padding: $spacing-lg 0;
   margin: auto;
 
-  @include screen(large) {
+  @include screen(medium) {
     padding: 0 0 0 $spacing-md;
     margin: 0 0;
   }
@@ -140,7 +131,7 @@ export default {
 
   border: 2px solid transparent;
 
-  @include screen(large) {
+  @include screen(medium) {
     visibility: hidden;
   }
 
@@ -156,17 +147,25 @@ export default {
 .nav-closed {
   height: $nav-height;
   transition: height $transition 0.5s;
+
+  @include screen(medium) {
+    height: fit-content;
+  }
 }
 .nav-open {
   height: fit-content;
 
-  @include screen(large) {
+  @include screen(medium) {
     height: $nav-height;
   }
 }
 
 .hide-animate {
   animation: hide-el $transition forwards;
+
+  @include screen(medium) {
+    animation: show-el $transition forwards;
+  }
 }
 .show-animate {
   animation: show-el $transition forwards;

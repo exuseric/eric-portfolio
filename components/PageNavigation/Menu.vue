@@ -47,7 +47,7 @@ export default {
     }
   }
 
-  @include screen(large) {
+  @include screen(medium) {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;

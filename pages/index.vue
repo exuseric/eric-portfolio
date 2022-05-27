@@ -1,6 +1,7 @@
 <template>
   <section class="home page-wrapper">
     <IndexPageHeader />
+    <IndexPageIntro />
   </section>
 </template>
 

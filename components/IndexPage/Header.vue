@@ -1,26 +1,14 @@
 <template>
-  <header class="hero">
-    <section class="hero__content">
-      <article class="title">
-        <div class="title__heading">
-          <h1 class="name">I'm Eric. Front-end Developer;</h1>
-          <h2 class="work">I build resilient and inclusive user interfaces.</h2>
-        </div>
-        <div class="title__contact">
-          <nuxt-link to="/contact" class="contact__btn primary-btn">
-            Let's Work Together
-          </nuxt-link>
+  <header>
+    <div class="wrapper">
+      <h1>Eric Maina &mdash; Front-end Developer</h1>
+      <h2>I build resilient and inclusive user interfaces for the web</h2>
 
-          <nuxt-link to="/page" class="sec-btn"> View Work </nuxt-link>
-        </div>
-      </article>
-      <div class="image">
-        <img
-          src="~/assets/img/illustration/creative-team.svg"
-          alt="an illustration of people working together to fit puzzle pieces"
-        />
+      <div class="action-btns">
+        <button class="primary-btn work-btn">Let's Work Together</button>
+        <button class="sec-btn view-btn">Browse My Work</button>
       </div>
-    </section>
+    </div>
   </header>
 </template>
 
@@ -31,114 +19,55 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero {
-  position: relative;
-  z-index: 1;
+header {
+  @include center;
 
-  min-height: 40rem;
-  height: fit-content;
+  height: 50rem;
+  text-align: left;
+  padding: 0 $spacing-sm;
 
-  background: $primary-50;
-  overflow-x: hidden;
-
-  @include screen('large') {
-    @include center;
-    min-height: 40rem;
+  @include screen(medium) {
+    height: 40rem;
+    text-align: center;
   }
 
-  @include screen('x-large') {
-    @include center;
-    min-height: 50rem;
+  @include screen(large) {
+    height: 60rem;
   }
 }
 
-.hero__content {
-  height: fit-content;
-
-  @include screen('large') {
-    @include content-grid;
-    .title {
-      grid-column: 1/ 8;
-      grid-row: 1 / -1;
-    }
-    .image {
-      grid-column: 8 / -1;
-      grid-row: 1 / -1;
-    }
-  }
-}
-
-.title {
-  @include content-grid;
-  row-gap: 2.25rem;
-
-  padding: $pd-l 0;
-
-  &__heading {
-    grid-column: 1 / -1;
-    justify-self: center;
-    align-self: center;
-  }
-
-  &__contact {
-    grid-column: 1 / -1;
-  }
-
-  @include screen('large') {
-    max-width: 100%;
-    display: block;
-  }
-}
-
-.name {
-  font-weight: 400;
+h1 {
   font-size: scale('h5');
+  font-weight: 400;
+}
+h2 {
+  font-size: scale('h2');
+  font-family: $heading;
   color: $primary-500;
 
-  padding: $pd-s 0;
-}
-.work {
-  font-family: family('heading');
-  font-size: scale('h1');
-  color: $primary-950;
+  @include screen(medium) {
+    font-size: scale('h1');
+  }
 }
 
-.title__contact {
-  display: flex;
-  flex-flow: row wrap;
+.wrapper {
+  @include center;
+  gap: $spacing-md;
+
+  @include screen(large) {
+    padding: $spacing-md;
+  }
+}
+
+.action-btns {
+  @include flex-wrap-row;
   justify-content: flex-start;
-  align-items: center;
-  gap: 1.25rem;
+  gap: $spacing-md;
 
-  width: 100%;
+  padding: $spacing-md 0;
 
-  @include screen('large') {
-    padding: $pd-l 0;
-  }
-}
-
-.image {
-  position: relative;
-  // top: 10rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-
-  width: auto;
-  height: 100%;
-  max-height: 40rem;
-
-  margin-top: -10rem;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-  @include screen('large') {
-    position: relative;
-    margin-top: 0;
+  @include screen(medium) {
+    justify-content: center;
   }
 }
 </style>

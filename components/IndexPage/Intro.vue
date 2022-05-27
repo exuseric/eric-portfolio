@@ -1,29 +1,32 @@
 <template>
-  <section class="intro content">
-    <article class="skill">
-      <header class="article__header">
-        <h2 class="article-header__title">What I Do Best</h2>
-      </header>
-      <ul class="list" role="list">
-        <li v-for="skill in skills" :key="skill.id">
-          <h2 class="list__title">{{ skill.title }}</h2>
-        </li>
-      </ul>
-    </article>
+  <section class="intro">
+    <header class="intro__heading">
+      <h2>What I do</h2>
+    </header>
+    <div class="intro__cards wrapper">
+      <article v-for="skill in skills" :key="skill.id" class="card">
+        <div class="cover">
+          <nuxt-img
+            fit="cover"
+            quality="100"
+            format="webp"
+            width="1000"
+            height="1000"
+            :src="`/img/skill/${skill.image.src}`"
+            :alt="skill.image.alt"
+          />
+        </div>
 
-    <article class="help">
-      <header class="article__header">
-        <h2 class="article-header__title">where can we work together</h2>
-      </header>
-
-      <ul class="list" role="list">
-        <li v-for="help in helps" :key="help.id">
-          <h2 class="list__title">
-            {{ help.title }}
-          </h2>
-        </li>
-      </ul>
-    </article>
+        <div class="body">
+          <h3>
+            {{ skill.title }}
+          </h3>
+          <p>
+            {{ skill.body }}
+          </p>
+        </div>
+      </article>
+    </div>
   </section>
 </template>
 
@@ -35,54 +38,31 @@ export default {
     return {
       skills: [
         {
-          id: '0',
-          title: 'web design',
+          id: 0,
+          title: 'Web Development & Strategy',
+          image: {
+            src: 'web.jpg',
+            alt: 'a laptop with code',
+          },
+          body: 'Utilizing core web building fundamentals and best practices, research and modern front-end tools I build scalable, accessible and resilient websites and web applications.',
         },
         {
-          id: '1',
-          title: 'web strategy',
+          id: 1,
+          title: 'UI Design',
+          image: {
+            src: 'branding.jpg',
+            alt: 'a computer screen with the color system of a design on display',
+          },
+          body: 'Forming a long-term and fluid strategy that goes beyond your logo and trendy looks and encompassing accessibility and scalability into the design foundations I design a performant and inclusive website or application.',
         },
         {
-          id: '2',
-          title: 'web development',
-        },
-        {
-          id: '3',
-          title: 'brand identity',
-        },
-        {
-          id: '4',
-          title: 'brand strategy',
-        },
-        {
-          id: '5',
-          title: 'rapid prototyping',
-        },
-        {
-          id: '6',
-          title: 'ui design',
-        },
-        {
-          id: '6',
-          title: 'seo',
-        },
-      ],
-      helps: [
-        {
-          id: '0',
-          title: 'i need a new website',
-        },
-        {
-          id: '1',
-          title: 'i do not have a website',
-        },
-        {
-          id: '2',
-          title: 'i need a (re)brand',
-        },
-        {
-          id: '3',
-          title: "my website is'nt accessible",
+          id: 2,
+          title: 'Search Engine Optimization (SEO)',
+          image: {
+            src: 'seo.jpg',
+            alt: 'a laptop with infographics that show the cumulative data analyzed from a website',
+          },
+          body: 'Optimizing your website to make sure it is indexed by popular search engines (google, bing, duckduckgo) increasing the chances for your website/business to reach your users.',
         },
       ],
     }
@@ -91,38 +71,116 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:math';
 .intro {
-  color: neutral('500');
+  padding: $section-padding 0;
+  background-color: $neutral-900;
 }
+.intro__heading {
+  position: relative;
+  z-index: 1;
 
-.article-header__title {
-  font-family: family('heading');
+  font-family: $heading;
   font-size: scale('h1');
-  color: primary('500');
-  text-align: center;
-  text-transform: uppercase;
-}
-.list {
-  padding: $pd-l $pd-m;
-  // @include grid-flow($flow: row, $gap: 1.25rem);
-  @include grid-column(
-    $col-count: auto-fit,
-    $col-width: minmax(350px, 1fr),
-    $gap: $pd-m
-  );
-  justify-content: space-between;
+  font-weight: 900;
+  color: $neutral-500;
 
-  li {
+  padding: $spacing-lg 0;
+
+  text-align: center;
+  text-transform: capitalize;
+}
+.intro__cards {
+  // @include flex-wrap-row;
+  @include grid-flow-row;
+
+  gap: $spacing-lg;
+
+  height: fit-content;
+
+  padding: $spacing-lg $spacing-md;
+}
+
+.card {
+  @include grid-flow-row;
+
+  height: 100%;
+  width: 100%;
+
+  color: $neutral-50;
+  background-color: $neutral-900;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  @include screen(medium) {
+    $width: rem(850);
+    $height: rem(250);
+    width: $width;
+    height: $height;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, math.div(53.125rem, 12));
+    grid-auto-rows: 1fr;
+
+    .cover {
+      grid-column: 1 / 8;
+    }
+    .body {
+      grid-column: 4 / -1;
+      z-index: 2;
+    }
+    .cover,
+    .body {
+      grid-row: 1/ -1;
+    }
+  }
+}
+
+.cover {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  height: inherit;
+  max-width: rem(500);
+  // aspect-ratio: 1 / 1;
+
+  border-radius: inherit;
+  overflow: hidden;
+
+  img {
     width: 100%;
-    text-align: left;
+    height: 100%;
   }
 
-  &__title {
-    font-family: family('small cap');
-    font-size: scale('h2');
-    color: neutral('950');
+  @include screen(medium) {
+    &::before {
+      position: absolute;
+      content: '';
+      inset: 0 0;
+      z-index: 2;
 
-    padding: $pd-m 0;
+      width: 100%;
+      height: 100%;
+
+      background-color: transparentize($color: $primary-900, $amount: 0.5);
+    }
+  }
+}
+.body {
+  padding: $spacing-md;
+
+  height: fit-content;
+
+  h3 {
+    font-size: scale('h3');
+    font-family: $heading;
+
+    color: $neutral-50;
+  }
+
+  p {
+    padding: $spacing-md 0;
   }
 }
 </style>

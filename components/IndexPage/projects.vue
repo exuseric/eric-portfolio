@@ -1,6 +1,6 @@
 <template>
   <section class="projects">
-    <header class="projects__heading">
+    <header class="projects__heading wrapper">
       <h2>Projects</h2>
     </header>
 
@@ -75,15 +75,14 @@ export default {
   position: relative;
   z-index: 1;
 
-  font-family: $heading;
-  font-size: scale('h1');
-  font-weight: 900;
-  color: $neutral-500;
+  padding: $spacing-md;
 
-  padding: $spacing-lg 0;
-
-  text-align: center;
-  text-transform: capitalize;
+  h2 {
+    font-family: $heading;
+    font-size: scale('h1');
+    font-weight: 900;
+    color: $neutral-500;
+  }
 }
 
 .card {

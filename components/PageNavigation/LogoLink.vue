@@ -21,7 +21,7 @@ export default {
   flex-flow: row wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: $spacing-md;
+  gap: $spacing-sm;
 
   color: $neutral-500;
 

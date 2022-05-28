@@ -1,9 +1,9 @@
 <template>
-  <section class="outro content" aria-label="contact information">
+  <section class="outro wrapper" aria-label="contact information">
     <header>
-      <h2 class="title">get in touch with me; browse my work.</h2>
+      <h2 class="title">Get in touch with me</h2>
     </header>
-
+    <!--
     <ul class="list">
       <li>
         <nuxt-link to="/contact" class="list__link"
@@ -45,7 +45,9 @@
           Check my projects on github.
         </a>
       </li>
-    </ul>
+    </ul> -->
+
+    <ContactForm />
   </section>
 </template>
 
@@ -59,58 +61,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.work {
-  text-align: left;
+header > h2 {
+  font-size: scale('h3');
+  font-family: $heading;
 
-  padding: $pd-l $pd-s;
-  max-width: 120ch;
+  color: $neutral-500;
 
-  p {
-    margin: $pd-s 0;
-  }
-}
-
-header {
-  text-align: left;
-  width: 100%;
-  padding: $pd-m 0;
-
-  h2 {
-    font-family: family('small cap');
-    font-size: scale('h1');
-    font-weight: 600;
-    line-height: 1.25;
-
-    color: neutral('950');
-  }
+  padding: $spacing-sm $spacing-md;
 }
 
 .list {
-  width: inherit;
-
+  padding: 0;
   margin: 0;
-  padding: $pd-m 0;
   list-style: none;
 
-  @include grid-column(
-    $col-count: auto-fit,
-    $col-width: minmax(30rem, 1fr),
-    $gap: $pd-s
-  );
+  .name {
+    font-family: $heading;
+    font-size: scale('h6');
+    color: $primary-500;
 
-  li {
-    padding: $pd-m $pd-s;
+    text-transform: capitalize;
   }
-
-  &__link {
-    text-decoration: underline;
-    text-decoration-style: dotted;
-
-    color: primary('500');
-
-    @include mid-screen {
-      width: fit-content;
-    }
+  li {
+    margin: $spacing-sm 0;
   }
 }
 </style>

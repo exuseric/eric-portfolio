@@ -1,5 +1,5 @@
 <template>
-  <section class="work" aria-label="Work Standards">
+  <section id="skills" class="work wrapper" aria-label="Work Standards">
     <header>
       <h2 class="title">My work is by default focused on the following</h2>
     </header>
@@ -58,71 +58,32 @@ export default {
 
 <style lang="scss" scoped>
 .work {
-  text-align: left;
-
-  padding: $pd-l $pd-s;
-  max-width: 120ch;
-
-  p {
-    margin: $pd-s 0;
-  }
+  padding: 0 $spacing-md;
 }
 
-header {
-  text-align: left;
-  width: 100%;
-  padding: $pd-m 0;
+header > h2 {
+  font-size: scale('h3');
+  font-family: $heading;
 
-  h2 {
-    font-family: family('small cap');
-    font-size: scale('h2');
-    line-height: 1.25;
+  color: $neutral-500;
 
-    color: neutral('950');
-  }
+  padding: $spacing-sm 0;
 }
 
 .list {
-  width: inherit;
-
+  padding: 0;
   margin: 0;
-  padding: $pd-m 0;
   list-style: none;
 
-  @include grid-column(
-    $col-count: auto-fit,
-    $col-width: minmax(30rem, 1fr),
-    $gap: $pd-s
-  );
-
   .name {
-    font-family: family('heading');
+    font-family: $heading;
     font-size: scale('h6');
-    color: primary('500');
+    color: $primary-500;
+
     text-transform: capitalize;
-
-    line-height: 1.125;
   }
-}
-
-.links {
-  display: flex;
-  flex-flow: row wrap;
-  gap: $pd-m * 1.5;
-
-  width: 100%;
-  height: 15rem;
-
-  .link {
-    text-decoration: underline;
-    width: 6rem;
-    height: 2.5rem;
-
-    color: primary('500');
-
-    @include mid-screen {
-      width: fit-content;
-    }
+  li {
+    margin: $spacing-sm 0;
   }
 }
 </style>

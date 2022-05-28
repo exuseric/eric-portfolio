@@ -3,9 +3,14 @@
     <div class="nav__child wrapper">
       <div class="top">
         <LogoLink />
-        <button class="toggle-btn" @click="isMenuOpen = !isMenuOpen">
-          <MenuIcon :is-menu-open="isMenuOpen" />
-          <span class="sr-only">Menu</span>
+        <button
+          class="icon-btn"
+          type="button"
+          aria-label="menu"
+          @click="isMenuOpen = !isMenuOpen"
+        >
+          <MenuIcon v-if="!isMenuOpen" />
+          <CloseIcon v-if="isMenuOpen" />
         </button>
       </div>
       <div :class="`bottom ${isMenuOpen ? 'show-animate' : 'hide-animate'}`">
@@ -23,10 +28,11 @@
 <script>
 import LogoLink from '~/components/PageNavigation/LogoLink.vue'
 import Menu from '~/components/PageNavigation/Menu.vue'
-import MenuIcon from '~/components/Icons/MenuIcon.vue'
+import MenuIcon from '~/assets/icons/menu.svg?inline'
+import CloseIcon from '~/assets/icons/close.svg?inline'
 
 export default {
-  components: { LogoLink, MenuIcon, Menu },
+  components: { LogoLink, MenuIcon, CloseIcon, Menu },
   data() {
     return {
       isMenuOpen: false,
@@ -122,25 +128,9 @@ export default {
   }
 }
 
-.toggle-btn {
-  width: $icon-btn;
-  height: $icon-btn;
-
-  color: $neutral-50;
-  background-color: $neutral-900;
-
-  border: 2px solid transparent;
-
+.icon-btn {
   @include screen(medium) {
     visibility: hidden;
-  }
-
-  &:hover,
-  &:focus-visible,
-  &:focus {
-    color: $neutral-900;
-    background-color: $neutral-50;
-    border-color: currentColor;
   }
 }
 
@@ -153,7 +143,7 @@ export default {
   }
 }
 .nav-open {
-  height: fit-content;
+  height: $nav-height;
 
   @include screen(medium) {
     height: $nav-height;

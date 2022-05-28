@@ -2,6 +2,7 @@
   <section class="home page-wrapper">
     <IndexPageHeader />
     <IndexPageIntro />
+    <IndexPageProjects />
   </section>
 </template>
 

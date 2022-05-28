@@ -22,7 +22,7 @@ export default {
 header {
   @include center;
 
-  height: 50rem;
+  height: 100vh;
   text-align: left;
   padding: 0 $spacing-sm;
 

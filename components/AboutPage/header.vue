@@ -33,7 +33,7 @@ export default {
   .heading {
     @include center;
 
-    padding: $spacing-lg;
+    padding: $spacing-md;
     margin-top: -$spacing-lg;
     margin-inline: auto;
 
@@ -57,6 +57,11 @@ export default {
     overflow: hidden;
     border-radius: 50%;
     border: rem(10) solid $neutral-50;
+
+    @include screen(medium) {
+      width: rem(350);
+      height: rem(350);
+    }
   }
 }
 

@@ -15,7 +15,7 @@ export default {
     return {
       links: [
         { name: 'home', ref: '/' },
-        { name: 'services', ref: '/work' },
+        { name: 'work', ref: '/work' },
         { name: 'about', ref: '/about' },
         { name: 'contact', ref: '/contact' },
       ],

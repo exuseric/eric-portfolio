@@ -91,96 +91,151 @@ export default {
   text-transform: capitalize;
 }
 .intro__cards {
-  // @include flex-wrap-row;
-  @include grid-flow-row;
-
+  @include flex-wrap-row;
   gap: $spacing-lg;
 
   height: fit-content;
 
-  padding: $spacing-lg $spacing-md;
+  padding: 0 $spacing-md;
 }
+
+// .card {
+//   @include grid-flow-row;
+
+//   height: 100%;
+//   width: 100%;
+
+//   color: $neutral-50;
+//   background-color: $neutral-900;
+//   border-radius: 0.5rem;
+//   overflow: hidden;
+
+//   @include screen(medium) {
+//     $width: rem(850);
+//     $height: rem(250);
+//     width: $width;
+//     height: $height;
+//     margin: auto;
+
+//     display: grid;
+//     grid-template-columns: repeat(12, math.div(53.125rem, 12));
+//     grid-auto-rows: 1fr;
+
+//     .cover {
+//       grid-column: 1 / 8;
+//     }
+//     .body {
+//       grid-column: 4 / -1;
+//       z-index: 2;
+//     }
+//     .cover,
+//     .body {
+//       grid-row: 1/ -1;
+//     }
+//   }
+// }
+
+// .cover {
+//   position: relative;
+//   z-index: 1;
+//   width: auto;
+//   height: inherit;
+//   max-width: rem(500);
+//   // aspect-ratio: 1 / 1;
+
+//   border-radius: inherit;
+//   overflow: hidden;
+
+//   box-shadow: 0.3px 0.3px 1.3px -25px hsla(340, 5%, 25%, 0.013),
+//     2.2px 2.2px 4.3px -25px hsla(340, 5%, 25%, 0.022),
+//     5.7px 5.7px 10.3px -25px hsla(340, 5%, 25%, 0.025),
+//     11.6px 11.6px 20.4px -25px hsla(340, 5%, 25%, 0.026),
+//     21.3px 21.3px 37px -25px hsla(340, 5%, 25%, 0.03),
+//     40px 40px 63px -25px hsla(340, 5%, 25%, 0.07);
+
+//   img {
+//     width: 100%;
+//     height: 100%;
+//   }
+
+//   @include screen(medium) {
+//     &::before {
+//       position: absolute;
+//       content: '';
+//       inset: 0 0;
+//       z-index: 2;
+
+//       width: 100%;
+//       height: 100%;
+
+//       background-color: transparentize($color: $primary-900, $amount: 0.5);
+//     }
+//   }
+// }
+// .body {
+//   padding: $spacing-md;
+
+//   height: fit-content;
+
+//   h3 {
+//     font-size: scale('h3');
+//     font-family: $heading;
+
+//     color: $neutral-50;
+//   }
+
+//   p {
+//     padding: $spacing-md 0;
+//   }
+// }
 
 .card {
-  @include grid-flow-row;
+  display: grid;
+  grid-template-rows: 60% auto;
 
-  height: 100%;
+  // margin: $spacing-md auto;
   width: 100%;
+  max-width: rem(400);
+  height: rem(500);
 
-  color: $neutral-50;
-  background-color: $neutral-900;
-  border-radius: 0.5rem;
-  overflow: hidden;
-
-  @include screen(medium) {
-    $width: rem(850);
-    $height: rem(250);
-    width: $width;
-    height: $height;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(12, math.div(53.125rem, 12));
-    grid-auto-rows: 1fr;
-
-    .cover {
-      grid-column: 1 / 8;
-    }
-    .body {
-      grid-column: 4 / -1;
-      z-index: 2;
-    }
-    .cover,
-    .body {
-      grid-row: 1/ -1;
-    }
-  }
-}
-
-.cover {
-  position: relative;
-  z-index: 1;
-  width: auto;
-  height: inherit;
-  max-width: rem(500);
-  // aspect-ratio: 1 / 1;
-
-  border-radius: inherit;
-  overflow: hidden;
-
-  img {
+  .cover,
+  .body {
     width: 100%;
     height: 100%;
   }
 
-  @include screen(medium) {
-    &::before {
-      position: absolute;
-      content: '';
-      inset: 0 0;
-      z-index: 2;
-
-      width: 100%;
-      height: 100%;
-
-      background-color: transparentize($color: $primary-900, $amount: 0.5);
-    }
+  .body {
+    @include center;
+    align-self: end;
   }
 }
-.body {
-  padding: $spacing-md;
-
-  height: fit-content;
-
+.card > .body {
+  color: $neutral-50;
+  padding: $spacing-sm;
   h3 {
+    width: 100%;
+    padding-block: $spacing-sm;
+
+    text-decoration: none;
+    // text-align: center;
     font-size: scale('h3');
     font-family: $heading;
-
-    color: $neutral-50;
   }
+}
 
-  p {
-    padding: $spacing-md 0;
+.card > .cover {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0.3px 0.3px 1.3px -25px hsla(340, 49%, 8%, 0.013),
+    2.2px 2.2px 4.3px -25px hsla(340, 49%, 8%, 0.022),
+    5.7px 5.7px 10.3px -25px hsla(340, 49%, 8%, 0.025),
+    11.6px 11.6px 20.4px -25px hsla(340, 49%, 8%, 0.026),
+    21.3px 21.3px 37px -25px hsla(340, 49%, 8%, 0.03),
+    40px 40px 63px -25px hsla(340, 49%, 8%, 0.07);
+
+  img {
+    object-position: top;
   }
 }
 </style>

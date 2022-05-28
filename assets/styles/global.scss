@@ -48,7 +48,11 @@ img {
 }
 
 .content {
-  margin: $section-padding 0;
+  margin: $section-padding-sm 0;
+
+  @include screen(medium) {
+    margin: $section-padding-lg 0;
+  }
 }
 
 .sr-only {

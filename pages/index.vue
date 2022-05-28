@@ -3,6 +3,7 @@
     <IndexPageHeader />
     <IndexPageIntro />
     <IndexPageProjects />
+    <IndexPageContact />
   </section>
 </template>
 

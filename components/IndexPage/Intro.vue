@@ -73,8 +73,8 @@ export default {
 <style lang="scss" scoped>
 @use 'sass:math';
 .intro {
-  padding: $section-padding 0;
-  background-color: $primary-500;
+  padding: $section-padding-sm 0;
+  background-color: $primary-50;
 }
 .intro__heading {
   position: relative;
@@ -89,7 +89,7 @@ export default {
     font-family: $heading;
     font-size: scale('h1');
     font-weight: 900;
-    color: $neutral-50;
+    color: $neutral-500;
   }
 }
 .intro__cards {
@@ -98,7 +98,7 @@ export default {
 
   height: fit-content;
 
-  padding: $section-padding $spacing-md;
+  padding: $section-padding-sm $spacing-md;
 }
 
 .card {
@@ -122,7 +122,7 @@ export default {
   }
 }
 .card > .body {
-  color: $neutral-50;
+  color: $neutral-900;
   // padding: $spacing-sm;
   h3 {
     width: 100%;

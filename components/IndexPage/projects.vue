@@ -69,7 +69,7 @@ export default {
 .projects__cards {
   @include flex-wrap-row;
   gap: $spacing-lg;
-  padding: $section-padding $spacing-md;
+  padding: $section-padding-sm $spacing-md;
 }
 .projects__heading {
   position: relative;

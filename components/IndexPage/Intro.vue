@@ -1,5 +1,5 @@
 <template>
-  <section class="intro">
+  <section class="intro content">
     <header class="intro__heading">
       <h2>What I do</h2>
     </header>
@@ -85,7 +85,7 @@ export default {
   font-weight: 900;
   color: $neutral-500;
 
-  padding: $spacing-lg 0;
+  padding-bottom: $spacing-lg;
 
   text-align: center;
   text-transform: capitalize;
@@ -96,7 +96,7 @@ export default {
 
   height: fit-content;
 
-  padding: 0 $spacing-md;
+  padding: $section-padding $spacing-md;
 }
 
 // .card {

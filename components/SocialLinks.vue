@@ -10,7 +10,7 @@
         <Github />
       </a>
     </li>
-    <li>
+    <!-- <li>
       <a
         href="https://www.twitter.com/exuseric/"
         target="_blank"
@@ -21,7 +21,7 @@
       >
         <Twitter />
       </a>
-    </li>
+    </li> -->
     <li>
       <a
         href="https://www.linkedin.com/in/exuseric/"
@@ -53,13 +53,13 @@
 
 <script>
 import Github from '~/assets/icons/bxl:github.svg?inline'
-import Twitter from '~/assets/icons/bxl:twitter.svg?inline'
+// import Twitter from '~/assets/icons/bxl:twitter.svg?inline'
 import Linkedin from '~/assets/icons/bxl:linkedin.svg?inline'
 import Behance from '~/assets/icons/bxl:behance.svg?inline'
 
 export default {
   name: 'SocialLinks',
-  components: { Github, Twitter, Linkedin, Behance },
+  components: { Github, Linkedin, Behance },
 }
 </script>
 

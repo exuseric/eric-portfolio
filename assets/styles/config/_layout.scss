@@ -1,16 +1,16 @@
 @use 'media' as *;
 @use 'functions' as f;
-@use 'measurements' as m;
+@use 'spacing' as s;
 
 @mixin center {
   display: grid;
   place-content: center;
 }
 
-@mixin content-grid {
+@mixin container-grid {
   max-width: f.rem(750);
   margin: auto;
-  padding: 0 m.$spacing-md;
+  padding: 0 s.$spacer-md;
 
   display: grid;
   grid-auto-rows: auto;
@@ -48,23 +48,6 @@
     grid-auto-flow: dense;
     grid-template-columns: repeat(12, f.rem(144));
     gap: f.rem(2);
-  }
-}
-
-.wrapper {
-  max-width: f.rem(750);
-
-  margin: auto;
-
-  @include screen('medium') {
-    max-width: f.rem(950);
-  }
-
-  @include screen('large') {
-    max-width: f.rem(1400);
-  }
-  @include screen('x-large') {
-    max-width: f.rem(1750);
   }
 }
 

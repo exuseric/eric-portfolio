@@ -1,22 +1,54 @@
 @forward 'buttons';
-
-mark {
-  font-family: family('small cap');
-  color: $primary-50;
-  background-color: $primary-500;
-}
-
-::selection {
-  color: $neutral-50;
-  background-color: $primary-900;
-}
+@forward 'theme';
 
 body {
-  font-size: 16px;
-  font-family: family('body');
+  font-size: 100%;
+  font-family: $body;
+}
 
-  color: $neutral-900;
-  background-color: $neutral-50;
+/*
+  Elements Dimension Controls
+*/
+.section {
+  padding: 0 $spacer-sm;
+}
+
+.container {
+  width: 100%;
+  max-width: rem(750);
+  margin: auto;
+
+  @include screen(medium) {
+    max-width: rem(950);
+  }
+
+  @include screen(large) {
+    max-width: rem(1400);
+  }
+  @include screen(x-large) {
+    max-width: rem(1750);
+  }
+}
+
+.text-container {
+  width: 100%;
+  max-width: 50ch;
+}
+.text-container--heading {
+  width: 100%;
+  max-width: 60ch;
+}
+
+.heading {
+  margin-bottom: $spacer-md;
+
+  .title {
+    font-size: scale(h2);
+    font-family: $heading;
+  }
+  .subtitle {
+    font-size: scale(h4);
+  }
 }
 
 img {
@@ -36,22 +68,8 @@ img {
     width: 100%;
     height: 100%;
 
-    background-image: $primary-50;
+    background-color: $primary-50;
     background-size: cover;
-  }
-}
-
-.page-wrapper {
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
-}
-
-.content {
-  margin: $section-padding-sm 0;
-
-  @include screen(medium) {
-    margin: $section-padding-lg 0;
   }
 }
 
@@ -67,17 +85,14 @@ img {
   white-space: nowrap;
 }
 
-.link {
-  position: relative;
-  @include center;
+a {
+  font-size: scale(h6);
+  font-weight: 600;
 
-  color: $neutral-900;
-  font-size: scale('body');
-
-  text-decoration: none;
+  text-decoration-color: currentColor;
   line-height: 1.125;
 
-  transition: all $transition;
+  transition: all ease;
 
   &::before {
     content: '';
@@ -86,7 +101,7 @@ img {
     left: 50%;
     z-index: -1;
 
-    height: 0.15rem;
+    height: rem(10);
     width: 0;
 
     transform: translate(-50%, -50%);
@@ -96,20 +111,4 @@ img {
 
     border-radius: 30px;
   }
-}
-
-.link:hover {
-  color: $primary-500;
-  // background-color: $primary-900;
-
-  &::before {
-    width: 75%;
-  }
-}
-.link:focus-visible,
-.primary-btn:focus-visible,
-a:focus-visible {
-  color: $neutral-50;
-  background-color: $primary-500;
-  outline-color: $primary-900;
 }

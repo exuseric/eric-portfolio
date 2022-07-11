@@ -1,0 +1,8 @@
+@use 'functions' as *;
+
+// Spacing
+$spacer-sm: rem(15);
+$spacer-md: rem(30);
+$spacer-lg: rem(60);
+
+$transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);

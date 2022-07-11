@@ -1,31 +1,30 @@
 /* Primary */
-$primary-900: hsl(340, 69%, 5%);
-$primary-500: hsl(340, 69%, 48%);
-$primary-50: hsl(340, 50%, 90%);
+$primary-900: hsl(5, 87%, 5%);
+// $primary-500: hsl(5, 69%, 48%);
+$primary-500: hsl(5, 87%, 60%);
+$primary-50: hsl(5, 50%, 90%);
 
 /* Neutral */
-$neutral-900: hsl(340, 5%, 5%);
-$neutral-500: hsl(340, 5%, 25%);
-$neutral-50: hsl(340, 45%, 98%);
+$neutral-900: hsl(5, 87%, 2%);
+$neutral-500: hsl(5, 8%, 20%);
+$neutral-50: hsl(5, 87%, 98%);
 
 /* Success */
 $success-900: hsl(94, 24%, 6%);
-$success-500: #7dae69;
-$success-50: #e4f6db;
+$success-500: hsl(103, 30%, 55%);
+$success-50: hsl(100, 60%, 91%);
 
 /* Caution */
-$caution-900: #170f06;
-$caution-500: #ea9928;
-$caution-50: #fbefe3;
+$caution-900: hsl(32, 69%, 5%);
+$caution-500: hsl(35, 69%, 48%);
+$caution-50: hsl(30, 50%, 90%);
 
 /* Danger */
-$danger-900: #22080f;
-$danger-500: #e34b7b;
-$danger-50: #f9eef0;
+$danger-900: hsl(344, 62%, 8%);
+$danger-500: hsl(341, 73%, 59%);
+$danger-50: hsl(349, 48%, 95%);
 
 /* Info */
-$info-900: hsl(180, 69%, 6%);
-$info-500: hsl(180, 75%, 36%);
-$info-50: hsl(180, 69%, 95%);
-
-$gradient-light: linear-gradient(135deg, $primary-50, $caution-50);
+$info-900: hsl(180, 69%, 5%);
+$info-500: hsl(220, 69%, 48%);
+$info-50: hsl(180, 50%, 90%);

@@ -11,8 +11,8 @@ body {
 }
 // Content sections
 .section {
-  color: $neutral-900;
-  background-color: $neutral-50;
+  color: $neutral-50;
+  background-color: $neutral-900;
 }
 
 // Buttons and Links
@@ -39,6 +39,11 @@ a {
 a[role='button'] {
   color: $neutral-50;
   background-color: $primary-500;
+
+  &:hover {
+    color: $primary-500;
+    background-color: $primary-50;
+  }
 }
 
 .primary-btn,

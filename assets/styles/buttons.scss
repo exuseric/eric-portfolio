@@ -15,7 +15,10 @@ a[role='button'] {
   text-decoration: none;
 
   padding: rem(5) rem(15);
-  transition: all 0.35 ease;
+
+  transition: all 0.35s ease;
+
+  border-radius: rem(5);
 }
 
 .primary-btn,
@@ -53,8 +56,8 @@ a[role='button'] {
   display: grid;
   place-content: center;
 
-  width: rem(40);
-  height: rem(40);
+  width: rem(45);
+  height: rem(45);
 
   transition: all $transition;
 

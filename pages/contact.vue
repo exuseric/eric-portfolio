@@ -1,7 +1,10 @@
 <template>
-  <section class="contact page-wrapper">
-    <ContactPageHeader />
-    <ContactForm />
+  <section class="contact">
+    <PageHeader
+      title="Contact Eric"
+      illustration="undraw_things_to_say_re_jpcg.svg"
+    />
+    <Contact />
   </section>
 </template>
 

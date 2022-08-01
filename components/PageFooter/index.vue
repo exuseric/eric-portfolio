@@ -1,9 +1,9 @@
 <template>
-  <footer>
-    <div class="wrapper">
+  <footer class="section">
+    <div class="container">
       <PageFooterMenu />
       <div class="copyright">
-        <PageNavigationLogoLink />
+        <LogoLink />
         <p>
           Copyright &copy; Eric Maina {{ new Date().getFullYear() }}. All Rights
           Reserved
@@ -20,13 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-footer {
-  padding: $section-padding-sm 0;
-}
-
-.wrapper {
-  @include flex-wrap-row;
-  justify-content: space-between;
-  padding: 0 $spacing-md;
+.copyright {
+  margin-top: $spacer-lg;
 }
 </style>

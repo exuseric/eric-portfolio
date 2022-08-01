@@ -26,7 +26,7 @@ export default {
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Commissioner:wght@400;600&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Fraunces:wght@100;400;600&family=Outfit:wght@400;600&display=swap',
       },
     ],
   },
@@ -59,8 +59,16 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/composition-api/module',
   ],
 
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.STRAPI_URL || 'http://localhost:1337/graphql',
+      },
+    },
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios100
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

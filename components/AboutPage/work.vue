@@ -1,10 +1,10 @@
 <template>
-  <section id="skills" class="work wrapper" aria-label="Work Standards">
-    <header>
-      <h2 class="title">My work is by default focused on the following</h2>
+  <section class="container" aria-label="standards">
+    <header class="tex-container--heading">
+      <h2 class="title">Standards I strive to have in my work.</h2>
     </header>
 
-    <ul class="list">
+    <ul class="list text-container">
       <li v-for="work in works" :key="work.id">
         <p class="name">
           {{ work.name }}
@@ -14,6 +14,20 @@
         </p>
       </li>
     </ul>
+
+    <!-- <div class="content-wrapper">
+      <header class="tex-container--heading">
+        <h2 class="title">Some sprinkles about me</h2>
+      </header>
+
+      <ul class="list text-container">
+        <li v-for="work in works" :key="work.id">
+          <p class="name">
+            {{ work.name }}
+          </p>
+        </li>
+      </ul>
+    </div> -->
   </section>
 </template>
 
@@ -51,39 +65,61 @@ export default {
             'Uses the latest in the front-end field with appropriate fallbacks.',
         },
       ],
+      likes: [
+        {
+          id: 0,
+          name: 'Cats or Dogs? Can I have both with a cow and a pegasus unicorn? 😉',
+        },
+        {
+          id: 1,
+          name: 'More Chai than Chai Latte',
+        },
+        {
+          id: 2,
+          name: 'In-between the click clack on the keyboard I like to sneak in some pencil drawings.',
+        },
+        {
+          id: 3,
+          name: "I'm interested in applying motion to design (motion design) and implementing it efficiently on the web.",
+        },
+      ],
     }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.work {
-  padding: 0 $spacing-md;
-}
-
 header > h2 {
   font-size: scale('h3');
+  line-height: rem(32);
   font-family: $heading;
 
-  color: $neutral-500;
+  color: $light-gray;
 
-  padding: $spacing-sm 0;
+  padding: $spacer-sm 0;
+
+  @include light-theme {
+    color: $dark-gray;
+  }
 }
 
 .list {
-  padding: 0;
   margin: 0;
   list-style: none;
+  padding: $spacer-xs 0;
 
   .name {
     font-family: $heading;
-    font-size: scale('h6');
-    color: $primary-500;
+    font-size: scale('h5');
+    color: $light-gray;
 
     text-transform: capitalize;
+    @include light-theme {
+      color: $dark-gray;
+    }
   }
   li {
-    margin: $spacing-sm 0;
+    margin: $spacer-sm 0;
   }
 }
 </style>

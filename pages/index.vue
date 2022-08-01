@@ -1,10 +1,12 @@
 <template>
-  <section class="home page-wrapper">
+  <main class="home">
     <IndexPageHeader />
-    <IndexPageIntro />
     <IndexPageProjects />
-    <IndexPageContact />
-  </section>
+    <IndexPageServices />
+    <Contact />
+    <!--
+    -->
+  </main>
 </template>
 
 <script>

@@ -34,3 +34,16 @@ $breakpoint-up: (
     @content;
   }
 }
+
+// COLOR SCHEME
+@mixin light-theme() {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+@mixin dark-theme() {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}

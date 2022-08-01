@@ -1,8 +1,17 @@
 <template>
-  <header class="header">
-    <div class="wrapper">
-      <h1>Work Inquiry, Curious Visitor or Just To Say Hi!</h1>
-      <p>Leave a message.</p>
+  <header class="hero section">
+    <div class="container">
+      <div class="heading">
+        <h1>Contact Me</h1>
+
+        <div class="text-group">
+          <p>Say Hi.</p>
+          <p>Ask a question.</p>
+          <!--
+          <p>Ailurophile</p>
+          <p>Tea Cup</p> -->
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -15,32 +24,41 @@ export default {
 
 <style lang="scss" scoped>
 header {
+  position: relative;
+  isolation: isolate;
+}
+.container {
   @include center;
-  height: 100vh;
+  height: rem(350);
+}
 
-  .wrapper {
-    @include center;
-    height: 40rem;
-    padding: 0 $spacing-md;
+.text-group {
+  @include flex-wrap-row;
+  gap: $spacer-sm;
+  justify-content: center;
+}
 
-    background-image: url('~assets/img/illustration/sticking tongue out.png');
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: rem(250);
-    h1 {
-      font-size: scale('h1');
-      font-family: $heading;
-      font-weight: 400;
-      color: $primary-500;
-    }
+.heading {
+  text-align: center;
+  padding: $spacer-md;
 
-    p {
-      font-size: scale('h3');
-      font-weight: 900;
-      margin: auto;
+  height: fit-content;
+  color: $light-gray;
 
-      text-transform: uppercase;
-    }
+  @include light-theme {
+    color: $dark-gray;
+  }
+
+  h1 {
+    font-size: scale(h1);
+    font-family: $heading;
+    line-height: rem(56);
+  }
+  p {
+    font-size: scale(h6);
+    line-height: rem(32);
+    font-family: $body;
+    font-weight: 100;
   }
 }
 </style>

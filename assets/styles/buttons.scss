@@ -2,64 +2,69 @@
 @use 'config/spacing' as *;
 @use 'config/fonts' as *;
 @use 'config/functions' as *;
+@use 'config/colors' as *;
+@use 'config/media' as *;
 
-button {
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.35s ease;
-}
-
-a[role='button'] {
-  font-size: scale(h6);
+button,
+a[role='button'],
+.icon-btn {
   font-weight: 600;
   text-decoration: none;
+  transition: all $transition;
 
-  padding: rem(5) rem(15);
-
-  transition: all 0.35s ease;
-
+  border: 1px solid transparent;
   border-radius: rem(5);
+
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-500;
+    background-color: $primary-50;
+  }
+
+  &:focus,
+  &:focus-visible {
+    color: $white;
+    background-color: $info-500;
+  }
 }
 
-.primary-btn,
-.sec-btn,
-.primary-btn-s,
-.sec-btn-s {
-  text-decoration: none;
-  text-transform: capitalize;
-  line-height: 1;
-
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  overflow: hidden;
-}
-
-.primary-btn,
-.sec-btn {
-  font-family: $heading;
-  font-size: scale('h5');
-  font-weight: 600;
-
-  padding: rem(15) rem(60);
-  width: fit-content;
-}
-
-.sec-btn-s,
-.primary-btn-s {
-  font-family: $body;
-  font-size: scale(body-sm);
-
-  padding: rem(10) rem(20);
-  width: fit-content;
+button,
+a[role='button'] {
+  padding: $spacer-sm $spacer-sm;
 }
 
 .icon-btn {
   display: grid;
   place-content: center;
 
-  width: rem(45);
-  height: rem(45);
+  padding: $spacer-xs;
+  font-size: rem(24);
 
-  transition: all $transition;
+  color: $light-gray;
 
-  border: 1px solid transparent;
+  @include light-theme {
+    color: $dark-gray;
+  }
+}
+
+.primary-btn {
+  color: $primary-50;
+  background-color: $primary-500;
+
+  &:hover {
+    color: $primary-500;
+    background-color: $primary-50;
+  }
+}
+
+.secondary-btn {
+  color: $primary-50;
+  background-color: transparent;
+
+  border-color: currentColor;
+
+  &:hover {
+    color: $primary-500;
+  }
 }

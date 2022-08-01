@@ -4,48 +4,23 @@
       <a
         href="https://www.github.com/exuseric/"
         class="icon-btn"
-        title="Github: @exuseric"
+        title="Github"
         aria-label="github"
       >
         <Github />
       </a>
     </li>
-    <!-- <li>
-      <a
-        href="https://www.twitter.com/exuseric/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="icon-btn"
-        title="Twitter @exuseric"
-        aria-label="twitter"
-      >
-        <Twitter />
-      </a>
-    </li> -->
     <li>
       <a
         href="https://www.linkedin.com/in/exuseric/"
         target="_blank"
         rel="noopener noreferrer"
         class="icon-btn"
-        title="Linkedin @exuseric"
+        title="LinkedIn"
         aria-label="linkedin"
+        disabled
       >
-        <Linkedin />
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://www.be.net/exuseric/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="icon-btn"
-        title="Behance @exuseric"
-        aria-label="behance"
-        aria-disabled="true"
-        disabled="true"
-      >
-        <Behance />
+        <LinkedIn />
       </a>
     </li>
   </ul>
@@ -53,25 +28,36 @@
 
 <script>
 import Github from '~/assets/icons/bxl:github.svg?inline'
-// import Twitter from '~/assets/icons/bxl:twitter.svg?inline'
-import Linkedin from '~/assets/icons/bxl:linkedin.svg?inline'
-import Behance from '~/assets/icons/bxl:behance.svg?inline'
+import LinkedIn from '~/assets/icons/bxl:linkedin.svg?inline'
 
 export default {
   name: 'SocialLinks',
-  components: { Github, Linkedin, Behance },
+  components: { Github, LinkedIn },
 }
 </script>
 
 <style lang="scss" scoped>
 .socials {
-  display: flex;
-  flex-flow: row wrap;
-  gap: $spacing-sm;
+  @include flex-wrap-row;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacer-xs;
 
   width: fit-content;
   height: fit-content;
 
+  margin: 0;
+  padding: 0;
+
   list-style-type: none;
+
+  color: $light-gray;
+  background-color: $dark-gray;
+  border-radius: rem(5);
+
+  @include light-theme {
+    color: $dark-gray;
+    background-color: $light-gray;
+  }
 }
 </style>

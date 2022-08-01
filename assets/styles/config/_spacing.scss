@@ -1,9 +1,13 @@
 @use 'functions' as *;
+@use 'media' as *;
 
 // Spacing
-$spacer-xs: rem(7.5);
-$spacer-sm: rem(15);
-$spacer-md: rem(30);
-$spacer-lg: rem(60);
+$spacer-xs: rem(8);
+$spacer-sm: rem(16);
+$spacer-md: rem(32);
+$spacer-lg: rem(56);
+$spacer-xl: rem(112);
 
-$transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$transition: 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+$navigation-height: rem(88);

@@ -1,12 +1,17 @@
 <template>
-  <section id="bio" class="intro wrapper" aria-label="Introduction">
-    <p>
-      I love the web and spend a significant portion of my time rummaging
-      through it for entertainment, learning and creative inspiration and
-      through my travels I got hooked on accessibility and ever since I've spent
-      most of my time trying to understand how I can build applications that
-      offer good visual, functional and accessible design.
-    </p>
+  <section class="bio container" aria-label="bio">
+    <div class="text-container">
+      <p>
+        Hi, there! I'm Eric; I've been a web developer from the day I wrote my
+        first HTML and got hooked on the adaptive fluidity aspect of the web.
+      </p>
+      <p>
+        Through my learning I discovered web accessibility and since I've been
+        spending most of my time trying to understand how I can build
+        applications that offer excellent user experience and are inclusive and
+        accessible.
+      </p>
+    </div>
   </section>
 </template>
 
@@ -18,13 +23,9 @@ export default {
 
 <style lang="scss" scoped>
 .intro {
-  padding: $section-padding-sm $spacing-md;
-
   p {
-    font-size: scale('h4');
-    font-family: $heading;
-
-    max-width: rem(950);
+    font-size: scale(h6);
+    margin: $spacer-xs 0;
   }
 }
 </style>

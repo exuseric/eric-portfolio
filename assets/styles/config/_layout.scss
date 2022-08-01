@@ -10,7 +10,6 @@
 @mixin container-grid {
   max-width: f.rem(750);
   margin: auto;
-  padding: 0 s.$spacer-md;
 
   display: grid;
   grid-auto-rows: auto;
@@ -19,25 +18,25 @@
   gap: f.rem(4);
 
   @include screen('medium') {
-    max-width: f.rem(950);
+    max-width: f.rem(1400);
     margin: auto;
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, f.rem(70));
-    gap: f.rem(10);
+    grid-template-columns: repeat(12, f.rem(78));
+    gap: f.rem(8);
   }
 
   @include screen('large') {
-    max-width: f.rem(1300);
+    max-width: f.rem(1440);
     margin: auto;
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, f.rem(101));
-    gap: f.rem(8);
+    grid-template-columns: repeat(12, f.rem(109));
+    gap: f.rem(12);
   }
 
   @include screen('x-large') {

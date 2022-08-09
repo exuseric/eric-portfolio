@@ -21,7 +21,7 @@ export default {
 
   width: 100%;
   height: $navigation-height;
-  padding: 0 $spacer-sm;
+  padding: 0 rem(16);
 
   @include screen(small) {
     padding: 0 $spacer-md;

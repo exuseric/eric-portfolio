@@ -78,7 +78,7 @@ export default {
 
   // height: rem(500);
   margin-top: $navigation-height;
-  padding: $spacer-lg $spacer-sm;
+  padding: $spacer-lg rem(16);
 
   background-color: $black;
 

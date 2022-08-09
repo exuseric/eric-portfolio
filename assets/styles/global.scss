@@ -43,10 +43,10 @@ body {
 
 .section {
   margin: $spacer-xl auto;
-  padding: $spacer-lg $spacer-sm;
+  padding: $spacer-xl rem(16);
 
   @include screen(small) {
-    padding: $spacer-lg $spacer-md;
+    padding: $spacer-xl $spacer-md;
   }
 
   & > .container:not(:first-child) {

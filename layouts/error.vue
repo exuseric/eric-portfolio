@@ -25,6 +25,7 @@
 export default {
   name: 'ErrorPage',
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     error: {
       type: Object,
     },

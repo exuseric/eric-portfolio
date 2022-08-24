@@ -26,7 +26,7 @@ export default {
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:wght@100;400;600&family=Outfit:wght@400;600&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@100;400;600&family=Outfit:wght@400;600&display=swap',
       },
     ],
   },
@@ -60,6 +60,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/strapi',
   ],
 
   apollo: {

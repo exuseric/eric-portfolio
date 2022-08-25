@@ -1,5 +1,3 @@
-@use 'functions' as *;
-
 $breakpoint: (
   //640px
   small: 40em,
@@ -31,19 +29,6 @@ $breakpoint-up: (
 }
 @mixin screen-min-max($max, $min) {
   @media only screen and (max-width: map-get($breakpoint-up, $max)) and (min-width: map-get($breakpoint-up, $min)) {
-    @content;
-  }
-}
-
-// COLOR SCHEME
-@mixin light-theme() {
-  @media (prefers-color-scheme: light) {
-    @content;
-  }
-}
-
-@mixin dark-theme() {
-  @media (prefers-color-scheme: dark) {
     @content;
   }
 }

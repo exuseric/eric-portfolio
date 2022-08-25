@@ -1,0 +1,101 @@
+@use 'partials' as *;
+
+.button {
+  display: grid;
+  place-content: center;
+
+  width: fit-content;
+  height: rem(40);
+
+  font-weight: 600;
+  @include font(body);
+
+  text-decoration: none;
+  text-transform: capitalize;
+
+  padding: $spacer-sm $spacer-md;
+
+  border: 2px solid transparent;
+
+  transition: all $transition;
+
+  cursor: pointer;
+
+  color: $light-gray;
+  background-color: $mid-gray;
+
+  .icon {
+    display: grid;
+    place-content: center;
+    font-size: rem(24);
+  }
+
+  &:hover {
+    color: $info-500;
+    background-color: $info-50;
+    border-color: $info-500;
+  }
+  &:focus {
+    color: $info-50;
+    background-color: $info-500;
+    border-color: $info-900;
+  }
+
+  &--center {
+    @include center;
+    width: rem(40);
+    height: rem(40);
+    padding: $spacer-sm;
+  }
+
+  &--main {
+    color: $primary-50;
+    background-color: $primary-500;
+  }
+
+  &--pill {
+    padding: $spacer-xs $spacer-md;
+    border-radius: rem(30);
+  }
+
+  &--round {
+    @include center;
+
+    width: rem(40);
+    height: rem(40);
+
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: currentColor;
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &--success {
+    color: $success-900;
+    background-color: $success-50;
+    border-color: $success-900;
+  }
+
+  &--icon {
+    display: grid;
+    grid-auto-flow: column;
+    gap: $spacer-xs;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--frosted {
+    @include frosted-glass($mid-gray);
+  }
+
+  &--small {
+    padding: rem(4) rem(8);
+  }
+}

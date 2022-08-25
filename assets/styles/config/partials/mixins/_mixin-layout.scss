@@ -1,52 +1,51 @@
-@use 'media' as *;
-@use 'functions' as f;
-@use 'spacing' as s;
+@use '../functions' as *;
 
 @mixin center {
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin container-grid {
-  max-width: f.rem(750);
+  max-width: rem(750);
   margin: auto;
 
   display: grid;
   grid-auto-rows: auto;
   grid-auto-flow: dense;
   grid-template-columns: repeat(6, 1fr);
-  gap: f.rem(4);
+  gap: rem(4);
 
   @include screen('medium') {
-    max-width: f.rem(1400);
+    max-width: rem(1400);
     margin: auto;
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, f.rem(78));
-    gap: f.rem(8);
+    grid-template-columns: repeat(12, rem(78));
+    gap: rem(8);
   }
 
   @include screen('large') {
-    max-width: f.rem(1440);
+    max-width: rem(1440);
     margin: auto;
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, f.rem(109));
-    gap: f.rem(12);
+    grid-template-columns: repeat(12, rem(109));
+    gap: rem(12);
   }
 
   @include screen('x-large') {
-    max-width: f.rem(1750);
+    max-width: rem(1750);
 
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(12, f.rem(144));
-    gap: f.rem(2);
+    grid-template-columns: repeat(12, rem(144));
+    gap: rem(2);
   }
 }
 
@@ -55,6 +54,7 @@
   flex-flow: column wrap;
   justify-items: center;
 }
+
 @mixin flex-wrap-row {
   display: flex;
   flex-flow: row wrap;
@@ -66,6 +66,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 @mixin grid-flow-row {
   display: grid;
   grid-auto-flow: row;

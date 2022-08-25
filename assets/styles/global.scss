@@ -1,12 +1,9 @@
-@use 'config/colors' as *;
-@use 'config/media' as *;
+// @forward 'config';
+@forward 'config/buttons';
+@forward 'config/animations';
+@forward 'config/reset';
+@forward 'config/layout';
 
-@forward 'buttons';
-@forward 'animations';
-
-* {
-  line-height: rem(24);
-}
 body {
   font-size: 100%;
   font-family: $body;
@@ -18,54 +15,6 @@ body {
     color: $black;
     background-color: $white;
   }
-}
-
-/*
-  Elements Dimension Controls
-*/
-
-.container {
-  width: 100%;
-  max-width: rem(750);
-  margin: auto;
-
-  @include screen(medium) {
-    max-width: rem(1400);
-  }
-
-  @include screen(large) {
-    max-width: rem(1440);
-  }
-  @include screen(x-large) {
-    max-width: rem(1750);
-  }
-}
-
-.section {
-  margin: $spacer-xl auto;
-  padding: $spacer-xl rem(16);
-
-  @include screen(small) {
-    padding: $spacer-xl $spacer-md;
-  }
-
-  & > .container:not(:first-child) {
-    margin-block: $spacer-xl;
-  }
-}
-
-.text-container {
-  width: 100%;
-  max-width: 50ch;
-}
-.text-container--heading {
-  width: 100%;
-  max-width: 60ch;
-}
-
-.content-wrapper {
-  width: 100%;
-  max-width: rem(950);
 }
 
 img {

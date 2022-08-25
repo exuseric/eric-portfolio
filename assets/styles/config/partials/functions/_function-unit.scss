@@ -1,6 +1,3 @@
-@use './colors' as *;
-@use './fonts' as *;
-
 @use 'sass:math';
 
 @function rem($pixel) {
@@ -17,8 +14,4 @@
   } @else {
     @error "Don't use unit px in the parameter";
   }
-}
-
-@function scale($element) {
-  @return map-get($map: $scale, $key: $element);
 }

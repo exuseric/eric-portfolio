@@ -1,0 +1,45 @@
+@use 'partials' as *;
+
+.container {
+  width: 100%;
+  max-width: rem(750);
+  margin: auto;
+
+  @include screen(medium) {
+    max-width: rem(1400);
+  }
+
+  @include screen(large) {
+    max-width: rem(1440);
+  }
+  @include screen(x-large) {
+    max-width: rem(1750);
+  }
+}
+
+.section {
+  margin: $spacer-2xl auto;
+  padding: $spacer-2xl rem(16);
+
+  @include screen(small) {
+    padding: $spacer-2xl $spacer-md;
+  }
+
+  & > .container:not(:first-child) {
+    margin-block: $spacer-2xl;
+  }
+}
+
+.text-container {
+  width: 100%;
+  max-width: 50ch;
+}
+.text-container--heading {
+  width: 100%;
+  max-width: 60ch;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: rem(950);
+}

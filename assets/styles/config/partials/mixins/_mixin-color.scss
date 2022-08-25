@@ -1,0 +1,20 @@
+@mixin frosted-glass($color) {
+  background-color: $color;
+  @supports (backdrop-filter: blur()) {
+    background-color: transparentize($color: $color, $amount: 0.75);
+    backdrop-filter: blur(20px);
+    border: 2px solid transparentize($color: $color, $amount: 0.95);
+  }
+}
+
+@mixin light-theme() {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+@mixin dark-theme() {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}

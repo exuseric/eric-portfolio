@@ -3,11 +3,13 @@
     <li>
       <a
         href="https://www.github.com/exuseric/"
-        class="icon-btn"
+        class="button button--center button--transparent"
         title="Github"
         aria-label="github"
       >
-        <Github />
+        <span class="icon">
+          <Github />
+        </span>
       </a>
     </li>
     <li>
@@ -15,12 +17,14 @@
         href="https://www.linkedin.com/in/exuseric/"
         target="_blank"
         rel="noopener noreferrer"
-        class="icon-btn"
+        class="button button--center button--transparent"
         title="LinkedIn"
         aria-label="linkedin"
         disabled
       >
-        <LinkedIn />
+        <span class="icon">
+          <LinkedIn />
+        </span>
       </a>
     </li>
   </ul>
@@ -52,12 +56,12 @@ export default {
   list-style-type: none;
 
   color: $light-gray;
-  background-color: $dark-gray;
+  // background-color: $dark-gray;
   border-radius: rem(5);
 
   @include light-theme {
     color: $dark-gray;
-    background-color: $light-gray;
+    // background-color: $light-gray;
   }
 }
 </style>

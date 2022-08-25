@@ -1,11 +1,7 @@
 <template>
-  <section class="menu" aria-label="menu">
-    <nav
-      :class="`menu-wrapper ${
-        isMenuOpen ? 'slide-in-blurred-top' : 'slide-out-blurred-top'
-      }`"
-    >
-      <!-- Menu -->
+  <div class="menu" aria-label="menu">
+    <!-- Menu -->
+    <nav class="menu__links">
       <ul class="links">
         <li v-for="link in links" :key="link.ref">
           <nuxt-link
@@ -17,41 +13,14 @@
           </nuxt-link>
         </li>
       </ul>
-      <!-- End Of Menu -->
     </nav>
-
-    <!-- Button Group -->
-    <div class="button-group">
-      <!-- <nuxt-link to="/contact" class="link-btn contact-btn" role="button">
-        Contact
-      </nuxt-link> -->
-      <!-- Social Menu -->
-      <SocialLinks />
-      <!-- End Of Socials -->
-      <!-- Toggle Opening and Closing Of Mobile Menu -->
-      <button
-        class="icon-btn menu-btn"
-        type="button"
-        aria-label="menu"
-        :aria-expanded="isMenuOpen"
-        @click="isMenuOpen = !isMenuOpen"
-      >
-        <MenuIcon v-if="!isMenuOpen" />
-        <CloseIcon v-if="isMenuOpen" />
-      </button>
-      <!-- End Of Toggle -->
-    </div>
-    <!-- End Of Button Group -->
-  </section>
+    <!-- End Of Menu -->
+  </div>
 </template>
 
 <script>
-import MenuIcon from '~/assets/icons/menu.svg?inline'
-import CloseIcon from '~/assets/icons/close.svg?inline'
-
 export default {
   name: 'NavigationMenu',
-  components: { MenuIcon, CloseIcon },
   data() {
     return {
       isMenuOpen: false,
@@ -63,45 +32,26 @@ export default {
       ],
     }
   },
-  watch: {
-    $route() {
-      this.isMenuOpen = false
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 .menu {
-  @include grid-flow-col;
-  gap: $spacer-sm;
-
-  @include screen(small) {
-    backdrop-filter: none;
-    background-color: transparent;
+  // overflow: hidden;
+  &__button-group {
+    grid-row: 1 / 2;
+  }
+  &__links {
+    grid-row: 2 / -1;
   }
 }
 .socials {
   color: $light-gray;
 }
 
-.menu-wrapper {
-  position: absolute;
-  inset: rem(80) 0 auto;
-  z-index: 2;
-  padding-inline: $spacer-sm;
-
-  background-color: $dark-gray;
-  overflow: hidden;
-
-  @include light-theme {
-    background-color: $light-gray;
-  }
-}
-
 .links {
   padding: 0;
-  margin: $spacer-md 0;
+  // margin: $spacer-md 0;
   list-style: none;
 }
 
@@ -121,25 +71,26 @@ export default {
   &::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
     z-index: -1;
 
     width: 0;
-    height: 100%;
+    height: rem(32);
 
     background-color: $primary-500;
     // opacity: 0.05;
 
     transform-origin: center;
     transition: all $transition;
+    transform: translate(-50%, -50%);
 
-    border-radius: rem(5);
+    border-radius: $round-lg;
   }
 
   &:focus-visible {
-    color: $white;
-    background-color: $info-500;
+    color: $info-50;
+    // background-color: $info-500;
     outline-color: $info-900;
 
     &::before {
@@ -152,7 +103,7 @@ export default {
   }
 }
 
-.button-group {
+.menu__button-group {
   @include grid-flow-col;
   gap: $spacer-sm;
 }
@@ -175,41 +126,39 @@ export default {
 
 .menu-btn {
   color: $light-gray;
-  background-color: $dark-gray;
+  // background-color: $dark-gray;
+  background-color: transparent;
 
   @include light-theme {
     color: $dark-gray;
-    background-color: $mid-gray;
+    // background-color: $mid-gray;
   }
 }
 
 .link:hover,
 .nuxt-link-exact-active:hover {
+  color: $info-50;
   &::before {
+    left: 50%;
     width: 100%;
     background-color: $info-500;
   }
 }
 .nuxt-link-exact-active,
 .link:focus {
-  // color: $primary-500;
+  color: $primary-50;
   &::before {
-    left: -5%;
-    width: 90%;
-  }
-
-  @include screen(small) {
-    &::before {
-      left: 0;
-      width: 40%;
-    }
+    left: 50%;
+    width: 100%;
   }
 }
 
-/* Styling For Large Screens*/
+/*
+Styling For Large Screens
+*/
 @include screen(small) {
   // Menu
-  .menu-wrapper,
+  .menu__links,
   .links {
     @include flex-wrap-row;
     justify-content: space-between;
@@ -222,7 +171,7 @@ export default {
     margin: 0;
     padding: 0;
   }
-  .menu-wrapper {
+  .menu__links {
     width: fit-content;
 
     background-color: transparent;
@@ -245,5 +194,7 @@ export default {
   }
   // End Of Menu
 }
-/* End Of Large Screen */
+/*
+End Of Large Screen
+*/
 </style>

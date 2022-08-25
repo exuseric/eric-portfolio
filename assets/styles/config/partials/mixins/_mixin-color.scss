@@ -3,7 +3,7 @@
   @supports (backdrop-filter: blur()) {
     background-color: transparentize($color: $color, $amount: 0.75);
     backdrop-filter: blur(20px);
-    border: 2px solid transparentize($color: $color, $amount: 0.95);
+    border: 2px solid transparentize($color: $color, $amount: 0.9);
   }
 }
 

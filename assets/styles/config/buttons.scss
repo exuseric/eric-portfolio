@@ -24,6 +24,11 @@
   color: $light-gray;
   background-color: $mid-gray;
 
+  @include light-theme {
+    color: $dark-gray;
+    background-color: $light-gray;
+  }
+
   .icon {
     display: grid;
     place-content: center;

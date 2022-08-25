@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use '../variables/variable-font' as *;
 
 @mixin font($element) {
   font-size: map-get($map: $scale, $key: $element);

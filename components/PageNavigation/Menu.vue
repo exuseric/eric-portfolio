@@ -60,13 +60,11 @@ export default {
   position: relative;
   isolation: isolate;
 
+  @include text-color;
   text-transform: capitalize;
   text-decoration: none;
 
-  color: $light-gray;
   padding: $spacer-md 0;
-
-  border-radius: rem(5);
 
   &::before {
     content: '';
@@ -79,13 +77,10 @@ export default {
     height: rem(32);
 
     background-color: $primary-500;
-    // opacity: 0.05;
 
     transform-origin: center;
     transition: all $transition;
     transform: translate(-50%, -50%);
-
-    border-radius: $round-lg;
   }
 
   &:focus-visible {
@@ -96,10 +91,6 @@ export default {
     &::before {
       background-color: $info-900;
     }
-  }
-
-  @include light-theme {
-    color: $dark-gray;
   }
 }
 

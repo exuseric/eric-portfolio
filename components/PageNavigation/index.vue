@@ -9,7 +9,7 @@
           <!-- Menu Toggle -->
 
           <button
-            class="button button--menu button--center button--transparent"
+            class="button button--menu button--center button--main"
             type="button"
             aria-label="menu"
             :aria-expanded="isMenuOpen"
@@ -61,6 +61,9 @@ export default {
   z-index: 100;
 
   width: 100%;
+  height: fit-content;
+
+  padding: 0 $spacer-xs;
 }
 
 .navigation {
@@ -124,8 +127,7 @@ export default {
 
 .navigation {
   min-height: $navigation-height;
-  margin: rem(8) auto;
-
+  margin: $spacer-xs auto;
   &__top {
     @include flex-wrap-row;
     justify-content: space-between;
@@ -139,6 +141,7 @@ export default {
     align-items: center;
     gap: $spacer-sm;
     .button--menu {
+      border-radius: $round-sm;
       @include screen(small) {
         display: none;
       }
@@ -150,8 +153,10 @@ export default {
       animation: slide-in-blurred-top $transition forwards;
     }
     &--hide {
+      position: absolute;
       animation: slide-out-blurred-top $transition forwards;
       @include screen(small) {
+        position: relative;
         animation: none;
       }
     }

@@ -8,7 +8,7 @@
           inclusive and accessible design and development.
         </p>
         <div class="cta-group">
-          <nuxt-link to="/contact" class="primary-btn work-btn" role="button">
+          <nuxt-link to="/contact" class="button button--main" role="button">
             Let's Work Together
           </nuxt-link>
           <!-- <button class="sec-btn view-btn">Browse My Work</button> -->
@@ -76,23 +76,12 @@ export default {
   position: relative;
   isolation: isolate;
 
-  // height: rem(500);
   margin-top: $navigation-height;
-  padding: $spacer-lg rem(16);
-
-  background-color: $black;
-
-  @include light-theme {
-    background-color: $white;
-  }
-
-  @include screen(small) {
-    padding: $spacer-lg $spacer-md;
-  }
+  padding: $spacer-2xl $spacer-md;
 }
 
 .container {
-  width: 100%;
+  // width: 100%;
 
   @include screen(small) {
     @include grid-flow-col;
@@ -101,23 +90,15 @@ export default {
 }
 
 .hero__heading {
-  height: fit-content;
-}
+  @include text-color;
 
-.hero__heading {
   h1 {
-    font-size: scale(h1);
     font-family: $heading;
-    line-height: rem(48);
-
-    color: $white;
-
-    margin-bottom: $spacer-md;
+    @include font(h3);
+    margin-bottom: $spacer-lg;
   }
   p {
-    color: $white;
-    font-size: scale(h6);
-    line-height: rem(32);
+    @include font(h6);
 
     strong {
       color: $primary-500;
@@ -127,16 +108,7 @@ export default {
   .cta-group {
     @include flex-wrap-row;
     gap: $spacer-sm;
-    margin-top: $spacer-sm;
-  }
-
-  @include light-theme {
-    h1 {
-      color: $dark-gray;
-    }
-    p {
-      color: $black;
-    }
+    margin-top: $spacer-md;
   }
 }
 </style>

@@ -21,13 +21,7 @@
 
   cursor: pointer;
 
-  color: $light-gray;
-  background-color: $mid-gray;
-
-  @include light-theme {
-    color: $dark-gray;
-    background-color: $light-gray;
-  }
+  @include bg-dark;
 
   .icon {
     display: grid;
@@ -54,8 +48,7 @@
   }
 
   &--main {
-    color: $primary-50;
-    background-color: $primary-500;
+    @include bg-primary;
   }
 
   &--pill {

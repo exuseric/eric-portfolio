@@ -1,3 +1,5 @@
+@use '../variables/variable-color' as *;
+
 @mixin frosted-glass($color) {
   background-color: $color;
   @supports (backdrop-filter: blur()) {
@@ -7,14 +9,37 @@
   }
 }
 
-@mixin light-theme() {
+@mixin light-theme {
   @media (prefers-color-scheme: light) {
     @content;
   }
 }
 
-@mixin dark-theme() {
+@mixin dark-theme {
   @media (prefers-color-scheme: dark) {
     @content;
   }
+}
+
+@mixin text-color {
+  color: $light-gray;
+
+  @include light-theme {
+    color: $dark-gray;
+  }
+}
+
+@mixin bg-dark {
+  color: $light-gray;
+  background-color: $dark-gray;
+
+  @include light-theme {
+    color: $dark-gray;
+    background-color: $light-gray;
+  }
+}
+
+@mixin bg-primary {
+  color: $primary-50;
+  background-color: $primary-500;
 }

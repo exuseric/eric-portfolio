@@ -60,11 +60,30 @@ export default {
   position: relative;
   isolation: isolate;
 
-  @include text-color;
-  text-transform: capitalize;
+  font-weight: 600;
   text-decoration: none;
+  text-transform: capitalize;
 
-  padding: $spacer-md 0;
+  width: 100%;
+
+  padding: $spacer-md;
+  border-radius: $round-sm;
+
+  @include font(h6);
+  @include link-color;
+
+  .icon {
+    @include center;
+    font-size: inherit;
+  }
+
+  &--icon {
+    @include grid-flow-col;
+  }
+
+  &--icon-only {
+    @include center;
+  }
 
   &::before {
     content: '';
@@ -74,9 +93,9 @@ export default {
     z-index: -1;
 
     width: 0;
-    height: rem(32);
+    height: 100%;
 
-    background-color: $primary-500;
+    background-color: $info-500;
 
     transform-origin: center;
     transition: all $transition;
@@ -94,6 +113,33 @@ export default {
   }
 }
 
+.link:hover,
+.nuxt-link-exact-active:hover {
+  color: $info-50;
+  &::before {
+    left: 50%;
+    width: 100%;
+    background-color: $info-500;
+  }
+}
+// .nuxt-link-exact-active:focus,
+// .link:focus {
+//   color: $primary-50;
+//   &::before {
+//     left: 50%;
+//     width: 100%;
+//     // @include frosted;
+//   }
+// }
+.nuxt-link-exact-active {
+  color: $primary-50;
+
+  &::before {
+    width: rem(56);
+    background-color: $primary-500;
+  }
+}
+
 .menu__button-group {
   @include grid-flow-col;
   gap: $spacer-sm;
@@ -106,42 +152,8 @@ export default {
   }
 }
 
-.contact-btn {
-  color: $light-gray;
-  padding: $spacer-xs;
-
-  @include light-theme {
-    color: $dark-gray;
-  }
-}
-
 .menu-btn {
-  color: $light-gray;
-  // background-color: $dark-gray;
-  background-color: transparent;
-
-  @include light-theme {
-    color: $dark-gray;
-    // background-color: $mid-gray;
-  }
-}
-
-.link:hover,
-.nuxt-link-exact-active:hover {
-  color: $info-50;
-  &::before {
-    left: 50%;
-    width: 100%;
-    background-color: $info-500;
-  }
-}
-.nuxt-link-exact-active,
-.link:focus {
-  color: $primary-50;
-  &::before {
-    left: 50%;
-    width: 100%;
-  }
+  @include text-color;
 }
 
 /*
@@ -173,14 +185,6 @@ Styling For Large Screens
     @supports (backdrop-filter: blur(0)) {
       background-color: transparent;
       backdrop-filter: blur(0);
-    }
-  }
-  .links {
-    .socials {
-      margin: 0;
-    }
-    .link {
-      padding: $spacer-xs $spacer-sm;
     }
   }
   // End Of Menu

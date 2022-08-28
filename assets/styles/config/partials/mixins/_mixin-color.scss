@@ -1,4 +1,4 @@
-@use '../variables/variable-color' as *;
+@use '../variables' as *;
 
 @mixin frosted-glass($color) {
   background-color: $color;
@@ -6,6 +6,24 @@
     background-color: transparentize($color: $color, $amount: 0.75);
     backdrop-filter: blur(20px);
     border: 2px solid transparentize($color: $color, $amount: 0.9);
+  }
+}
+
+@mixin frosted {
+  background-color: $black;
+  @supports (backdrop-filter: blur()) {
+    background-color: transparentize($color: $black, $amount: 0.75);
+    backdrop-filter: blur(20px);
+    border: 2px solid transparentize($color: $black, $amount: 0.9);
+  }
+
+  @include light-theme {
+    background-color: $white;
+    @supports (backdrop-filter: blur()) {
+      background-color: transparentize($color: $white, $amount: 0.75);
+      backdrop-filter: blur(20px);
+      border: 2px solid transparentize($color: $white, $amount: 0.9);
+    }
   }
 }
 
@@ -29,13 +47,40 @@
   }
 }
 
-@mixin bg-dark {
+@mixin link-color {
   color: $light-gray;
-  background-color: $dark-gray;
 
   @include light-theme {
     color: $dark-gray;
-    background-color: $light-gray;
+  }
+
+  &:focus-visible {
+    color: $info-50;
+    background-color: $info-500;
+  }
+
+  &:hover {
+    color: $primary-500;
+  }
+}
+
+@mixin bg-dark {
+  color: $light-gray;
+  background-color: $black;
+
+  @include light-theme {
+    color: $dark-gray;
+    background-color: $white;
+  }
+}
+
+@mixin bg-gray {
+  color: $dark-gray;
+  background-color: $dark-gray;
+
+  @include light-theme {
+    color: $light-gray;
+    background-color: $mid-gray;
   }
 }
 

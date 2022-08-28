@@ -87,11 +87,7 @@ export default {
     border-radius: $round-lg;
     overflow: hidden;
 
-    @include frosted-glass($black);
-
-    @include light-theme {
-      @include frosted-glass($white);
-    }
+    @include frosted;
 
     @include screen(small) {
       background: transparent;
@@ -108,10 +104,7 @@ export default {
     align-items: center;
     border-radius: $round-lg;
 
-    @include frosted-glass($black);
-    @include light-theme {
-      @include frosted-glass($white);
-    }
+    @include frosted;
 
     &__top {
       grid-column: 1 /2;

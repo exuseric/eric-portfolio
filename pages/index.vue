@@ -1,7 +1,7 @@
 <template>
   <main class="home">
     <IndexPageHeader />
-    <IndexPageProjects />
+    <FeaturedProjects />
     <IndexPageServices />
     <Contact />
     <!--

@@ -1,44 +1,49 @@
 <template>
   <article class="card">
-    <div class="cover">
-      <nuxt-img
-        src="/img/projects/pexels-media-4497731-1651340345560.jpeg"
-        alt="cuppa"
-        width="100%"
-        height="100%"
-        fit="cover"
-      />
-    </div>
-    <div class="body text-container">
-      <header class="heading">
-        <h3>
+    <div class="card__container">
+      <header class="card__header text-container">
+        <h3 class="heading">
+          {{ project.name }}
+        </h3>
+        <div class="link-group">
           <a
-            href="https://cuppa.netlify.app"
+            class="link link--icon"
+            :href="project.url"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span> Cuppa </span>
-
-            <span>
+            <span class="icon">
               <ExternalLink />
             </span>
+            <span class="txt"> Open </span>
           </a>
-        </h3>
-        <div class="btn-group">
           <a
-            href="https://www.github.com/exuseric/cuppa"
+            class="link link--icon"
+            :href="project.repository"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github />
+            <span class="text">Code</span>
+            <span class="icon">
+              <Github />
+            </span>
           </a>
         </div>
       </header>
-
-      <p>
-        A weather website application that delivers a nice tea recipe with your
-        weather.
-      </p>
+      <div class="card__cover">
+        <nuxt-img
+          src="/img/projects/pexels-media-4497731-1651340345560.jpeg"
+          alt="cuppa"
+          width="100%"
+          height="100%"
+          fit="cover"
+        />
+      </div>
+      <div class="card__body text-container">
+        <p>
+          {{ project.description }}
+        </p>
+      </div>
     </div>
   </article>
 </template>
@@ -52,72 +57,57 @@ export default {
     Github,
     ExternalLink,
   },
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    project: {
+      type: Object,
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .card {
-  position: relative;
-  inset: 0 0 auto;
-  z-index: 1;
-
+  @include center;
+  isolation: isolate;
   width: 100%;
-  max-width: rem(750);
-  height: fit-content;
+  max-width: rem(500);
+  min-height: rem(600);
 
-  border-radius: rem(5);
-  overflow: hidden;
+  // @include bg-dark;
+
+  &__container {
+    grid-column: 3 / -3;
+    grid-row: 2 / -2;
+    max-width: rem(350);
+  }
 }
 
-.cover {
-  width: 100%;
-  // height: 100%;
-  height: rem(250);
+.card {
+  padding: $spacer-xl $spacer-lg;
+  // background-color: $dark-gray;
+  @include bg-dark;
 
-  border-radius: rem(5);
-  overflow: hidden;
-}
-
-.body {
-  position: relative;
-  z-index: 2;
-  width: 90%;
-  height: fit-content;
-
-  margin-inline: auto;
-  margin-top: -$spacer-lg;
-  padding: $spacer-md;
-
-  color: $light-gray;
-  background-color: $dark-gray;
-
-  border-radius: rem(5);
-
-  @include light-theme {
-    color: $dark-gray;
-    background-color: $light-gray;
+  &__cover {
+    width: 100%;
+    max-width: rem(350);
+    height: rem(350);
+    margin-block: $spacer-xl;
   }
 }
 
 .heading {
+  @include font(h2);
+  // font-weight: 100;
+  text-align: center;
+}
+
+.link-group {
   @include grid-flow-col;
-  align-items: center;
-
-  margin-bottom: $spacer-sm;
-
-  h3 > a {
-    @include grid-flow-col;
-    gap: $spacer-xs;
-    align-items: center;
-
-    font-size: scale(h6);
-    text-decoration: none;
-  }
-
-  .btn-group {
-    @include flex-wrap-row;
-    align-items: center;
-    gap: $spacer-sm;
+  gap: $spacer-xl;
+  margin-block: $spacer-md;
+  .link {
+    // color: red;
   }
 }
 </style>

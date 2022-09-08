@@ -1,5 +1,7 @@
 <template>
-  <nuxt-link to="/" class="link link--logo">
+  <nuxt-link
+    to="/"
+    class="link link--logo">
     <span class="logo">
       <Logo />
     </span>
@@ -7,11 +9,11 @@
   </nuxt-link>
 </template>
 <script>
-import Logo from '~/assets/img/logo/logo-with-name.svg?inline'
+import Logo from '~/assets/logo/logo-with-name.svg?inline';
 
 export default {
   components: { Logo },
-}
+};
 </script>
 
 <style lang="scss" scoped>

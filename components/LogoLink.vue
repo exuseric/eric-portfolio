@@ -1,28 +1,22 @@
 <template>
-  <nuxt-link
-    to="/"
-    :class="`button button--logo button--icon button--transparent logo-link ${mode}-logo`"
-  >
-    <span class="icon icon--logo">
-      <nuxt-img
-        format="webp"
-        :src="`/img/logo/logo-main.png`"
-        alt="Logo: An abstract of the letter E"
-        width="24"
-        height="24"
-      />
+  <nuxt-link to="/" class="link link--logo">
+    <span class="logo">
+      <Logo />
     </span>
-    <p class="txt">Eric Maina</p>
+    <!-- <p class="txt">Eric Maina</p> -->
   </nuxt-link>
 </template>
 <script>
+import Logo from '~/assets/img/logo/logo-with-name.svg?inline'
+
 export default {
-  name: 'LogoLink',
-  props: {
-    mode: {
-      type: String,
-      default: 'light',
-    },
-  },
+  components: { Logo },
 }
 </script>
+
+<style lang="scss" scoped>
+.logo {
+  @include center;
+  max-width: rem(72);
+}
+</style>

@@ -47,6 +47,8 @@ export default {
   align-items: center;
   gap: $spacer-xs;
 
+  @include text-main;
+
   width: fit-content;
   height: fit-content;
 
@@ -55,13 +57,6 @@ export default {
 
   list-style-type: none;
 
-  color: $light-gray;
-  // background-color: $dark-gray;
   border-radius: rem(5);
-
-  @include light-theme {
-    color: $dark-gray;
-    // background-color: $light-gray;
-  }
 }
 </style>

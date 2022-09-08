@@ -1,117 +1,123 @@
 <template>
-  <form>
-    <div class="form-group">
-      <label for="full-name">Full Name:</label>
-      <input
-        id="full-name"
-        type="text"
-        name="full-name"
-        class="form-control"
-        required
-        placeholder="eg: John Jon"
-        autocomplete="name given-name additional-name"
-      />
+  <form
+    id="contact"
+    class="form form--grid"
+    name="contact"
+    netlify>
+    <input
+      type="hidden"
+      name="contact" />
+    <div class="form--grid__row form--grid__details">
+      <div class="form__group form__group--name">
+        <label
+          class="form__label"
+          for="full-name"
+          >Name:</label
+        >
+        <input
+          id="full-name"
+          type="text"
+          name="full-name"
+          class="form__control"
+          required
+          placeholder="eg: John Jon"
+          autocomplete="name given-name additional-name" />
+      </div>
+      <div class="form__group form__group--email">
+        <label
+          class="form__label"
+          for="email"
+          >Email:</label
+        >
+        <input
+          id="email"
+          type="email"
+          name="email"
+          imputmode="email"
+          class="form__control"
+          required
+          placeholder="eg: example@gmail.com"
+          autocomplete="email" />
+      </div>
     </div>
-    <div class="form-group">
-      <label for="email">Email Address:</label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        imputmode="email"
-        class="form-control"
-        required
-        placeholder="eg: example@gmail.com"
-        autocomplete="email"
-      />
+    <div class="form--grid__row form--grid__message">
+      <div class="form__group form__group--message">
+        <label
+          class="form__label"
+          for="message"
+          >Message:</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          rows="8"
+          placeholder="Hi..."
+          class="form__control"></textarea>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="8"
-        placeholder="Hi..."
-        class="form-control"
-      ></textarea>
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="submit-btn primary-btn">
-        Send Your Message
-      </button>
+    <div class="form--grid__row form--grid__action">
+      <div class="form__group form__group--button">
+        <button
+          type="submit"
+          class="button button--submit button--main">
+          Send Message
+        </button>
+      </div>
     </div>
   </form>
 </template>
 
 <style lang="scss" scoped>
-form {
+.form {
   width: 100%;
-}
+  max-width: rem(750);
 
-.form-group {
-  @include flex-wrap-col;
-
-  &:not(:last-child) {
-    margin-bottom: $spacer-md;
+  &__group {
+    @include grid-flow-row;
+    gap: $spacer-xs;
   }
-  label {
-    font-family: $heading;
+
+  &__label {
+    @include text-color('secondary', '900');
+    @include font(h6);
     font-weight: 600;
-    font-size: scale('h6');
-    color: $primary-900;
-    margin-bottom: $spacer-xs;
   }
 
-  .submit-btn {
+  &__control {
+    @include font('body-lg');
+    font-weight: 600;
     width: 100%;
-  }
-}
+    padding: $spacer-md;
+    border: 2px solid transparent;
+    border-radius: $round-sm;
 
-.details {
-  @include flex-wrap-row;
-  justify-content: space-between;
-  // align-items: center;
-}
-
-.form-control {
-  font-size: scale(h6);
-
-  width: 100%;
-  padding: $spacer-sm;
-
-  color: $primary-900;
-  background-color: $primary-50;
-
-  border: 2px solid transparent;
-  border-radius: rem(4);
-
-  transition: all 0.35s ease;
-
-  &::placeholder {
-    color: currentColor;
-  }
-
-  &:focus {
-    outline-color: $primary-50;
-    color: $primary-50;
-    background-color: $primary-900;
+    @include text-color('secondary', '900');
+    @include bg-color('secondary', '50');
 
     &::placeholder {
-      color: $info-900;
+      color: currentColor;
+    }
+
+    &:focus {
+      @include text-color('info', '500');
+      border-color: currentColor;
+      @include bg-color('info', '50');
     }
   }
 }
 
-.submit-btn {
-  font-weight: 600;
+.form--grid {
+  @include grid-flow-row;
+  gap: $spacer-md;
+  &__row {
+    @include grid-flow-row;
+    gap: $spacer-md;
+  }
 
-  color: $primary-50;
-  background-color: $primary-900;
-
-  &:hover {
-    color: $primary-500;
-    background-color: $primary-50;
+  @include screen(tablet) {
+    &__details {
+      @include grid-flow-col;
+    }
   }
 }
 </style>

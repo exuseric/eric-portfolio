@@ -1,11 +1,10 @@
 <template>
-  <header class="nav-bar">
+  <header class="navbar">
     <div class="container navigation">
       <div class="navigation__top">
-        <LogoLink class="navigation__logo" />
+        <LogoLink class="navigation__top__logo" />
         <!-- Button Group -->
-        <div class="navigation__button-group">
-          <SocialLinks />
+        <div class="navigation__top__button-group">
           <!-- Menu Toggle -->
 
           <button
@@ -25,7 +24,7 @@
         <!-- End Of Button Group -->
       </div>
       <!-- Menu -->
-      <PageNavigationMenu
+      <NavigationMenu
         :class="`navigation__menu ${
           isMenuOpen ? 'navigation__menu--show' : 'navigation__menu--hide'
         }`"
@@ -36,11 +35,12 @@
 </template>
 
 <script>
+import NavigationMenu from './NavigationMenu.vue'
 import MenuIcon from '~/assets/icons/menu.svg?inline'
 import CloseIcon from '~/assets/icons/close.svg?inline'
 export default {
   name: 'MainNavigation',
-  components: { MenuIcon, CloseIcon },
+  components: { MenuIcon, CloseIcon, NavigationMenu },
   data() {
     return {
       isMenuOpen: false,
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-bar {
+.navbar {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
@@ -63,7 +63,7 @@ export default {
   width: 100%;
   height: fit-content;
 
-  padding: 0 $spacer-xs;
+  padding: $spacer-sm;
 }
 
 .navigation {
@@ -71,6 +71,8 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto 1fr;
   row-gap: $spacer-xs;
+
+  min-height: $navigation-height;
 
   &__top {
     grid-column: 1 / -1;
@@ -84,59 +86,70 @@ export default {
   &__top,
   &__menu {
     padding: $spacer-sm;
-    border-radius: $round-lg;
+    border-radius: $round-sm;
     overflow: hidden;
 
     @include frosted;
-
-    @include screen(small) {
-      background: transparent;
-      backdrop-filter: none;
-      border: none;
-      overflow: visible;
-    }
   }
+}
 
-  @include screen(small) {
+@include screen(tablet) {
+  .navigation {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
     align-items: center;
-    border-radius: $round-lg;
+    border-radius: $round-sm;
+    padding-inline: $spacer-md;
 
     @include frosted;
 
     &__top {
       grid-column: 1 /2;
       grid-row: 1/-1;
+      justify-self: start;
     }
     &__menu {
       grid-column: 2 /-1;
       grid-row: 1/-1;
       justify-self: end;
     }
+
+    &__top,
+    &__menu {
+      background: transparent;
+      backdrop-filter: none;
+      border: none;
+      overflow: visible;
+      padding: 0;
+    }
   }
 }
 
 .navigation {
-  min-height: $navigation-height;
-  margin: $spacer-xs auto;
+  // margin: $spacer-xs auto;
   &__top {
     @include flex-wrap-row;
     justify-content: space-between;
     align-items: center;
     gap: $spacer-lg;
-  }
 
-  &__button-group {
-    @include flex-wrap-row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: $spacer-sm;
-    .button--menu {
-      border-radius: $round-sm;
-      @include screen(small) {
-        display: none;
+    @include screen(tablet) {
+      gap: 0;
+    }
+
+    &__button-group {
+      @include flex-wrap-row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: $spacer-sm;
+
+      .button--menu {
+        border-radius: $round-sm;
+
+        @include screen(tablet) {
+          display: none;
+        }
       }
     }
   }
@@ -148,7 +161,7 @@ export default {
     &--hide {
       position: absolute;
       animation: slide-out-blurred-top $transition forwards;
-      @include screen(small) {
+      @include screen(tablet) {
         position: relative;
         animation: none;
       }

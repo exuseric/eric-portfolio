@@ -11,13 +11,14 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'A frontend developer with a focus in accesibility.',
+        content:
+          'I am a design-minded front-end developer or sometimes called UI developer. I write HTML, CSS/SCSS and JavaScript that powers Web user interfaces and multi-platform single codebase desktop and mobile applications with a focus on responsive design, accessibility and perfomance.',
       },
       {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'frontend developer, front-end developer, web developer, website developer, web designer, website designer, ui designer, ui design, accessibility, accessible design',
+          'frontend developer, front-end developer, web developer, website developer, web designer, website designer, ui designer, ui developer, accessibility, accessible design, accessibility developer',
       },
       { name: 'format-detection', content: 'telephone=no' },
     ],
@@ -101,8 +102,12 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
-      short_name: 'Eric',
+      short_name: 'Eric M.',
       name: 'Eric Maina — Frontend Developer',
+      description:
+        'I am a design-minded front-end developer or sometimes called UI developer. I write HTML, CSS/SCSS and JavaScript that powers Web user interfaces and multi-platform single codebase desktop and mobile applications with a focus on responsive design, accessibility and perfomance.',
+      theme_color: '#8570c2',
+      background_color: '#050506',
     },
   },
 

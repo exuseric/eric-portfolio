@@ -60,16 +60,38 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/composition-api/module',
     '@nuxtjs/strapi',
+    '@nuxtjs/markdownit',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
   ],
-
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint: process.env.STRAPI_URL || 'http://localhost:1337/graphql',
-      },
+  image: {
+    strapi: {
+      baseURL: process.env.STRAPI_URL || 'http://localhost:1337',
     },
+  },
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    version: 'v4',
+  },
+  markdownit: {
+    runtime: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: ['markdown-it-div', 'markdown-it-attrs'],
+  },
+  sitemap: {
+    hostname: process.env.HOST || 'https://itseric.netlify.app',
+    gzip: true,
+    exclude: ['/secret', '/admin/**'],
+    routes: [
+      {
+        url: '/blog/:slug',
+        changefreq: 'weekly',
+        priority: 1,
+      },
+    ],
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios100
   axios: {
@@ -88,4 +110,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};

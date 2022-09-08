@@ -1,22 +1,22 @@
 <template>
   <main class="error section">
     <section class="container">
-      <div class="image">
+      <header class="container__header wrapper--copy">
+        <div class="text-group">
+          <h1 class="heading">{{ error.statusCode }}</h1>
+          <p class="message">{{ error.message }}</p>
+        </div>
+        <nuxt-link to="/" class="button button--main" role="button">
+          Go back home
+        </nuxt-link>
+      </header>
+      <div class="container__image">
         <img
           src="~/assets/illustration/error.webp"
           alt="error illustration"
           aria-hidden="true"
         />
       </div>
-      <header class="heading text-container">
-        <div class="text-group">
-          <h1>{{ error.statusCode }}</h1>
-          <p>{{ error.message }}</p>
-        </div>
-        <nuxt-link to="/" class="primary-btn" role="button">
-          Go back home
-        </nuxt-link>
-      </header>
     </section>
   </main>
 </template>
@@ -34,73 +34,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.error {
-  display: flex;
-  place-content: center;
-
-  position: relative;
-  isolation: isolate;
-
-  margin-top: $navigation-height;
-  padding: $spacer-lg 0;
-
-  height: calc(100vh - $navigation-height);
-
-  background-color: $black;
-
-  @include light-theme {
-    background-color: $white;
-  }
-}
-
-.illustration {
-  width: 100%;
-  max-width: rem(350);
-
-  // display: none;
-
-  @include screen(small) {
-    display: block;
-  }
-}
 .container {
-  width: 100%;
-  max-width: rem(750);
+  @include flex-wrap-row;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacer-lg;
 
-  @include screen(small) {
-    @include grid-flow-col;
-    align-items: center;
-  }
-}
-
-.heading {
-  @include grid-flow-row;
-  gap: $spacer-xs;
-  padding: $spacer-md;
-
-  height: fit-content;
-  color: $light-gray;
-
-  @include light-theme {
-    color: $dark-gray;
+  &__image {
+    width: rem(300);
+    height: rem(300);
   }
 
-  h1 {
-    font-size: scale(h1);
-    font-family: $heading;
-    line-height: rem(56);
-  }
-  p {
-    font-size: scale(h6);
-    font-family: $body;
-  }
+  &__header {
+    @include grid-flow-row;
+    gap: $spacer-lg;
 
-  a {
-    width: fit-content;
+    .heading {
+      @include font(h1);
+      @include text-color('primary', '500');
+    }
+    .message {
+      @include font(h5);
+    }
   }
-}
-
-.text-group {
-  margin-bottom: $spacer-sm;
 }
 </style>

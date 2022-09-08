@@ -66,9 +66,7 @@ export default {
     '@nuxtjs/sitemap',
   ],
   image: {
-    strapi: {
-      baseURL: process.env.STRAPI_URL || 'http://localhost:1337',
-    },
+    domains: [process.env.STRAPI_URL],
   },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
@@ -106,6 +104,10 @@ export default {
       short_name: 'Eric',
       name: 'Eric Maina — Frontend Developer',
     },
+  },
+
+  env: {
+    STRAPI_URL: process.env.STRAPI_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

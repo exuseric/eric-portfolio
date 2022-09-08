@@ -1,49 +1,11 @@
-/* Primary */
-$primary-900: hsl(350, 87%, 5%);
-// $primary-500: hsl(5, 69%, 48%);
-$primary-500: hsl(350, 87%, 60%);
-$primary-50: hsl(350, 87%, 90%);
-
-$secondary-500: hsl(170 87% 60%);
-
 /* Neutral */
-$white: hsl(350, 8%, 95%);
-$light-gray: hsl(350, 35%, 90%);
-$mid-gray: hsl(350, 10%, 55%);
-$dark-gray: hsl(350 10% 20%);
-$black: hsl(350, 8%, 10%);
+$white: hsl(250, 8%, 98%);
+$light-gray: hsl(250, 35%, 95%);
+$mid-gray: hsl(250, 10%, 55%);
+$dark-gray: hsl(250 10% 10%);
+$black: hsl(250, 8%, 2%);
 
-/* Success */
-$success-900: hsl(94, 87%, 5%);
-$success-500: hsl(103, 87%, 60%);
-$success-50: hsl(100, 87%, 90%);
+$primary: hsl(255, 40%, 60%);
 
-/* Caution */
-$caution-900: hsl(32, 87%, 5%);
-$caution-500: hsl(35, 87%, 60%);
-$caution-50: hsl(30, 87%, 90%);
-
-/* Danger */
-$danger-900: hsl(3, 87%, 5%);
-$danger-500: hsl(3, 87%, 60%);
-$danger-50: hsl(3, 87%, 90%);
-
-/* Info */
-$info-900: hsl(220, 87%, 5%);
-$info-500: hsl(220, 87%, 60%);
-$info-50: hsl(220, 87%, 90%);
-
-.mesh-gradient {
-  background-color: #99ffa5;
-  background-image: radial-gradient(
-      at 22% 43%,
-      hsla(285, 74%, 64%, 1) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 94% 30%, hsla(306, 84%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 6% 33%, hsla(264, 80%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 70% 71%, hsla(77, 62%, 63%, 1) 0px, transparent 50%),
-    radial-gradient(at 42% 1%, hsla(211, 91%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 82% 7%, hsla(276, 95%, 66%, 1) 0px, transparent 50%),
-    radial-gradient(at 11% 98%, hsla(350, 81%, 60%, 1) 0px, transparent 50%);
-}
+// The theme that is not default
+$theme: 'light';

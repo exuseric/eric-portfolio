@@ -1,9 +1,11 @@
 @use '../functions' as *;
 
 @mixin center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  display: grid;
+  place-content: center;
 }
 
 @mixin container-grid {
@@ -49,6 +51,14 @@
   }
 }
 
+@mixin flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+}
+
 @mixin flex-wrap-col {
   display: flex;
   flex-flow: column wrap;
@@ -63,13 +73,28 @@
 @mixin grid-flow-col {
   display: grid;
   grid-auto-flow: column;
-  justify-content: space-between;
   align-items: center;
 }
 
 @mixin grid-flow-row {
   display: grid;
   grid-auto-flow: row;
-  justify-content: space-between;
   align-items: center;
+}
+
+@mixin media-scroller($column-width) {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: $column-width;
+  gap: rem(56);
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: rem(16);
+
+  & > * {
+    scroll-snap-align: start;
+  }
 }

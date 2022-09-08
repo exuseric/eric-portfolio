@@ -5,23 +5,24 @@
   place-content: center;
 
   width: fit-content;
-  height: rem(40);
+  min-height: rem(40);
 
   font-weight: 600;
-  @include font(body);
+  @include font('h6');
 
   text-decoration: none;
   text-transform: capitalize;
 
-  padding: $spacer-sm $spacer-md;
+  padding: $spacer-sm $spacer-lg;
 
   border: 2px solid transparent;
+  border-radius: $round-sm;
 
   transition: all $transition;
 
   cursor: pointer;
 
-  @include bg-dark;
+  @include bg-main;
 
   .icon {
     display: grid;
@@ -29,15 +30,12 @@
     font-size: rem(24);
   }
 
-  &:hover {
-    color: $info-500;
-    background-color: $info-50;
-    border-color: $info-500;
-  }
-  &:focus {
-    color: $info-50;
-    background-color: $info-500;
-    border-color: $info-900;
+  &:hover,
+  &:focus-visible {
+    @include text-color('info', '900');
+    @include bg-color('info', '500');
+    border-color: currentColor;
+    outline-color: currentColor;
   }
 
   &--center {
@@ -48,7 +46,13 @@
   }
 
   &--main {
-    @include bg-primary;
+    @include text-color('primary', '900');
+    @include bg-color('primary', '500');
+    border-color: currentColor;
+  }
+  &--secondary {
+    @include text-color('secondary', '900');
+    @include bg-color('secondary', '500');
   }
 
   &--pill {
@@ -76,9 +80,9 @@
   }
 
   &--success {
-    color: $success-900;
-    background-color: $success-50;
-    border-color: $success-900;
+    @include text-color('success', '900');
+    @include bg-color('success', '500');
+    border-color: currentColor;
   }
 
   &--icon {

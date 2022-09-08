@@ -18,15 +18,11 @@
 }
 
 .section {
-  margin: $spacer-2xl auto;
-  padding: $spacer-2xl rem(16);
+  // margin: $spacer-2xl auto;
+  padding: $spacer-2xl $spacer-md;
 
-  @include screen(small) {
-    padding: $spacer-2xl $spacer-md;
-  }
-
-  & > .container:not(:first-child) {
-    margin-block: $spacer-2xl;
+  @include screen(medium) {
+    padding: $spacer-2xl $spacer-xl;
   }
 }
 
@@ -39,7 +35,11 @@
   max-width: 60ch;
 }
 
-.content-wrapper {
+.wrapper {
   width: 100%;
   max-width: rem(950);
+
+  &--copy {
+    max-width: 65ch;
+  }
 }

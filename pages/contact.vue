@@ -1,18 +1,20 @@
 <template>
   <section class="contact">
-    <PageHeader
-      title="Contact Eric"
-      illustration="undraw_things_to_say_re_jpcg.svg"
-    />
-    <Contact />
+    <HeroSection :page="$data.page" :query="$data.heroQuery($data.page)" />
+    <ContactSection />
   </section>
 </template>
 
 <script>
+import { heroQuery } from '~/graphql/queries'
 export default {
   name: 'ContactPage',
   layout: 'DefaultLayout',
+  data() {
+    return {
+      page: 'contactPage',
+      heroQuery,
+    }
+  },
 }
 </script>
-
-<style lang="scss" scoped></style>

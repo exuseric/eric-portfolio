@@ -1,24 +1,39 @@
 <template>
-  <section class="about">
-    <!-- <AboutPageHeader />
-     -->
-    <PageHeader
-      title="About Eric"
-      illustration="undraw_personal_file_re_5joy.svg"
-    />
-    <main class="section">
-      <AboutPageIntro />
-      <AboutPageWork />
-    </main>
-    <Contact />
-  </section>
+  <main class="about">
+    <HeroSection page="aboutPage" :query="$data.heroQuery($data.page)" />
+
+    <section class="section section--content">
+      <ContentWrapper
+        :page="$data.page"
+        :query="$data.contentQuery($data.page)"
+      />
+    </section>
+    <ContactSection />
+  </main>
 </template>
 
 <script>
+import { heroQuery, contentQuery } from '~/graphql/queries'
+
 export default {
   name: 'AboutPage',
   layout: 'DefaultLayout',
+
+  data() {
+    return {
+      page: 'aboutPage',
+      heroQuery,
+      contentQuery,
+      content: {},
+    }
+  },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// .section--content {
+//   .container {
+//     margin-block: $spacer-2xl;
+//   }
+// }
+</style>

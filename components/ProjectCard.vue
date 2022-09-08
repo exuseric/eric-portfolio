@@ -1,56 +1,52 @@
 <template>
   <article class="card">
-    <div class="card__container">
-      <header class="card__header text-container">
-        <h3 class="heading">
-          {{ project.name }}
-        </h3>
-        <div class="link-group">
-          <a
-            class="link link--icon"
-            :href="project.url"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="icon">
-              <ExternalLink />
-            </span>
-            <span class="txt"> Open </span>
-          </a>
-          <a
-            class="link link--icon"
-            :href="project.repository"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="text">Code</span>
-            <span class="icon">
-              <Github />
-            </span>
-          </a>
-        </div>
-      </header>
-      <div class="card__cover">
-        <nuxt-img
-          src="/img/projects/pexels-media-4497731-1651340345560.jpeg"
-          alt="cuppa"
-          width="100%"
-          height="100%"
-          fit="cover"
-        />
+    <div class="card__cover">
+      <nuxt-img
+        fit="cover"
+        format="webp"
+        :src="`${$data.strapiUrl}${project.Cover.data.attributes.url}`"
+        :width="project.Cover.data.attributes.width"
+        :height="project.Cover.data.attributes.height"
+        :alt="project.Cover.data.attributes.alternativeText" />
+    </div>
+    <header class="card__header wrapper--copy">
+      <h3 class="heading">
+        {{ project?.Title }}
+      </h3>
+      <div class="link-group">
+        <a
+          class="link link--icon"
+          :href="project?.HostedUrl"
+          target="_blank"
+          rel="noopener noreferrer">
+          <span class="icon">
+            <ExternalLink />
+          </span>
+          <span class="txt"> Open </span>
+        </a>
+        <a
+          class="link link--icon"
+          :href="project?.RepoUrl"
+          target="_blank"
+          rel="noopener noreferrer">
+          <span class="icon">
+            <Github />
+          </span>
+          <span class="text sr-only">Code</span>
+        </a>
       </div>
-      <div class="card__body text-container">
-        <p>
-          {{ project.description }}
-        </p>
-      </div>
+    </header>
+    <div class="card__body wrapper--copy">
+      <p>
+        {{ project?.Description }}
+      </p>
     </div>
   </article>
 </template>
 
 <script>
-import Github from '~/assets/icons/bxl:github.svg?inline'
-import ExternalLink from '~/assets/icons/external-link.svg?inline'
+import Github from '~/assets/icons/bxl:github.svg?inline';
+import ExternalLink from '~/assets/icons/external-link.svg?inline';
 export default {
   name: 'ProjectCard',
   components: {
@@ -58,56 +54,64 @@ export default {
     ExternalLink,
   },
   props: {
-    // eslint-disable-next-line vue/require-default-prop
     project: {
       type: Object,
+      required: true,
     },
   },
-}
+  data() {
+    return {
+      strapiUrl: process.env.STRAPI_URL,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .card {
-  @include center;
-  isolation: isolate;
   width: 100%;
-  max-width: rem(500);
-  min-height: rem(600);
+  max-width: rem(350);
+  @include text-dark;
+  @include bg-color('primary', '50');
 
-  // @include bg-dark;
+  border-radius: $round-sm;
+  overflow: hidden;
 
-  &__container {
-    grid-column: 3 / -3;
-    grid-row: 2 / -2;
-    max-width: rem(350);
+  @include screen('large') {
+    max-width: rem(450);
   }
-}
-
-.card {
-  padding: $spacer-xl $spacer-lg;
-  // background-color: $dark-gray;
-  @include bg-dark;
 
   &__cover {
     width: 100%;
-    max-width: rem(350);
-    height: rem(350);
-    margin-block: $spacer-xl;
+    height: rem(250);
+  }
+
+  &__body,
+  &__header {
+    padding-inline: $spacer-lg;
+    margin-block: $spacer-lg;
+  }
+
+  &__header {
+    @include grid-flow-col;
+    justify-content: space-between;
   }
 }
 
 .heading {
-  @include font(h2);
-  // font-weight: 100;
-  text-align: center;
+  @include font(h4);
 }
 
 .link-group {
   @include grid-flow-col;
-  gap: $spacer-xl;
-  margin-block: $spacer-md;
+  justify-content: start;
+  gap: $spacer-md;
+  // margin-top: $spacer-sm;
   .link {
-    // color: red;
+    @include grid-flow-col;
+    justify-content: start;
+    width: fit-content;
+    text-decoration: none;
   }
 }
 </style>

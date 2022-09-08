@@ -1,16 +1,17 @@
 <template>
   <section class="section section--projects">
-    <div class="container">
-      <header class="container__heading text-container">
-        <h2 class="heading">Feautered Projects</h2>
+    <div class="container container--title">
+      <header class="container__header wrapper--copy">
+        <h2 class="heading">
+          {{ $data.projects.title }}
+        </h2>
         <ul class="button-group">
           <li>
             <a
               href="https://www.github.com/exuseric/"
-              class="container__heading--link"
+              class="link container__header--link"
               title="Github: @exuseric"
-              aria-label="github"
-            >
+              aria-label="github">
               <span class="icon">
                 <Github />
               </span>
@@ -21,10 +22,10 @@
               href="https://www.be.net/exuseric/"
               target="_blank"
               rel="noopener noreferrer"
-              class="container__heading--link"
+              class="link container__header--link"
               title="Behance @exuseric"
               aria-label="behance"
-            >
+              disabled="true">
               <span class="icon">
                 <Behance />
               </span>
@@ -33,77 +34,89 @@
         </ul>
       </header>
     </div>
-    <div class="container container--grid">
+    <div
+      id="projects"
+      class="container container--grid">
       <ProjectCard
-        v-for="project in projects"
+        v-for="project in $data.projects.projects"
         :key="project.id"
-        :project="project.attributes"
-      />
+        :project="project.attributes" />
     </div>
   </section>
 </template>
 
 <script>
-import Github from '~/assets/icons/bxl:github.svg?inline'
-import Behance from '~/assets/icons/bxl:behance.svg?inline'
-// import { projectsQuery } from '~/graphql/query'
+import Github from '~/assets/icons/bxl:github.svg?inline';
+import Behance from '~/assets/icons/bxl:behance.svg?inline';
+import { featuredProjects } from '~/graphql/queries';
 export default {
   components: { Github, Behance },
-  // apollo: {
-  //   projects: {
-  //     query: projectsQuery,
-  //   },
-  // },
   data() {
     return {
-      projects: [],
-    }
+      projects: {},
+    };
   },
-  mounted() {
-    this.getProjects()
+  beforeMount() {
+    this.fetchData();
   },
   methods: {
-    async getProjects() {
-      const { data } = await this.$strapi.$projects.find()
-      this.projects = data
+    async fetchData() {
+      const { homePage } = await this.$strapi.graphql({
+        query: featuredProjects(),
+      });
+
+      this.projects = Array(homePage).map((itm) => ({
+        projects: itm.data.attributes.Featured.Projects.data,
+        title: itm.data.attributes.Featured.Title,
+      }))[0];
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .section--projects {
+  position: relative;
+  isolation: isolate;
+
   min-height: rem(500);
-  @include bg-primary;
+  @include text-color('primary', '900');
+  @include bg-color('primary', '500');
+  overflow: hidden;
 }
+
 .container {
-  &__heading {
-    @include flex-wrap-row;
-    justify-content: space-between;
+  &--title {
+    padding: $spacer-md;
+    @include screen(tablet) {
+      padding: 0;
+    }
+  }
+
+  &--grid {
+    @include flex;
+    gap: $spacer-md;
+  }
+
+  &__header {
+    @include grid-flow-row;
     align-items: center;
+    margin-bottom: $spacer-2xl;
 
     font-family: $heading;
 
-    margin-bottom: $spacer-xl;
-
     .heading {
-      @include font(h2);
+      @include font(h3);
     }
 
     &--link {
       @include center;
       @include font(h4);
-      color: inherit;
 
       width: rem(40);
       height: rem(40);
 
       border-radius: $round-sm;
-
-      &:hover {
-        color: $primary-500;
-        background-color: $primary-50;
-      }
     }
   }
 }
@@ -117,10 +130,5 @@ export default {
   padding: 0;
 
   color: inherit;
-}
-
-.container--grid {
-  @include flex-wrap-row;
-  gap: $spacer-xl;
 }
 </style>

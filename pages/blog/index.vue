@@ -1,37 +1,45 @@
 <template>
-  <section class="blog">
-    <header>
-      <div class="container">
-        <h1>UNDER CONSTRUCTION</h1>
-        <nuxt-link to="/" class="primary-btn" role="button">Go Home</nuxt-link>
+  <main class="section blog">
+    <header class="container container--header">
+      <div class="wrapper--copy">
+        <h1 class="heading">UNDER CONSTRUCTION</h1>
+        <nuxt-link
+          to="/"
+          class="button button--main"
+          role="button"
+          >Go Home</nuxt-link
+        >
       </div>
     </header>
-  </section>
+  </main>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'BlogHomepage',
+};
 </script>
 
 <style lang="scss" scoped>
-header {
-  display: flex;
-  place-content: center;
+.container--header {
+  display: grid;
+  align-items: center;
+  min-height: 60vh;
 
-  margin-top: $navigation-height;
-  padding-top: $spacer-lg;
-  height: calc(100vh - $navigation-height);
-
-  text-align: center;
-
-  color: $light-gray;
-
-  @include light-theme {
-    color: $dark-gray;
+  @include screen(tablet) {
+    @include grid-flow-col;
+    align-items: center;
+    justify-content: space-between;
   }
+}
 
-  h1 {
-    font-size: scale(h1);
-  }
+.illustration {
+  max-width: rem(400);
+  height: rem(700);
+}
+.heading {
+  @include font('h1');
+  font-family: $heading;
+  margin-block: $spacer-xl;
 }
 </style>

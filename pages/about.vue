@@ -1,19 +1,22 @@
 <template>
   <main class="about">
-    <HeroSection page="aboutPage" :query="$data.heroQuery($data.page)" />
+    <HeroSection
+      page="aboutPage"
+      :query="$data.heroQuery($data.page)" />
 
     <section class="section section--content">
       <ContentWrapper
-        :page="$data.page"
-        :query="$data.contentQuery($data.page)"
-      />
+        v-for="(article, idx) in $data.content"
+        :key="idx"
+        :article="article" />
     </section>
     <ContactSection />
   </main>
 </template>
 
 <script>
-import { heroQuery, contentQuery } from '~/graphql/queries'
+import { heroQuery, aboutContent as contentQuery } from '~/graphql/queries';
+import { useContent } from '~/lib/strapiData';
 
 export default {
   name: 'AboutPage',
@@ -23,11 +26,26 @@ export default {
     return {
       page: 'aboutPage',
       heroQuery,
-      contentQuery,
-      content: {},
-    }
+      content: '',
+    };
   },
-}
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const articles = ['Bio', 'Information', 'Skills'];
+      const data = await this.$strapi.graphql({
+        query: contentQuery(),
+      });
+      this.content = useContent({
+        sectionsArray: articles,
+        type: this.page,
+        data,
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

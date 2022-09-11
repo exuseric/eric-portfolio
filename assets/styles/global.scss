@@ -74,28 +74,52 @@ a:not([class]) {
 }
 
 .content {
-  h2 {
-    @include text-color('primary', '500');
-    @include font(h3);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: $spacer-sm;
+  }
+  h1,
+  h2,
+  h3 {
     font-family: $heading;
+    @include text-color('primary', '500');
+  }
+  h4,
+  h5,
+  h6 {
+    font-family: $body;
+    font-weight: 600;
+  }
+  h1 {
+    @include font(h1);
     text-transform: capitalize;
-    margin-bottom: $spacer-lg;
+  }
 
-    &:not(:first-child) {
-      margin-top: $spacer-2xl;
-    }
+  h2 {
+    @include font(h2);
   }
 
   h3 {
+    @include font(h3);
+  }
+  h4 {
+    @include font(h4);
+  }
+  h5 {
     @include font(h5);
-    margin-block: $spacer-sm;
-    text-transform: capitalize;
+  }
+  h6 {
+    @include font(h6);
   }
 
   ul {
-    @include flex-wrap-row;
-    gap: $spacer-lg;
-    margin-block: $spacer-lg;
+    @include grid-flow-row;
+    gap: $spacer-md;
+    margin-block: $spacer-md;
     padding: 0;
     list-style-type: none;
   }

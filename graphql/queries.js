@@ -1,16 +1,37 @@
 // eslint-disable-next-line import/no-named-as-default
 import gql from 'graphql-tag';
 
-export const contentQuery = (page) => {
-  const query = gql`query getContent {
-		${page} {
-			data {
-				attributes {
-					Content
-				}
-			}
-		}
-	}`;
+export const homeContent = () => {
+  const query = gql`
+    query homeContent {
+      homePage {
+        data {
+          attributes {
+            Services
+            Standards
+          }
+        }
+      }
+    }
+  `;
+
+  return query.loc.source.body;
+};
+
+export const aboutContent = () => {
+  const query = gql`
+    query aboutContent {
+      aboutPage {
+        data {
+          attributes {
+            Bio
+            Information
+            Skills
+          }
+        }
+      }
+    }
+  `;
 
   return query.loc.source.body;
 };

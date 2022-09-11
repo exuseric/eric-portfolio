@@ -1,6 +1,6 @@
 <template>
-  <article class="card">
-    <div class="card__cover">
+  <article class="project-card">
+    <div class="project-card__cover">
       <nuxt-img
         fit="cover"
         format="webp"
@@ -9,8 +9,8 @@
         :height="project.Cover.data.attributes.height"
         :alt="project.Cover.data.attributes.alternativeText" />
     </div>
-    <header class="card__header wrapper--copy">
-      <h3 class="heading">
+    <header class="project-card__header wrapper--copy">
+      <h3 class="project-card__header__heading">
         {{ project?.Title }}
       </h3>
       <div class="link-group">
@@ -36,7 +36,7 @@
         </a>
       </div>
     </header>
-    <div class="card__body wrapper--copy">
+    <div class="project-card__body wrapper--copy">
       <p>
         {{ project?.Description }}
       </p>
@@ -48,7 +48,6 @@
 import Github from '~/assets/icons/bxl:github.svg?inline';
 import ExternalLink from '~/assets/icons/external-link.svg?inline';
 export default {
-  name: 'ProjectCard',
   components: {
     Github,
     ExternalLink,
@@ -59,16 +58,11 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      strapiUrl: process.env.STRAPI_URL,
-    };
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-.card {
+.project-card {
   width: 100%;
   max-width: rem(350);
   @include text-dark;
@@ -95,11 +89,11 @@ export default {
   &__header {
     @include grid-flow-col;
     justify-content: space-between;
-  }
-}
 
-.heading {
-  @include font(h4);
+    &__heading {
+      @include font(h3);
+    }
+  }
 }
 
 .link-group {

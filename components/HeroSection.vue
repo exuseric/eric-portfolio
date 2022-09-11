@@ -79,14 +79,15 @@ export default {
 
 .hero {
   &__heading {
+    margin-block: $spacer-lg;
+
     &__title {
       font-family: $heading;
+      @include font(h1);
       @include text-color('primary', '500');
-      @include font(h3);
       margin-bottom: $spacer-lg;
 
       @include screen(large) {
-        @include font(h1);
       }
     }
 
@@ -105,7 +106,6 @@ export default {
     @include center;
     max-width: rem(500);
     max-height: rem(500);
-    min-height: rem(500);
     margin: $spacer-lg;
 
     &__image {

@@ -1,48 +1,47 @@
 <template>
   <main class="home">
-    <HeroSection
-      :page="$data.page"
-      :query="$data.heroQuery($data.page)" />
-    <FeaturedProjects />
-    <!-- <IndexPageServices /> -->
+    <HeroSection :hero="$data.page?.hero" />
+
+    <FeaturedProjects :projects="$data.projects" />
+
     <section class="section section--services">
       <ContentWrapper
-        v-for="(article, idx) in $data.content"
-        :key="idx"
-        :article="article" />
+        v-for="article in $data.page?.content"
+        :key="article.id"
+        :title="article.title"
+        :article="article.content.markdown" />
     </section>
+
     <ContactSection />
   </main>
 </template>
 
 <script>
-import { heroQuery, homeContent as contentQuery } from '~/graphql/queries';
-import { useContent } from '~/lib/strapiData';
+import { getPage, getProjects } from '~/graphql/queries';
 export default {
-  name: 'IndexPage',
+  name: 'MainHomepage',
   layout: 'DefaultLayout',
+  async asyncData({ $hygraph }) {
+    try {
+      const { page } = await $hygraph.request(getPage({ slug: 'homepage' }));
+      const { projects } = await $hygraph.request(getProjects());
+      return { page, projects };
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  },
   data() {
     return {
-      content: '',
-      heroQuery,
-      page: 'homePage',
+      page: {},
+      projects: [],
     };
   },
   created() {
-    this.fetchData();
+    this.getData();
   },
   methods: {
-    async fetchData() {
-      const articles = ['Services', 'Standards'];
-      const data = await this.$strapi.graphql({
-        query: contentQuery(),
-      });
-      this.content = useContent({
-        sectionsArray: articles,
-        type: this.page,
-        data,
-      });
-    },
+    async getData() {},
   },
 };
 </script>

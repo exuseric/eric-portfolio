@@ -4,9 +4,12 @@
       <header class="container__header wrapper--copy">
         <div class="text-group">
           <h1 class="heading">{{ error.statusCode }}</h1>
-          <p class="message">{{ error.message }}</p>
+          <!-- <p class="message">{{ error.message }}</p> -->
         </div>
-        <nuxt-link to="/" class="button button--main" role="button">
+        <nuxt-link
+          to="/"
+          class="button button--main"
+          role="button">
           Go back home
         </nuxt-link>
       </header>
@@ -14,8 +17,7 @@
         <img
           src="~/assets/illustration/error.webp"
           alt="error illustration"
-          aria-hidden="true"
-        />
+          aria-hidden="true" />
       </div>
     </section>
   </main>
@@ -30,7 +32,7 @@ export default {
       type: Object,
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

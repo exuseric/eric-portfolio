@@ -1,57 +1,36 @@
 <template>
   <main class="about">
-    <HeroSection
-      page="aboutPage"
-      :query="$data.heroQuery($data.page)" />
+    <HeroSection :hero="$data.page?.hero" />
 
     <section class="section section--content">
       <ContentWrapper
-        v-for="(article, idx) in $data.content"
-        :key="idx"
-        :article="article" />
+        v-for="article in $data.page?.content"
+        :key="article.id"
+        :title="article.title"
+        :article="article.content.markdown" />
     </section>
     <ContactSection />
   </main>
 </template>
 
 <script>
-import { heroQuery, aboutContent as contentQuery } from '~/graphql/queries';
-import { useContent } from '~/lib/strapiData';
-
+import { getPage } from '~/graphql/queries';
 export default {
   name: 'AboutPage',
   layout: 'DefaultLayout',
-
+  async asyncData({ $hygraph }) {
+    try {
+      const { page } = await $hygraph.request(getPage({ slug: 'about-page' }));
+      return { page };
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  },
   data() {
     return {
-      page: 'aboutPage',
-      heroQuery,
-      content: '',
+      page: {},
     };
-  },
-  created() {
-    this.fetchData();
-  },
-  methods: {
-    async fetchData() {
-      const articles = ['Bio', 'Information', 'Skills'];
-      const data = await this.$strapi.graphql({
-        query: contentQuery(),
-      });
-      this.content = useContent({
-        sectionsArray: articles,
-        type: this.page,
-        data,
-      });
-    },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// .section--content {
-//   .container {
-//     margin-block: $spacer-2xl;
-//   }
-// }
-</style>

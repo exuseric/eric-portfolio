@@ -4,16 +4,18 @@
       <article class="hero__heading wrapper--copy">
         <h1 class="hero__heading__title">{{ hero?.title }}</h1>
         <p class="hero__heading__description">
-          {{ hero?.desc }}
+          {{ hero?.description }}
         </p>
         <div
-          v-if="hero?.cta"
+          v-if="hero?.callToAction"
           class="hero__heading__cta">
           <nuxt-link
-            to="/contact"
+            v-for="cta in hero?.callToAction"
+            :key="cta.link"
+            :to="cta.link"
             class="button button--main"
             role="button">
-            {{ hero?.cta }}
+            {{ cta.title }}
           </nuxt-link>
         </div>
       </article>
@@ -24,7 +26,7 @@
           format="webp"
           class="hero__cover__image"
           fit="contain"
-          :src="`${$data.strapiUrl}${hero?.cover?.url}`"
+          :src="hero?.cover?.url"
           :width="hero?.cover?.width"
           :height="hero?.cover?.height"
           :alt="hero?.cover?.alternativeText" />
@@ -34,34 +36,11 @@
 </template>
 
 <script>
-import { getHero } from '~/lib/strapiData';
-
 export default {
   props: {
-    page: {
-      type: String,
+    hero: {
+      type: Object,
       required: true,
-    },
-    query: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      hero: {},
-      strapiUrl: process.env.STRAPI_URL,
-    };
-  },
-  beforeMount() {
-    this.fetchData();
-  },
-  methods: {
-    async fetchData() {
-      const data = await this.$strapi.graphql({
-        query: this.query,
-      });
-      this.hero = getHero({ page: this.page, data });
     },
   },
 };

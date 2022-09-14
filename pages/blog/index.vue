@@ -3,20 +3,22 @@
     <header class="container container--header">
       <div class="wrapper--copy">
         <h1 class="heading">UNDER CONSTRUCTION</h1>
-        <nuxt-link
-          to="/"
-          class="button button--main"
-          role="button"
-          >Go Home</nuxt-link
-        >
       </div>
     </header>
   </main>
 </template>
 
 <script>
+import { getPage } from '~/graphql/queries';
 export default {
   name: 'BlogHomepage',
+  layout: 'blogLayout',
+
+  async asynData({ $hygraph }) {
+    const { page } = await $hygraph.request(getPage('blog-homepage'));
+
+    return { page };
+  },
 };
 </script>
 

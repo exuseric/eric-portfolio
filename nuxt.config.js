@@ -36,7 +36,7 @@ export default {
   css: ['~/assets/styles/global.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/hygraph.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -46,7 +46,6 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/style-resources',
     '@nuxtjs/eslint-module',
-    '@nuxt/image',
     '@nuxtjs/svg',
   ],
 
@@ -61,17 +60,22 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/strapi',
+    '@nuxt/image',
     '@nuxtjs/markdownit',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
   ],
   image: {
-    domains: [process.env.STRAPI_URL],
-  },
-  strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
-    version: 'v4',
+    domains: [process.env.HYGRAPH_IMAGE_DOMAIN],
+    presets: {
+      projectCover: {
+        modifiers: {
+          format: 'webp',
+          width: 3000,
+          height: 2000,
+        },
+      },
+    },
   },
   markdownit: {
     runtime: true,
@@ -81,7 +85,7 @@ export default {
     use: ['markdown-it-div', 'markdown-it-attrs'],
   },
   sitemap: {
-    hostname: process.env.HOST || 'https://itseric.netlify.app',
+    hostname: process.env.HOST_URL,
     gzip: true,
     exclude: ['/secret', '/admin/**'],
     routes: [
@@ -109,10 +113,6 @@ export default {
       theme_color: '#8570c2',
       background_color: '#050506',
     },
-  },
-
-  env: {
-    STRAPI_URL: process.env.STRAPI_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

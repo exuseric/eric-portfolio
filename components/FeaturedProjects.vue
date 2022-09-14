@@ -2,9 +2,7 @@
   <section class="section section--projects">
     <div class="container container--title">
       <header class="container__header wrapper--copy">
-        <h2 class="heading">
-          {{ $data.projects.title }}
-        </h2>
+        <h2 class="heading">Featured Projects</h2>
         <ul class="button-group">
           <li>
             <a
@@ -38,9 +36,9 @@
       id="projects"
       class="container container--grid">
       <ProjectCard
-        v-for="project in $data.projects.projects"
+        v-for="project in $props?.projects"
         :key="project.id"
-        :project="project.attributes" />
+        :project="project" />
     </div>
   </section>
 </template>
@@ -48,27 +46,12 @@
 <script>
 import Github from '~/assets/icons/bxl:github.svg?inline';
 import Behance from '~/assets/icons/bxl:behance.svg?inline';
-import { featuredProjects } from '~/graphql/queries';
 export default {
   components: { Github, Behance },
-  data() {
-    return {
-      projects: {},
-    };
-  },
-  beforeMount() {
-    this.fetchData();
-  },
-  methods: {
-    async fetchData() {
-      const { homePage } = await this.$strapi.graphql({
-        query: featuredProjects(),
-      });
-
-      this.projects = Array(homePage).map((itm) => ({
-        projects: itm.data.attributes.Featured.Projects.data,
-        title: itm.data.attributes.Featured.Title,
-      }))[0];
+  props: {
+    projects: {
+      type: Array,
+      required: true,
     },
   },
 };

@@ -124,6 +124,13 @@ a:not([class]) {
     list-style-type: none;
   }
 
+  ol {
+    @include grid-flow-row;
+    gap: $spacer-md;
+    margin-block: $spacer-lg;
+    padding: 0;
+  }
+
   img {
     max-width: rem(750);
     max-height: rem(350);

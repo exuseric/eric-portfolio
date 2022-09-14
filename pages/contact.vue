@@ -1,20 +1,31 @@
 <template>
   <section class="contact">
-    <HeroSection :page="$data.page" :query="$data.heroQuery($data.page)" />
+    <HeroSection :hero="$data.page?.hero" />
     <ContactSection />
   </section>
 </template>
 
 <script>
-import { heroQuery } from '~/graphql/queries'
+import { getPage } from '~/graphql/queries';
 export default {
   name: 'ContactPage',
   layout: 'DefaultLayout',
-  data() {
-    return {
-      page: 'contactPage',
-      heroQuery,
+  async asyncData({ $hygraph }) {
+    try {
+      const { page } = await $hygraph.request(
+        getPage({ slug: 'contact-page' })
+      );
+
+      return { page };
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   },
-}
+  data() {
+    return {
+      page: {},
+    };
+  },
+};
 </script>

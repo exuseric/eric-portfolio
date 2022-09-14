@@ -2,21 +2,18 @@
   <article class="project-card">
     <div class="project-card__cover">
       <nuxt-img
-        fit="cover"
-        format="webp"
-        :src="`${$data.strapiUrl}${project.Cover.data.attributes.url}`"
-        :width="project.Cover.data.attributes.width"
-        :height="project.Cover.data.attributes.height"
-        :alt="project.Cover.data.attributes.alternativeText" />
+        preset="projectCover"
+        :src="project.cover.url"
+        :alt="project.cover.alternativeText" />
     </div>
     <header class="project-card__header wrapper--copy">
       <h3 class="project-card__header__heading">
-        {{ project?.Title }}
+        {{ project?.title }}
       </h3>
       <div class="link-group">
         <a
           class="link link--icon"
-          :href="project?.HostedUrl"
+          :href="project?.hostedUrl"
           target="_blank"
           rel="noopener noreferrer">
           <span class="icon">
@@ -26,7 +23,7 @@
         </a>
         <a
           class="link link--icon"
-          :href="project?.RepoUrl"
+          :href="project?.repoUrl"
           target="_blank"
           rel="noopener noreferrer">
           <span class="icon">
@@ -38,7 +35,7 @@
     </header>
     <div class="project-card__body wrapper--copy">
       <p>
-        {{ project?.Description }}
+        {{ project?.description }}
       </p>
     </div>
   </article>

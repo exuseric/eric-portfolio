@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Github from '~/assets/icons/bxl:github.svg?inline'
-import LinkedIn from '~/assets/icons/bxl:linkedin.svg?inline'
+import Github from '~/assets/icons/bxl_github.svg?inline'
+import LinkedIn from '~/assets/icons/bxl_linkedin.svg?inline'
 
 export default {
   name: 'SocialLinks',

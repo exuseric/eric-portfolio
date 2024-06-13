@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import Github from '~/assets/icons/bxl:github.svg?inline';
-import Behance from '~/assets/icons/bxl:behance.svg?inline';
+import Github from '~/assets/icons/bxl_github.svg?inline';
+import Behance from '~/assets/icons/bxl_behance.svg?inline';
 export default {
   components: { Github, Behance },
   props: {

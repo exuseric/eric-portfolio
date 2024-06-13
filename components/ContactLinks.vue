@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import Twitter from '~/assets/icons/bxl:twitter.svg?inline'
-import Linkedin from '~/assets/icons/bxl:linkedin.svg?inline'
+import Twitter from '~/assets/icons/bxl_twitter.svg?inline'
+import Linkedin from '~/assets/icons/bxl_linkedin.svg?inline'
 export default {
   name: 'ContactLinks',
   components: { Twitter, Linkedin },

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Github from '~/assets/icons/bxl:github.svg?inline';
+import Github from '~/assets/icons/bxl_github.svg?inline';
 import ExternalLink from '~/assets/icons/external-link.svg?inline';
 export default {
   components: {

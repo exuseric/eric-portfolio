@@ -21,7 +21,7 @@
     "@nuxtjs/strapi": "^0.3.1",
     "@uiball/loaders": "^1.2.6",
     "core-js": "^3.19.3",
-    "graphql": "^16.5.0",
+    "graphql": "^16.8.1",
     "graphql-request": "^5.0.0",
     "graphql-tag": "^2.12.6",
     "gsap": "^3.10.4",

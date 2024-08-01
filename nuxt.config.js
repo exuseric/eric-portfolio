@@ -85,7 +85,8 @@ export default {
     use: ['markdown-it-div', 'markdown-it-attrs'],
   },
   sitemap: {
-    hostname: process.env.HOST_URL,
+    // hostname: process.env.HOST_URL,
+    hostname: 'https://ericmaina.me/',
     gzip: true,
     exclude: ['/secret', '/admin/**'],
     routes: [
